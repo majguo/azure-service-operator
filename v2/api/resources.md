@@ -56,6 +56,9 @@ v1alpha1api20210515
 
 v1alpha1api20200601
 
+- Domain
+- DomainsTopic
+- EventSubscription
 - Topic
 
 ### microsoft.managedidentity

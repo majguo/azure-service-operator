@@ -194,16 +194,17 @@ func makeResourceReferenceProperty(idFactory astmodel.IdentifierFactory, existin
 // TODO: This will go away in favor of a cleaner solution in the future, as obviously this isn't great
 // Set the value to false to eliminate a reference which has incorrectly been flagged
 func newKnownReferencesMap(configuration *config.Configuration) map[referencePair]bool {
+	authorization20200801 := configuration.MakeLocalPackageReference("microsoft.authorization", "v1alpha1api20200801preview")
 	batch20210101 := configuration.MakeLocalPackageReference("microsoft.batch", "v1alpha1api20210101")
-	documentDB20210515 := configuration.MakeLocalPackageReference("microsoft.documentdb", "v1alpha1api20210515")
-	storage20210401 := configuration.MakeLocalPackageReference("microsoft.storage", "v1alpha1api20210401")
-	serviceBus20210101 := configuration.MakeLocalPackageReference("microsoft.servicebus", "v1alpha1api20210101preview")
-	network20201101 := configuration.MakeLocalPackageReference("microsoft.network", "v1alpha1api20201101")
 	compute20200930 := configuration.MakeLocalPackageReference("microsoft.compute", "v1alpha1api20200930")
 	compute20201201 := configuration.MakeLocalPackageReference("microsoft.compute", "v1alpha1api20201201")
 	containerService20210501 := configuration.MakeLocalPackageReference("microsoft.containerservice", "v1alpha1api20210501")
 	dbForPostgreSQL20210601 := configuration.MakeLocalPackageReference("microsoft.dbforpostgresql", "v1alpha1api20210601")
-	authorization20200801 := configuration.MakeLocalPackageReference("microsoft.authorization", "v1alpha1api20200801preview")
+	documentDB20210515 := configuration.MakeLocalPackageReference("microsoft.documentdb", "v1alpha1api20210515")
+	eventGrid20200601 := configuration.MakeLocalPackageReference("microsoft.eventgrid", "v1alpha1api20200601")
+	network20201101 := configuration.MakeLocalPackageReference("microsoft.network", "v1alpha1api20201101")
+	serviceBus20210101 := configuration.MakeLocalPackageReference("microsoft.servicebus", "v1alpha1api20210101preview")
+	storage20210401 := configuration.MakeLocalPackageReference("microsoft.storage", "v1alpha1api20210401")
 
 	return map[referencePair]bool{
 		// Batch
@@ -386,6 +387,35 @@ func newKnownReferencesMap(configuration *config.Configuration) map[referencePai
 		{
 			typeName: astmodel.MakeTypeName(authorization20200801, "RoleAssignmentProperties"),
 			propName: "RoleDefinitionId",
+		}: true,
+		// EventGrid
+		{
+			typeName: astmodel.MakeTypeName(eventGrid20200601, "StorageBlobDeadLetterDestinationProperties"),
+			propName: "ResourceId",
+		}: true,
+		{
+			typeName: astmodel.MakeTypeName(eventGrid20200601, "AzureFunctionEventSubscriptionDestinationProperties"),
+			propName: "ResourceId",
+		}: true,
+		{
+			typeName: astmodel.MakeTypeName(eventGrid20200601, "ServiceBusQueueEventSubscriptionDestinationProperties"),
+			propName: "ResourceId",
+		}: true,
+		{
+			typeName: astmodel.MakeTypeName(eventGrid20200601, "ServiceBusTopicEventSubscriptionDestinationProperties"),
+			propName: "ResourceId",
+		}: true,
+		{
+			typeName: astmodel.MakeTypeName(eventGrid20200601, "StorageQueueEventSubscriptionDestinationProperties"),
+			propName: "ResourceId",
+		}: true,
+		{
+			typeName: astmodel.MakeTypeName(eventGrid20200601, "EventHubEventSubscriptionDestinationProperties"),
+			propName: "ResourceId",
+		}: true,
+		{
+			typeName: astmodel.MakeTypeName(eventGrid20200601, "HybridConnectionEventSubscriptionDestinationProperties"),
+			propName: "ResourceId",
 		}: true,
 	}
 }

@@ -293,7 +293,22 @@ exportFilters:
     group: microsoft.eventgrid
     version: v*api20200601
     name: Topic
-    because: "including Event Grid Topic"
+    because: "including EventGrid Topics"
+  - action: include-transitive
+    group: microsoft.eventgrid
+    version: v*api20200601
+    name: Domain
+    because: "including EventGrid Domains"
+  - action: include-transitive
+    group: microsoft.eventgrid
+    version: v*api20200601
+    name: DomainsTopic
+    because: "including EventGrid Domain Topics"
+  - action: include-transitive
+    group: microsoft.eventgrid
+    version: v*api20200601
+    name: EventSubscription
+    because: "including EventGrid Event Subscriptions"
   # Exclude everything else as we are operating on an opt-in basis at the moment:
   - action: exclude
     because: We don't want to generate anything else, at the moment.
