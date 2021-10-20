@@ -90,56 +90,50 @@ const EventSubscriptionsSpecTypeMicrosoftEventGridEventSubscriptions = EventSubs
 
 //Generated from: https://schema.management.azure.com/schemas/2020-06-01/Microsoft.EventGrid.json#/definitions/EventSubscriptionDestination
 type EventSubscriptionDestinationARM struct {
-	//AzureFunctionEventSubscriptionDestination: Mutually exclusive with all other
-	//properties
-	AzureFunctionEventSubscriptionDestination *AzureFunctionEventSubscriptionDestinationARM `json:"azureFunctionEventSubscriptionDestination,omitempty"`
+	//AzureFunction: Mutually exclusive with all other properties
+	AzureFunction *AzureFunctionEventSubscriptionDestinationARM `json:"azureFunctionEventSubscriptionDestination,omitempty"`
 
-	//EventHubEventSubscriptionDestination: Mutually exclusive with all other
-	//properties
-	EventHubEventSubscriptionDestination *EventHubEventSubscriptionDestinationARM `json:"eventHubEventSubscriptionDestination,omitempty"`
+	//EventHub: Mutually exclusive with all other properties
+	EventHub *EventHubEventSubscriptionDestinationARM `json:"eventHubEventSubscriptionDestination,omitempty"`
 
-	//HybridConnectionEventSubscriptionDestination: Mutually exclusive with all other
-	//properties
-	HybridConnectionEventSubscriptionDestination *HybridConnectionEventSubscriptionDestinationARM `json:"hybridConnectionEventSubscriptionDestination,omitempty"`
+	//HybridConnection: Mutually exclusive with all other properties
+	HybridConnection *HybridConnectionEventSubscriptionDestinationARM `json:"hybridConnectionEventSubscriptionDestination,omitempty"`
 
-	//ServiceBusQueueEventSubscriptionDestination: Mutually exclusive with all other
-	//properties
-	ServiceBusQueueEventSubscriptionDestination *ServiceBusQueueEventSubscriptionDestinationARM `json:"serviceBusQueueEventSubscriptionDestination,omitempty"`
+	//ServiceBusQueue: Mutually exclusive with all other properties
+	ServiceBusQueue *ServiceBusQueueEventSubscriptionDestinationARM `json:"serviceBusQueueEventSubscriptionDestination,omitempty"`
 
-	//ServiceBusTopicEventSubscriptionDestination: Mutually exclusive with all other
-	//properties
-	ServiceBusTopicEventSubscriptionDestination *ServiceBusTopicEventSubscriptionDestinationARM `json:"serviceBusTopicEventSubscriptionDestination,omitempty"`
+	//ServiceBusTopic: Mutually exclusive with all other properties
+	ServiceBusTopic *ServiceBusTopicEventSubscriptionDestinationARM `json:"serviceBusTopicEventSubscriptionDestination,omitempty"`
 
-	//StorageQueueEventSubscriptionDestination: Mutually exclusive with all other
-	//properties
-	StorageQueueEventSubscriptionDestination *StorageQueueEventSubscriptionDestinationARM `json:"storageQueueEventSubscriptionDestination,omitempty"`
+	//StorageQueue: Mutually exclusive with all other properties
+	StorageQueue *StorageQueueEventSubscriptionDestinationARM `json:"storageQueueEventSubscriptionDestination,omitempty"`
 
-	//WebHookEventSubscriptionDestination: Mutually exclusive with all other properties
-	WebHookEventSubscriptionDestination *WebHookEventSubscriptionDestinationARM `json:"webHookEventSubscriptionDestination,omitempty"`
+	//WebHook: Mutually exclusive with all other properties
+	WebHook *WebHookEventSubscriptionDestinationARM `json:"webHookEventSubscriptionDestination,omitempty"`
 }
 
 // MarshalJSON defers JSON marshaling to the first non-nil property, because EventSubscriptionDestinationARM represents a discriminated union (JSON OneOf)
 func (eventSubscriptionDestinationARM EventSubscriptionDestinationARM) MarshalJSON() ([]byte, error) {
-	if eventSubscriptionDestinationARM.AzureFunctionEventSubscriptionDestination != nil {
-		return json.Marshal(eventSubscriptionDestinationARM.AzureFunctionEventSubscriptionDestination)
+	if eventSubscriptionDestinationARM.AzureFunction != nil {
+		return json.Marshal(eventSubscriptionDestinationARM.AzureFunction)
 	}
-	if eventSubscriptionDestinationARM.EventHubEventSubscriptionDestination != nil {
-		return json.Marshal(eventSubscriptionDestinationARM.EventHubEventSubscriptionDestination)
+	if eventSubscriptionDestinationARM.EventHub != nil {
+		return json.Marshal(eventSubscriptionDestinationARM.EventHub)
 	}
-	if eventSubscriptionDestinationARM.HybridConnectionEventSubscriptionDestination != nil {
-		return json.Marshal(eventSubscriptionDestinationARM.HybridConnectionEventSubscriptionDestination)
+	if eventSubscriptionDestinationARM.HybridConnection != nil {
+		return json.Marshal(eventSubscriptionDestinationARM.HybridConnection)
 	}
-	if eventSubscriptionDestinationARM.ServiceBusQueueEventSubscriptionDestination != nil {
-		return json.Marshal(eventSubscriptionDestinationARM.ServiceBusQueueEventSubscriptionDestination)
+	if eventSubscriptionDestinationARM.ServiceBusQueue != nil {
+		return json.Marshal(eventSubscriptionDestinationARM.ServiceBusQueue)
 	}
-	if eventSubscriptionDestinationARM.ServiceBusTopicEventSubscriptionDestination != nil {
-		return json.Marshal(eventSubscriptionDestinationARM.ServiceBusTopicEventSubscriptionDestination)
+	if eventSubscriptionDestinationARM.ServiceBusTopic != nil {
+		return json.Marshal(eventSubscriptionDestinationARM.ServiceBusTopic)
 	}
-	if eventSubscriptionDestinationARM.StorageQueueEventSubscriptionDestination != nil {
-		return json.Marshal(eventSubscriptionDestinationARM.StorageQueueEventSubscriptionDestination)
+	if eventSubscriptionDestinationARM.StorageQueue != nil {
+		return json.Marshal(eventSubscriptionDestinationARM.StorageQueue)
 	}
-	if eventSubscriptionDestinationARM.WebHookEventSubscriptionDestination != nil {
-		return json.Marshal(eventSubscriptionDestinationARM.WebHookEventSubscriptionDestination)
+	if eventSubscriptionDestinationARM.WebHook != nil {
+		return json.Marshal(eventSubscriptionDestinationARM.WebHook)
 	}
 	return nil, nil
 }
@@ -153,32 +147,32 @@ func (eventSubscriptionDestinationARM *EventSubscriptionDestinationARM) Unmarsha
 	}
 	discriminator := rawJson["endpointType"]
 	if discriminator == "AzureFunction" {
-		eventSubscriptionDestinationARM.AzureFunctionEventSubscriptionDestination = &AzureFunctionEventSubscriptionDestinationARM{}
-		return json.Unmarshal(data, eventSubscriptionDestinationARM.AzureFunctionEventSubscriptionDestination)
+		eventSubscriptionDestinationARM.AzureFunction = &AzureFunctionEventSubscriptionDestinationARM{}
+		return json.Unmarshal(data, eventSubscriptionDestinationARM.AzureFunction)
 	}
 	if discriminator == "EventHub" {
-		eventSubscriptionDestinationARM.EventHubEventSubscriptionDestination = &EventHubEventSubscriptionDestinationARM{}
-		return json.Unmarshal(data, eventSubscriptionDestinationARM.EventHubEventSubscriptionDestination)
+		eventSubscriptionDestinationARM.EventHub = &EventHubEventSubscriptionDestinationARM{}
+		return json.Unmarshal(data, eventSubscriptionDestinationARM.EventHub)
 	}
 	if discriminator == "HybridConnection" {
-		eventSubscriptionDestinationARM.HybridConnectionEventSubscriptionDestination = &HybridConnectionEventSubscriptionDestinationARM{}
-		return json.Unmarshal(data, eventSubscriptionDestinationARM.HybridConnectionEventSubscriptionDestination)
+		eventSubscriptionDestinationARM.HybridConnection = &HybridConnectionEventSubscriptionDestinationARM{}
+		return json.Unmarshal(data, eventSubscriptionDestinationARM.HybridConnection)
 	}
 	if discriminator == "ServiceBusQueue" {
-		eventSubscriptionDestinationARM.ServiceBusQueueEventSubscriptionDestination = &ServiceBusQueueEventSubscriptionDestinationARM{}
-		return json.Unmarshal(data, eventSubscriptionDestinationARM.ServiceBusQueueEventSubscriptionDestination)
+		eventSubscriptionDestinationARM.ServiceBusQueue = &ServiceBusQueueEventSubscriptionDestinationARM{}
+		return json.Unmarshal(data, eventSubscriptionDestinationARM.ServiceBusQueue)
 	}
 	if discriminator == "ServiceBusTopic" {
-		eventSubscriptionDestinationARM.ServiceBusTopicEventSubscriptionDestination = &ServiceBusTopicEventSubscriptionDestinationARM{}
-		return json.Unmarshal(data, eventSubscriptionDestinationARM.ServiceBusTopicEventSubscriptionDestination)
+		eventSubscriptionDestinationARM.ServiceBusTopic = &ServiceBusTopicEventSubscriptionDestinationARM{}
+		return json.Unmarshal(data, eventSubscriptionDestinationARM.ServiceBusTopic)
 	}
 	if discriminator == "StorageQueue" {
-		eventSubscriptionDestinationARM.StorageQueueEventSubscriptionDestination = &StorageQueueEventSubscriptionDestinationARM{}
-		return json.Unmarshal(data, eventSubscriptionDestinationARM.StorageQueueEventSubscriptionDestination)
+		eventSubscriptionDestinationARM.StorageQueue = &StorageQueueEventSubscriptionDestinationARM{}
+		return json.Unmarshal(data, eventSubscriptionDestinationARM.StorageQueue)
 	}
 	if discriminator == "WebHook" {
-		eventSubscriptionDestinationARM.WebHookEventSubscriptionDestination = &WebHookEventSubscriptionDestinationARM{}
-		return json.Unmarshal(data, eventSubscriptionDestinationARM.WebHookEventSubscriptionDestination)
+		eventSubscriptionDestinationARM.WebHook = &WebHookEventSubscriptionDestinationARM{}
+		return json.Unmarshal(data, eventSubscriptionDestinationARM.WebHook)
 	}
 
 	// No error
@@ -232,82 +226,80 @@ type StorageBlobDeadLetterDestinationARM struct {
 
 //Generated from: https://schema.management.azure.com/schemas/2020-06-01/Microsoft.EventGrid.json#/definitions/AdvancedFilter
 type AdvancedFilterARM struct {
-	//BoolEqualsAdvancedFilter: Mutually exclusive with all other properties
-	BoolEqualsAdvancedFilter *AdvancedFilter_BoolEqualsAdvancedFilterARM `json:"boolEqualsAdvancedFilter,omitempty"`
+	//BoolEquals: Mutually exclusive with all other properties
+	BoolEquals *AdvancedFilter_BoolEqualsARM `json:"boolEqualsAdvancedFilter,omitempty"`
 
-	//NumberGreaterThanAdvancedFilter: Mutually exclusive with all other properties
-	NumberGreaterThanAdvancedFilter *AdvancedFilter_NumberGreaterThanAdvancedFilterARM `json:"numberGreaterThanAdvancedFilter,omitempty"`
+	//NumberGreaterThan: Mutually exclusive with all other properties
+	NumberGreaterThan *AdvancedFilter_NumberGreaterThanARM `json:"numberGreaterThanAdvancedFilter,omitempty"`
 
-	//NumberGreaterThanOrEqualsAdvancedFilter: Mutually exclusive with all other
-	//properties
-	NumberGreaterThanOrEqualsAdvancedFilter *AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilterARM `json:"numberGreaterThanOrEqualsAdvancedFilter,omitempty"`
+	//NumberGreaterThanOrEquals: Mutually exclusive with all other properties
+	NumberGreaterThanOrEquals *AdvancedFilter_NumberGreaterThanOrEqualsARM `json:"numberGreaterThanOrEqualsAdvancedFilter,omitempty"`
 
-	//NumberInAdvancedFilter: Mutually exclusive with all other properties
-	NumberInAdvancedFilter *AdvancedFilter_NumberInAdvancedFilterARM `json:"numberInAdvancedFilter,omitempty"`
+	//NumberIn: Mutually exclusive with all other properties
+	NumberIn *AdvancedFilter_NumberInARM `json:"numberInAdvancedFilter,omitempty"`
 
-	//NumberLessThanAdvancedFilter: Mutually exclusive with all other properties
-	NumberLessThanAdvancedFilter *AdvancedFilter_NumberLessThanAdvancedFilterARM `json:"numberLessThanAdvancedFilter,omitempty"`
+	//NumberLessThan: Mutually exclusive with all other properties
+	NumberLessThan *AdvancedFilter_NumberLessThanARM `json:"numberLessThanAdvancedFilter,omitempty"`
 
-	//NumberLessThanOrEqualsAdvancedFilter: Mutually exclusive with all other
-	//properties
-	NumberLessThanOrEqualsAdvancedFilter *AdvancedFilter_NumberLessThanOrEqualsAdvancedFilterARM `json:"numberLessThanOrEqualsAdvancedFilter,omitempty"`
+	//NumberLessThanOrEquals: Mutually exclusive with all other properties
+	NumberLessThanOrEquals *AdvancedFilter_NumberLessThanOrEqualsARM `json:"numberLessThanOrEqualsAdvancedFilter,omitempty"`
 
-	//NumberNotInAdvancedFilter: Mutually exclusive with all other properties
-	NumberNotInAdvancedFilter *AdvancedFilter_NumberNotInAdvancedFilterARM `json:"numberNotInAdvancedFilter,omitempty"`
+	//NumberNotIn: Mutually exclusive with all other properties
+	NumberNotIn *AdvancedFilter_NumberNotInARM `json:"numberNotInAdvancedFilter,omitempty"`
 
-	//StringBeginsWithAdvancedFilter: Mutually exclusive with all other properties
-	StringBeginsWithAdvancedFilter *AdvancedFilter_StringBeginsWithAdvancedFilterARM `json:"stringBeginsWithAdvancedFilter,omitempty"`
+	//StringBeginsWith: Mutually exclusive with all other properties
+	StringBeginsWith *AdvancedFilter_StringBeginsWithARM `json:"stringBeginsWithAdvancedFilter,omitempty"`
 
-	//StringContainsAdvancedFilter: Mutually exclusive with all other properties
-	StringContainsAdvancedFilter *AdvancedFilter_StringContainsAdvancedFilterARM `json:"stringContainsAdvancedFilter,omitempty"`
+	//StringContains: Mutually exclusive with all other properties
+	StringContains *AdvancedFilter_StringContainsARM `json:"stringContainsAdvancedFilter,omitempty"`
 
-	//StringEndsWithAdvancedFilter: Mutually exclusive with all other properties
-	StringEndsWithAdvancedFilter *AdvancedFilter_StringEndsWithAdvancedFilterARM `json:"stringEndsWithAdvancedFilter,omitempty"`
+	//StringEndsWith: Mutually exclusive with all other properties
+	StringEndsWith *AdvancedFilter_StringEndsWithARM `json:"stringEndsWithAdvancedFilter,omitempty"`
 
-	//StringInAdvancedFilter: Mutually exclusive with all other properties
-	StringInAdvancedFilter *AdvancedFilter_StringInAdvancedFilterARM `json:"stringInAdvancedFilter,omitempty"`
+	//StringIn: Mutually exclusive with all other properties
+	StringIn *AdvancedFilter_StringInARM `json:"stringInAdvancedFilter,omitempty"`
 
-	//StringNotInAdvancedFilter: Mutually exclusive with all other properties
-	StringNotInAdvancedFilter *AdvancedFilter_StringNotInAdvancedFilterARM `json:"stringNotInAdvancedFilter,omitempty"`
+	//StringNotIn: Mutually exclusive with all other properties
+	StringNotIn *AdvancedFilter_StringNotInARM `json:"stringNotInAdvancedFilter,omitempty"`
 }
 
 // MarshalJSON defers JSON marshaling to the first non-nil property, because AdvancedFilterARM represents a discriminated union (JSON OneOf)
 func (advancedFilterARM AdvancedFilterARM) MarshalJSON() ([]byte, error) {
-	if advancedFilterARM.BoolEqualsAdvancedFilter != nil {
-		return json.Marshal(advancedFilterARM.BoolEqualsAdvancedFilter)
+	if advancedFilterARM.BoolEquals != nil {
+		return json.Marshal(advancedFilterARM.BoolEquals)
 	}
-	if advancedFilterARM.NumberGreaterThanAdvancedFilter != nil {
-		return json.Marshal(advancedFilterARM.NumberGreaterThanAdvancedFilter)
+	if advancedFilterARM.NumberGreaterThan != nil {
+		return json.Marshal(advancedFilterARM.NumberGreaterThan)
 	}
-	if advancedFilterARM.NumberGreaterThanOrEqualsAdvancedFilter != nil {
-		return json.Marshal(advancedFilterARM.NumberGreaterThanOrEqualsAdvancedFilter)
+	if advancedFilterARM.NumberGreaterThanOrEquals != nil {
+		return json.Marshal(advancedFilterARM.NumberGreaterThanOrEquals)
 	}
-	if advancedFilterARM.NumberInAdvancedFilter != nil {
-		return json.Marshal(advancedFilterARM.NumberInAdvancedFilter)
+	if advancedFilterARM.NumberIn != nil {
+		return json.Marshal(advancedFilterARM.NumberIn)
 	}
-	if advancedFilterARM.NumberLessThanAdvancedFilter != nil {
-		return json.Marshal(advancedFilterARM.NumberLessThanAdvancedFilter)
+	if advancedFilterARM.NumberLessThan != nil {
+		return json.Marshal(advancedFilterARM.NumberLessThan)
 	}
-	if advancedFilterARM.NumberLessThanOrEqualsAdvancedFilter != nil {
-		return json.Marshal(advancedFilterARM.NumberLessThanOrEqualsAdvancedFilter)
+	if advancedFilterARM.NumberLessThanOrEquals != nil {
+		return json.Marshal(advancedFilterARM.NumberLessThanOrEquals)
 	}
-	if advancedFilterARM.NumberNotInAdvancedFilter != nil {
-		return json.Marshal(advancedFilterARM.NumberNotInAdvancedFilter)
+	if advancedFilterARM.NumberNotIn != nil {
+		return json.Marshal(advancedFilterARM.NumberNotIn)
 	}
-	if advancedFilterARM.StringBeginsWithAdvancedFilter != nil {
-		return json.Marshal(advancedFilterARM.StringBeginsWithAdvancedFilter)
+	if advancedFilterARM.StringBeginsWith != nil {
+		return json.Marshal(advancedFilterARM.StringBeginsWith)
 	}
-	if advancedFilterARM.StringContainsAdvancedFilter != nil {
-		return json.Marshal(advancedFilterARM.StringContainsAdvancedFilter)
+	if advancedFilterARM.StringContains != nil {
+		return json.Marshal(advancedFilterARM.StringContains)
 	}
-	if advancedFilterARM.StringEndsWithAdvancedFilter != nil {
-		return json.Marshal(advancedFilterARM.StringEndsWithAdvancedFilter)
+	if advancedFilterARM.StringEndsWith != nil {
+		return json.Marshal(advancedFilterARM.StringEndsWith)
 	}
-	if advancedFilterARM.StringInAdvancedFilter != nil {
-		return json.Marshal(advancedFilterARM.StringInAdvancedFilter)
+	if advancedFilterARM.StringIn != nil {
+		return json.Marshal(advancedFilterARM.StringIn)
 	}
-	if advancedFilterARM.StringNotInAdvancedFilter != nil {
-		return json.Marshal(advancedFilterARM.StringNotInAdvancedFilter)
+	if advancedFilterARM.StringNotIn != nil {
+		return json.Marshal(advancedFilterARM.StringNotIn)
 	}
 	return nil, nil
 }
@@ -321,52 +313,52 @@ func (advancedFilterARM *AdvancedFilterARM) UnmarshalJSON(data []byte) error {
 	}
 	discriminator := rawJson["operatorType"]
 	if discriminator == "BoolEquals" {
-		advancedFilterARM.BoolEqualsAdvancedFilter = &AdvancedFilter_BoolEqualsAdvancedFilterARM{}
-		return json.Unmarshal(data, advancedFilterARM.BoolEqualsAdvancedFilter)
+		advancedFilterARM.BoolEquals = &AdvancedFilter_BoolEqualsARM{}
+		return json.Unmarshal(data, advancedFilterARM.BoolEquals)
 	}
 	if discriminator == "NumberGreaterThan" {
-		advancedFilterARM.NumberGreaterThanAdvancedFilter = &AdvancedFilter_NumberGreaterThanAdvancedFilterARM{}
-		return json.Unmarshal(data, advancedFilterARM.NumberGreaterThanAdvancedFilter)
+		advancedFilterARM.NumberGreaterThan = &AdvancedFilter_NumberGreaterThanARM{}
+		return json.Unmarshal(data, advancedFilterARM.NumberGreaterThan)
 	}
 	if discriminator == "NumberGreaterThanOrEquals" {
-		advancedFilterARM.NumberGreaterThanOrEqualsAdvancedFilter = &AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilterARM{}
-		return json.Unmarshal(data, advancedFilterARM.NumberGreaterThanOrEqualsAdvancedFilter)
+		advancedFilterARM.NumberGreaterThanOrEquals = &AdvancedFilter_NumberGreaterThanOrEqualsARM{}
+		return json.Unmarshal(data, advancedFilterARM.NumberGreaterThanOrEquals)
 	}
 	if discriminator == "NumberIn" {
-		advancedFilterARM.NumberInAdvancedFilter = &AdvancedFilter_NumberInAdvancedFilterARM{}
-		return json.Unmarshal(data, advancedFilterARM.NumberInAdvancedFilter)
+		advancedFilterARM.NumberIn = &AdvancedFilter_NumberInARM{}
+		return json.Unmarshal(data, advancedFilterARM.NumberIn)
 	}
 	if discriminator == "NumberLessThan" {
-		advancedFilterARM.NumberLessThanAdvancedFilter = &AdvancedFilter_NumberLessThanAdvancedFilterARM{}
-		return json.Unmarshal(data, advancedFilterARM.NumberLessThanAdvancedFilter)
+		advancedFilterARM.NumberLessThan = &AdvancedFilter_NumberLessThanARM{}
+		return json.Unmarshal(data, advancedFilterARM.NumberLessThan)
 	}
 	if discriminator == "NumberLessThanOrEquals" {
-		advancedFilterARM.NumberLessThanOrEqualsAdvancedFilter = &AdvancedFilter_NumberLessThanOrEqualsAdvancedFilterARM{}
-		return json.Unmarshal(data, advancedFilterARM.NumberLessThanOrEqualsAdvancedFilter)
+		advancedFilterARM.NumberLessThanOrEquals = &AdvancedFilter_NumberLessThanOrEqualsARM{}
+		return json.Unmarshal(data, advancedFilterARM.NumberLessThanOrEquals)
 	}
 	if discriminator == "NumberNotIn" {
-		advancedFilterARM.NumberNotInAdvancedFilter = &AdvancedFilter_NumberNotInAdvancedFilterARM{}
-		return json.Unmarshal(data, advancedFilterARM.NumberNotInAdvancedFilter)
+		advancedFilterARM.NumberNotIn = &AdvancedFilter_NumberNotInARM{}
+		return json.Unmarshal(data, advancedFilterARM.NumberNotIn)
 	}
 	if discriminator == "StringBeginsWith" {
-		advancedFilterARM.StringBeginsWithAdvancedFilter = &AdvancedFilter_StringBeginsWithAdvancedFilterARM{}
-		return json.Unmarshal(data, advancedFilterARM.StringBeginsWithAdvancedFilter)
+		advancedFilterARM.StringBeginsWith = &AdvancedFilter_StringBeginsWithARM{}
+		return json.Unmarshal(data, advancedFilterARM.StringBeginsWith)
 	}
 	if discriminator == "StringContains" {
-		advancedFilterARM.StringContainsAdvancedFilter = &AdvancedFilter_StringContainsAdvancedFilterARM{}
-		return json.Unmarshal(data, advancedFilterARM.StringContainsAdvancedFilter)
+		advancedFilterARM.StringContains = &AdvancedFilter_StringContainsARM{}
+		return json.Unmarshal(data, advancedFilterARM.StringContains)
 	}
 	if discriminator == "StringEndsWith" {
-		advancedFilterARM.StringEndsWithAdvancedFilter = &AdvancedFilter_StringEndsWithAdvancedFilterARM{}
-		return json.Unmarshal(data, advancedFilterARM.StringEndsWithAdvancedFilter)
+		advancedFilterARM.StringEndsWith = &AdvancedFilter_StringEndsWithARM{}
+		return json.Unmarshal(data, advancedFilterARM.StringEndsWith)
 	}
 	if discriminator == "StringIn" {
-		advancedFilterARM.StringInAdvancedFilter = &AdvancedFilter_StringInAdvancedFilterARM{}
-		return json.Unmarshal(data, advancedFilterARM.StringInAdvancedFilter)
+		advancedFilterARM.StringIn = &AdvancedFilter_StringInARM{}
+		return json.Unmarshal(data, advancedFilterARM.StringIn)
 	}
 	if discriminator == "StringNotIn" {
-		advancedFilterARM.StringNotInAdvancedFilter = &AdvancedFilter_StringNotInAdvancedFilterARM{}
-		return json.Unmarshal(data, advancedFilterARM.StringNotInAdvancedFilter)
+		advancedFilterARM.StringNotIn = &AdvancedFilter_StringNotInARM{}
+		return json.Unmarshal(data, advancedFilterARM.StringNotIn)
 	}
 
 	// No error
@@ -441,109 +433,109 @@ type WebHookEventSubscriptionDestinationARM struct {
 	Properties *WebHookEventSubscriptionDestinationPropertiesARM `json:"properties,omitempty"`
 }
 
-type AdvancedFilter_BoolEqualsAdvancedFilterARM struct {
+type AdvancedFilter_BoolEqualsARM struct {
 	//Key: The field/property in the event based on which you want to filter.
-	Key          *string                                            `json:"key,omitempty"`
-	OperatorType AdvancedFilterBoolEqualsAdvancedFilterOperatorType `json:"operatorType"`
+	Key          *string                              `json:"key,omitempty"`
+	OperatorType AdvancedFilterBoolEqualsOperatorType `json:"operatorType"`
 
 	//Value: The boolean filter value.
 	Value *bool `json:"value,omitempty"`
 }
 
-type AdvancedFilter_NumberGreaterThanAdvancedFilterARM struct {
+type AdvancedFilter_NumberGreaterThanARM struct {
 	//Key: The field/property in the event based on which you want to filter.
-	Key          *string                                                   `json:"key,omitempty"`
-	OperatorType AdvancedFilterNumberGreaterThanAdvancedFilterOperatorType `json:"operatorType"`
+	Key          *string                                     `json:"key,omitempty"`
+	OperatorType AdvancedFilterNumberGreaterThanOperatorType `json:"operatorType"`
 
 	//Value: The filter value.
 	Value *float64 `json:"value,omitempty"`
 }
 
-type AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilterARM struct {
+type AdvancedFilter_NumberGreaterThanOrEqualsARM struct {
 	//Key: The field/property in the event based on which you want to filter.
-	Key          *string                                                           `json:"key,omitempty"`
-	OperatorType AdvancedFilterNumberGreaterThanOrEqualsAdvancedFilterOperatorType `json:"operatorType"`
+	Key          *string                                             `json:"key,omitempty"`
+	OperatorType AdvancedFilterNumberGreaterThanOrEqualsOperatorType `json:"operatorType"`
 
 	//Value: The filter value.
 	Value *float64 `json:"value,omitempty"`
 }
 
-type AdvancedFilter_NumberInAdvancedFilterARM struct {
+type AdvancedFilter_NumberInARM struct {
 	//Key: The field/property in the event based on which you want to filter.
-	Key          *string                                          `json:"key,omitempty"`
-	OperatorType AdvancedFilterNumberInAdvancedFilterOperatorType `json:"operatorType"`
+	Key          *string                            `json:"key,omitempty"`
+	OperatorType AdvancedFilterNumberInOperatorType `json:"operatorType"`
 
 	//Values: The set of filter values.
 	Values []float64 `json:"values,omitempty"`
 }
 
-type AdvancedFilter_NumberLessThanAdvancedFilterARM struct {
+type AdvancedFilter_NumberLessThanARM struct {
 	//Key: The field/property in the event based on which you want to filter.
-	Key          *string                                                `json:"key,omitempty"`
-	OperatorType AdvancedFilterNumberLessThanAdvancedFilterOperatorType `json:"operatorType"`
+	Key          *string                                  `json:"key,omitempty"`
+	OperatorType AdvancedFilterNumberLessThanOperatorType `json:"operatorType"`
 
 	//Value: The filter value.
 	Value *float64 `json:"value,omitempty"`
 }
 
-type AdvancedFilter_NumberLessThanOrEqualsAdvancedFilterARM struct {
+type AdvancedFilter_NumberLessThanOrEqualsARM struct {
 	//Key: The field/property in the event based on which you want to filter.
-	Key          *string                                                        `json:"key,omitempty"`
-	OperatorType AdvancedFilterNumberLessThanOrEqualsAdvancedFilterOperatorType `json:"operatorType"`
+	Key          *string                                          `json:"key,omitempty"`
+	OperatorType AdvancedFilterNumberLessThanOrEqualsOperatorType `json:"operatorType"`
 
 	//Value: The filter value.
 	Value *float64 `json:"value,omitempty"`
 }
 
-type AdvancedFilter_NumberNotInAdvancedFilterARM struct {
+type AdvancedFilter_NumberNotInARM struct {
 	//Key: The field/property in the event based on which you want to filter.
-	Key          *string                                             `json:"key,omitempty"`
-	OperatorType AdvancedFilterNumberNotInAdvancedFilterOperatorType `json:"operatorType"`
+	Key          *string                               `json:"key,omitempty"`
+	OperatorType AdvancedFilterNumberNotInOperatorType `json:"operatorType"`
 
 	//Values: The set of filter values.
 	Values []float64 `json:"values,omitempty"`
 }
 
-type AdvancedFilter_StringBeginsWithAdvancedFilterARM struct {
+type AdvancedFilter_StringBeginsWithARM struct {
 	//Key: The field/property in the event based on which you want to filter.
-	Key          *string                                                  `json:"key,omitempty"`
-	OperatorType AdvancedFilterStringBeginsWithAdvancedFilterOperatorType `json:"operatorType"`
+	Key          *string                                    `json:"key,omitempty"`
+	OperatorType AdvancedFilterStringBeginsWithOperatorType `json:"operatorType"`
 
 	//Values: The set of filter values.
 	Values []string `json:"values,omitempty"`
 }
 
-type AdvancedFilter_StringContainsAdvancedFilterARM struct {
+type AdvancedFilter_StringContainsARM struct {
 	//Key: The field/property in the event based on which you want to filter.
-	Key          *string                                                `json:"key,omitempty"`
-	OperatorType AdvancedFilterStringContainsAdvancedFilterOperatorType `json:"operatorType"`
+	Key          *string                                  `json:"key,omitempty"`
+	OperatorType AdvancedFilterStringContainsOperatorType `json:"operatorType"`
 
 	//Values: The set of filter values.
 	Values []string `json:"values,omitempty"`
 }
 
-type AdvancedFilter_StringEndsWithAdvancedFilterARM struct {
+type AdvancedFilter_StringEndsWithARM struct {
 	//Key: The field/property in the event based on which you want to filter.
-	Key          *string                                                `json:"key,omitempty"`
-	OperatorType AdvancedFilterStringEndsWithAdvancedFilterOperatorType `json:"operatorType"`
+	Key          *string                                  `json:"key,omitempty"`
+	OperatorType AdvancedFilterStringEndsWithOperatorType `json:"operatorType"`
 
 	//Values: The set of filter values.
 	Values []string `json:"values,omitempty"`
 }
 
-type AdvancedFilter_StringInAdvancedFilterARM struct {
+type AdvancedFilter_StringInARM struct {
 	//Key: The field/property in the event based on which you want to filter.
-	Key          *string                                          `json:"key,omitempty"`
-	OperatorType AdvancedFilterStringInAdvancedFilterOperatorType `json:"operatorType"`
+	Key          *string                            `json:"key,omitempty"`
+	OperatorType AdvancedFilterStringInOperatorType `json:"operatorType"`
 
 	//Values: The set of filter values.
 	Values []string `json:"values,omitempty"`
 }
 
-type AdvancedFilter_StringNotInAdvancedFilterARM struct {
+type AdvancedFilter_StringNotInARM struct {
 	//Key: The field/property in the event based on which you want to filter.
-	Key          *string                                             `json:"key,omitempty"`
-	OperatorType AdvancedFilterStringNotInAdvancedFilterOperatorType `json:"operatorType"`
+	Key          *string                               `json:"key,omitempty"`
+	OperatorType AdvancedFilterStringNotInOperatorType `json:"operatorType"`
 
 	//Values: The set of filter values.
 	Values []string `json:"values,omitempty"`

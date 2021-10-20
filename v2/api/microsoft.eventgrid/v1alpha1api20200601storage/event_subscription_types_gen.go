@@ -207,14 +207,14 @@ type DeadLetterDestination_Status struct {
 //Storage version of v1alpha1api20200601.EventSubscriptionDestination
 //Generated from: https://schema.management.azure.com/schemas/2020-06-01/Microsoft.EventGrid.json#/definitions/EventSubscriptionDestination
 type EventSubscriptionDestination struct {
-	AzureFunctionEventSubscriptionDestination    *AzureFunctionEventSubscriptionDestination    `json:"azureFunctionEventSubscriptionDestination,omitempty"`
-	EventHubEventSubscriptionDestination         *EventHubEventSubscriptionDestination         `json:"eventHubEventSubscriptionDestination,omitempty"`
-	HybridConnectionEventSubscriptionDestination *HybridConnectionEventSubscriptionDestination `json:"hybridConnectionEventSubscriptionDestination,omitempty"`
-	PropertyBag                                  genruntime.PropertyBag                        `json:"$propertyBag,omitempty"`
-	ServiceBusQueueEventSubscriptionDestination  *ServiceBusQueueEventSubscriptionDestination  `json:"serviceBusQueueEventSubscriptionDestination,omitempty"`
-	ServiceBusTopicEventSubscriptionDestination  *ServiceBusTopicEventSubscriptionDestination  `json:"serviceBusTopicEventSubscriptionDestination,omitempty"`
-	StorageQueueEventSubscriptionDestination     *StorageQueueEventSubscriptionDestination     `json:"storageQueueEventSubscriptionDestination,omitempty"`
-	WebHookEventSubscriptionDestination          *WebHookEventSubscriptionDestination          `json:"webHookEventSubscriptionDestination,omitempty"`
+	AzureFunction    *AzureFunctionEventSubscriptionDestination    `json:"azureFunctionEventSubscriptionDestination,omitempty"`
+	EventHub         *EventHubEventSubscriptionDestination         `json:"eventHubEventSubscriptionDestination,omitempty"`
+	HybridConnection *HybridConnectionEventSubscriptionDestination `json:"hybridConnectionEventSubscriptionDestination,omitempty"`
+	PropertyBag      genruntime.PropertyBag                        `json:"$propertyBag,omitempty"`
+	ServiceBusQueue  *ServiceBusQueueEventSubscriptionDestination  `json:"serviceBusQueueEventSubscriptionDestination,omitempty"`
+	ServiceBusTopic  *ServiceBusTopicEventSubscriptionDestination  `json:"serviceBusTopicEventSubscriptionDestination,omitempty"`
+	StorageQueue     *StorageQueueEventSubscriptionDestination     `json:"storageQueueEventSubscriptionDestination,omitempty"`
+	WebHook          *WebHookEventSubscriptionDestination          `json:"webHookEventSubscriptionDestination,omitempty"`
 }
 
 //Storage version of v1alpha1api20200601.EventSubscriptionDestination_Status
@@ -273,19 +273,19 @@ type StorageBlobDeadLetterDestination struct {
 //Storage version of v1alpha1api20200601.AdvancedFilter
 //Generated from: https://schema.management.azure.com/schemas/2020-06-01/Microsoft.EventGrid.json#/definitions/AdvancedFilter
 type AdvancedFilter struct {
-	BoolEqualsAdvancedFilter                *AdvancedFilter_BoolEqualsAdvancedFilter                `json:"boolEqualsAdvancedFilter,omitempty"`
-	NumberGreaterThanAdvancedFilter         *AdvancedFilter_NumberGreaterThanAdvancedFilter         `json:"numberGreaterThanAdvancedFilter,omitempty"`
-	NumberGreaterThanOrEqualsAdvancedFilter *AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilter `json:"numberGreaterThanOrEqualsAdvancedFilter,omitempty"`
-	NumberInAdvancedFilter                  *AdvancedFilter_NumberInAdvancedFilter                  `json:"numberInAdvancedFilter,omitempty"`
-	NumberLessThanAdvancedFilter            *AdvancedFilter_NumberLessThanAdvancedFilter            `json:"numberLessThanAdvancedFilter,omitempty"`
-	NumberLessThanOrEqualsAdvancedFilter    *AdvancedFilter_NumberLessThanOrEqualsAdvancedFilter    `json:"numberLessThanOrEqualsAdvancedFilter,omitempty"`
-	NumberNotInAdvancedFilter               *AdvancedFilter_NumberNotInAdvancedFilter               `json:"numberNotInAdvancedFilter,omitempty"`
-	PropertyBag                             genruntime.PropertyBag                                  `json:"$propertyBag,omitempty"`
-	StringBeginsWithAdvancedFilter          *AdvancedFilter_StringBeginsWithAdvancedFilter          `json:"stringBeginsWithAdvancedFilter,omitempty"`
-	StringContainsAdvancedFilter            *AdvancedFilter_StringContainsAdvancedFilter            `json:"stringContainsAdvancedFilter,omitempty"`
-	StringEndsWithAdvancedFilter            *AdvancedFilter_StringEndsWithAdvancedFilter            `json:"stringEndsWithAdvancedFilter,omitempty"`
-	StringInAdvancedFilter                  *AdvancedFilter_StringInAdvancedFilter                  `json:"stringInAdvancedFilter,omitempty"`
-	StringNotInAdvancedFilter               *AdvancedFilter_StringNotInAdvancedFilter               `json:"stringNotInAdvancedFilter,omitempty"`
+	BoolEquals                *AdvancedFilter_BoolEquals                `json:"boolEqualsAdvancedFilter,omitempty"`
+	NumberGreaterThan         *AdvancedFilter_NumberGreaterThan         `json:"numberGreaterThanAdvancedFilter,omitempty"`
+	NumberGreaterThanOrEquals *AdvancedFilter_NumberGreaterThanOrEquals `json:"numberGreaterThanOrEqualsAdvancedFilter,omitempty"`
+	NumberIn                  *AdvancedFilter_NumberIn                  `json:"numberInAdvancedFilter,omitempty"`
+	NumberLessThan            *AdvancedFilter_NumberLessThan            `json:"numberLessThanAdvancedFilter,omitempty"`
+	NumberLessThanOrEquals    *AdvancedFilter_NumberLessThanOrEquals    `json:"numberLessThanOrEqualsAdvancedFilter,omitempty"`
+	NumberNotIn               *AdvancedFilter_NumberNotIn               `json:"numberNotInAdvancedFilter,omitempty"`
+	PropertyBag               genruntime.PropertyBag                    `json:"$propertyBag,omitempty"`
+	StringBeginsWith          *AdvancedFilter_StringBeginsWith          `json:"stringBeginsWithAdvancedFilter,omitempty"`
+	StringContains            *AdvancedFilter_StringContains            `json:"stringContainsAdvancedFilter,omitempty"`
+	StringEndsWith            *AdvancedFilter_StringEndsWith            `json:"stringEndsWithAdvancedFilter,omitempty"`
+	StringIn                  *AdvancedFilter_StringIn                  `json:"stringInAdvancedFilter,omitempty"`
+	StringNotIn               *AdvancedFilter_StringNotIn               `json:"stringNotInAdvancedFilter,omitempty"`
 }
 
 //Storage version of v1alpha1api20200601.AdvancedFilter_Status
@@ -363,96 +363,96 @@ type WebHookEventSubscriptionDestination struct {
 	PropertyBag  genruntime.PropertyBag                         `json:"$propertyBag,omitempty"`
 }
 
-//Storage version of v1alpha1api20200601.AdvancedFilter_BoolEqualsAdvancedFilter
-type AdvancedFilter_BoolEqualsAdvancedFilter struct {
+//Storage version of v1alpha1api20200601.AdvancedFilter_BoolEquals
+type AdvancedFilter_BoolEquals struct {
 	Key          *string                `json:"key,omitempty"`
 	OperatorType *string                `json:"operatorType,omitempty"`
 	PropertyBag  genruntime.PropertyBag `json:"$propertyBag,omitempty"`
 	Value        *bool                  `json:"value,omitempty"`
 }
 
-//Storage version of v1alpha1api20200601.AdvancedFilter_NumberGreaterThanAdvancedFilter
-type AdvancedFilter_NumberGreaterThanAdvancedFilter struct {
+//Storage version of v1alpha1api20200601.AdvancedFilter_NumberGreaterThan
+type AdvancedFilter_NumberGreaterThan struct {
 	Key          *string                `json:"key,omitempty"`
 	OperatorType *string                `json:"operatorType,omitempty"`
 	PropertyBag  genruntime.PropertyBag `json:"$propertyBag,omitempty"`
 	Value        *float64               `json:"value,omitempty"`
 }
 
-//Storage version of v1alpha1api20200601.AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilter
-type AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilter struct {
+//Storage version of v1alpha1api20200601.AdvancedFilter_NumberGreaterThanOrEquals
+type AdvancedFilter_NumberGreaterThanOrEquals struct {
 	Key          *string                `json:"key,omitempty"`
 	OperatorType *string                `json:"operatorType,omitempty"`
 	PropertyBag  genruntime.PropertyBag `json:"$propertyBag,omitempty"`
 	Value        *float64               `json:"value,omitempty"`
 }
 
-//Storage version of v1alpha1api20200601.AdvancedFilter_NumberInAdvancedFilter
-type AdvancedFilter_NumberInAdvancedFilter struct {
+//Storage version of v1alpha1api20200601.AdvancedFilter_NumberIn
+type AdvancedFilter_NumberIn struct {
 	Key          *string                `json:"key,omitempty"`
 	OperatorType *string                `json:"operatorType,omitempty"`
 	PropertyBag  genruntime.PropertyBag `json:"$propertyBag,omitempty"`
 	Values       []float64              `json:"values,omitempty"`
 }
 
-//Storage version of v1alpha1api20200601.AdvancedFilter_NumberLessThanAdvancedFilter
-type AdvancedFilter_NumberLessThanAdvancedFilter struct {
+//Storage version of v1alpha1api20200601.AdvancedFilter_NumberLessThan
+type AdvancedFilter_NumberLessThan struct {
 	Key          *string                `json:"key,omitempty"`
 	OperatorType *string                `json:"operatorType,omitempty"`
 	PropertyBag  genruntime.PropertyBag `json:"$propertyBag,omitempty"`
 	Value        *float64               `json:"value,omitempty"`
 }
 
-//Storage version of v1alpha1api20200601.AdvancedFilter_NumberLessThanOrEqualsAdvancedFilter
-type AdvancedFilter_NumberLessThanOrEqualsAdvancedFilter struct {
+//Storage version of v1alpha1api20200601.AdvancedFilter_NumberLessThanOrEquals
+type AdvancedFilter_NumberLessThanOrEquals struct {
 	Key          *string                `json:"key,omitempty"`
 	OperatorType *string                `json:"operatorType,omitempty"`
 	PropertyBag  genruntime.PropertyBag `json:"$propertyBag,omitempty"`
 	Value        *float64               `json:"value,omitempty"`
 }
 
-//Storage version of v1alpha1api20200601.AdvancedFilter_NumberNotInAdvancedFilter
-type AdvancedFilter_NumberNotInAdvancedFilter struct {
+//Storage version of v1alpha1api20200601.AdvancedFilter_NumberNotIn
+type AdvancedFilter_NumberNotIn struct {
 	Key          *string                `json:"key,omitempty"`
 	OperatorType *string                `json:"operatorType,omitempty"`
 	PropertyBag  genruntime.PropertyBag `json:"$propertyBag,omitempty"`
 	Values       []float64              `json:"values,omitempty"`
 }
 
-//Storage version of v1alpha1api20200601.AdvancedFilter_StringBeginsWithAdvancedFilter
-type AdvancedFilter_StringBeginsWithAdvancedFilter struct {
+//Storage version of v1alpha1api20200601.AdvancedFilter_StringBeginsWith
+type AdvancedFilter_StringBeginsWith struct {
 	Key          *string                `json:"key,omitempty"`
 	OperatorType *string                `json:"operatorType,omitempty"`
 	PropertyBag  genruntime.PropertyBag `json:"$propertyBag,omitempty"`
 	Values       []string               `json:"values,omitempty"`
 }
 
-//Storage version of v1alpha1api20200601.AdvancedFilter_StringContainsAdvancedFilter
-type AdvancedFilter_StringContainsAdvancedFilter struct {
+//Storage version of v1alpha1api20200601.AdvancedFilter_StringContains
+type AdvancedFilter_StringContains struct {
 	Key          *string                `json:"key,omitempty"`
 	OperatorType *string                `json:"operatorType,omitempty"`
 	PropertyBag  genruntime.PropertyBag `json:"$propertyBag,omitempty"`
 	Values       []string               `json:"values,omitempty"`
 }
 
-//Storage version of v1alpha1api20200601.AdvancedFilter_StringEndsWithAdvancedFilter
-type AdvancedFilter_StringEndsWithAdvancedFilter struct {
+//Storage version of v1alpha1api20200601.AdvancedFilter_StringEndsWith
+type AdvancedFilter_StringEndsWith struct {
 	Key          *string                `json:"key,omitempty"`
 	OperatorType *string                `json:"operatorType,omitempty"`
 	PropertyBag  genruntime.PropertyBag `json:"$propertyBag,omitempty"`
 	Values       []string               `json:"values,omitempty"`
 }
 
-//Storage version of v1alpha1api20200601.AdvancedFilter_StringInAdvancedFilter
-type AdvancedFilter_StringInAdvancedFilter struct {
+//Storage version of v1alpha1api20200601.AdvancedFilter_StringIn
+type AdvancedFilter_StringIn struct {
 	Key          *string                `json:"key,omitempty"`
 	OperatorType *string                `json:"operatorType,omitempty"`
 	PropertyBag  genruntime.PropertyBag `json:"$propertyBag,omitempty"`
 	Values       []string               `json:"values,omitempty"`
 }
 
-//Storage version of v1alpha1api20200601.AdvancedFilter_StringNotInAdvancedFilter
-type AdvancedFilter_StringNotInAdvancedFilter struct {
+//Storage version of v1alpha1api20200601.AdvancedFilter_StringNotIn
+type AdvancedFilter_StringNotIn struct {
 	Key          *string                `json:"key,omitempty"`
 	OperatorType *string                `json:"operatorType,omitempty"`
 	PropertyBag  genruntime.PropertyBag `json:"$propertyBag,omitempty"`

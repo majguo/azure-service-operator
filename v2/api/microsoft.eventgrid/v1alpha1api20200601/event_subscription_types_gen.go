@@ -1273,32 +1273,26 @@ func (deadLetterDestinationStatus *DeadLetterDestination_Status) AssignPropertie
 
 //Generated from: https://schema.management.azure.com/schemas/2020-06-01/Microsoft.EventGrid.json#/definitions/EventSubscriptionDestination
 type EventSubscriptionDestination struct {
-	//AzureFunctionEventSubscriptionDestination: Mutually exclusive with all other
-	//properties
-	AzureFunctionEventSubscriptionDestination *AzureFunctionEventSubscriptionDestination `json:"azureFunctionEventSubscriptionDestination,omitempty"`
+	//AzureFunction: Mutually exclusive with all other properties
+	AzureFunction *AzureFunctionEventSubscriptionDestination `json:"azureFunctionEventSubscriptionDestination,omitempty"`
 
-	//EventHubEventSubscriptionDestination: Mutually exclusive with all other
-	//properties
-	EventHubEventSubscriptionDestination *EventHubEventSubscriptionDestination `json:"eventHubEventSubscriptionDestination,omitempty"`
+	//EventHub: Mutually exclusive with all other properties
+	EventHub *EventHubEventSubscriptionDestination `json:"eventHubEventSubscriptionDestination,omitempty"`
 
-	//HybridConnectionEventSubscriptionDestination: Mutually exclusive with all other
-	//properties
-	HybridConnectionEventSubscriptionDestination *HybridConnectionEventSubscriptionDestination `json:"hybridConnectionEventSubscriptionDestination,omitempty"`
+	//HybridConnection: Mutually exclusive with all other properties
+	HybridConnection *HybridConnectionEventSubscriptionDestination `json:"hybridConnectionEventSubscriptionDestination,omitempty"`
 
-	//ServiceBusQueueEventSubscriptionDestination: Mutually exclusive with all other
-	//properties
-	ServiceBusQueueEventSubscriptionDestination *ServiceBusQueueEventSubscriptionDestination `json:"serviceBusQueueEventSubscriptionDestination,omitempty"`
+	//ServiceBusQueue: Mutually exclusive with all other properties
+	ServiceBusQueue *ServiceBusQueueEventSubscriptionDestination `json:"serviceBusQueueEventSubscriptionDestination,omitempty"`
 
-	//ServiceBusTopicEventSubscriptionDestination: Mutually exclusive with all other
-	//properties
-	ServiceBusTopicEventSubscriptionDestination *ServiceBusTopicEventSubscriptionDestination `json:"serviceBusTopicEventSubscriptionDestination,omitempty"`
+	//ServiceBusTopic: Mutually exclusive with all other properties
+	ServiceBusTopic *ServiceBusTopicEventSubscriptionDestination `json:"serviceBusTopicEventSubscriptionDestination,omitempty"`
 
-	//StorageQueueEventSubscriptionDestination: Mutually exclusive with all other
-	//properties
-	StorageQueueEventSubscriptionDestination *StorageQueueEventSubscriptionDestination `json:"storageQueueEventSubscriptionDestination,omitempty"`
+	//StorageQueue: Mutually exclusive with all other properties
+	StorageQueue *StorageQueueEventSubscriptionDestination `json:"storageQueueEventSubscriptionDestination,omitempty"`
 
-	//WebHookEventSubscriptionDestination: Mutually exclusive with all other properties
-	WebHookEventSubscriptionDestination *WebHookEventSubscriptionDestination `json:"webHookEventSubscriptionDestination,omitempty"`
+	//WebHook: Mutually exclusive with all other properties
+	WebHook *WebHookEventSubscriptionDestination `json:"webHookEventSubscriptionDestination,omitempty"`
 }
 
 var _ genruntime.ARMTransformer = &EventSubscriptionDestination{}
@@ -1310,74 +1304,74 @@ func (eventSubscriptionDestination *EventSubscriptionDestination) ConvertToARM(r
 	}
 	var result EventSubscriptionDestinationARM
 
-	// Set property ‘AzureFunctionEventSubscriptionDestination’:
-	if eventSubscriptionDestination.AzureFunctionEventSubscriptionDestination != nil {
-		azureFunctionEventSubscriptionDestinationARM, err := (*eventSubscriptionDestination.AzureFunctionEventSubscriptionDestination).ConvertToARM(resolved)
+	// Set property ‘AzureFunction’:
+	if eventSubscriptionDestination.AzureFunction != nil {
+		azureFunctionARM, err := (*eventSubscriptionDestination.AzureFunction).ConvertToARM(resolved)
 		if err != nil {
 			return nil, err
 		}
-		azureFunctionEventSubscriptionDestination := azureFunctionEventSubscriptionDestinationARM.(AzureFunctionEventSubscriptionDestinationARM)
-		result.AzureFunctionEventSubscriptionDestination = &azureFunctionEventSubscriptionDestination
+		azureFunction := azureFunctionARM.(AzureFunctionEventSubscriptionDestinationARM)
+		result.AzureFunction = &azureFunction
 	}
 
-	// Set property ‘EventHubEventSubscriptionDestination’:
-	if eventSubscriptionDestination.EventHubEventSubscriptionDestination != nil {
-		eventHubEventSubscriptionDestinationARM, err := (*eventSubscriptionDestination.EventHubEventSubscriptionDestination).ConvertToARM(resolved)
+	// Set property ‘EventHub’:
+	if eventSubscriptionDestination.EventHub != nil {
+		eventHubARM, err := (*eventSubscriptionDestination.EventHub).ConvertToARM(resolved)
 		if err != nil {
 			return nil, err
 		}
-		eventHubEventSubscriptionDestination := eventHubEventSubscriptionDestinationARM.(EventHubEventSubscriptionDestinationARM)
-		result.EventHubEventSubscriptionDestination = &eventHubEventSubscriptionDestination
+		eventHub := eventHubARM.(EventHubEventSubscriptionDestinationARM)
+		result.EventHub = &eventHub
 	}
 
-	// Set property ‘HybridConnectionEventSubscriptionDestination’:
-	if eventSubscriptionDestination.HybridConnectionEventSubscriptionDestination != nil {
-		hybridConnectionEventSubscriptionDestinationARM, err := (*eventSubscriptionDestination.HybridConnectionEventSubscriptionDestination).ConvertToARM(resolved)
+	// Set property ‘HybridConnection’:
+	if eventSubscriptionDestination.HybridConnection != nil {
+		hybridConnectionARM, err := (*eventSubscriptionDestination.HybridConnection).ConvertToARM(resolved)
 		if err != nil {
 			return nil, err
 		}
-		hybridConnectionEventSubscriptionDestination := hybridConnectionEventSubscriptionDestinationARM.(HybridConnectionEventSubscriptionDestinationARM)
-		result.HybridConnectionEventSubscriptionDestination = &hybridConnectionEventSubscriptionDestination
+		hybridConnection := hybridConnectionARM.(HybridConnectionEventSubscriptionDestinationARM)
+		result.HybridConnection = &hybridConnection
 	}
 
-	// Set property ‘ServiceBusQueueEventSubscriptionDestination’:
-	if eventSubscriptionDestination.ServiceBusQueueEventSubscriptionDestination != nil {
-		serviceBusQueueEventSubscriptionDestinationARM, err := (*eventSubscriptionDestination.ServiceBusQueueEventSubscriptionDestination).ConvertToARM(resolved)
+	// Set property ‘ServiceBusQueue’:
+	if eventSubscriptionDestination.ServiceBusQueue != nil {
+		serviceBusQueueARM, err := (*eventSubscriptionDestination.ServiceBusQueue).ConvertToARM(resolved)
 		if err != nil {
 			return nil, err
 		}
-		serviceBusQueueEventSubscriptionDestination := serviceBusQueueEventSubscriptionDestinationARM.(ServiceBusQueueEventSubscriptionDestinationARM)
-		result.ServiceBusQueueEventSubscriptionDestination = &serviceBusQueueEventSubscriptionDestination
+		serviceBusQueue := serviceBusQueueARM.(ServiceBusQueueEventSubscriptionDestinationARM)
+		result.ServiceBusQueue = &serviceBusQueue
 	}
 
-	// Set property ‘ServiceBusTopicEventSubscriptionDestination’:
-	if eventSubscriptionDestination.ServiceBusTopicEventSubscriptionDestination != nil {
-		serviceBusTopicEventSubscriptionDestinationARM, err := (*eventSubscriptionDestination.ServiceBusTopicEventSubscriptionDestination).ConvertToARM(resolved)
+	// Set property ‘ServiceBusTopic’:
+	if eventSubscriptionDestination.ServiceBusTopic != nil {
+		serviceBusTopicARM, err := (*eventSubscriptionDestination.ServiceBusTopic).ConvertToARM(resolved)
 		if err != nil {
 			return nil, err
 		}
-		serviceBusTopicEventSubscriptionDestination := serviceBusTopicEventSubscriptionDestinationARM.(ServiceBusTopicEventSubscriptionDestinationARM)
-		result.ServiceBusTopicEventSubscriptionDestination = &serviceBusTopicEventSubscriptionDestination
+		serviceBusTopic := serviceBusTopicARM.(ServiceBusTopicEventSubscriptionDestinationARM)
+		result.ServiceBusTopic = &serviceBusTopic
 	}
 
-	// Set property ‘StorageQueueEventSubscriptionDestination’:
-	if eventSubscriptionDestination.StorageQueueEventSubscriptionDestination != nil {
-		storageQueueEventSubscriptionDestinationARM, err := (*eventSubscriptionDestination.StorageQueueEventSubscriptionDestination).ConvertToARM(resolved)
+	// Set property ‘StorageQueue’:
+	if eventSubscriptionDestination.StorageQueue != nil {
+		storageQueueARM, err := (*eventSubscriptionDestination.StorageQueue).ConvertToARM(resolved)
 		if err != nil {
 			return nil, err
 		}
-		storageQueueEventSubscriptionDestination := storageQueueEventSubscriptionDestinationARM.(StorageQueueEventSubscriptionDestinationARM)
-		result.StorageQueueEventSubscriptionDestination = &storageQueueEventSubscriptionDestination
+		storageQueue := storageQueueARM.(StorageQueueEventSubscriptionDestinationARM)
+		result.StorageQueue = &storageQueue
 	}
 
-	// Set property ‘WebHookEventSubscriptionDestination’:
-	if eventSubscriptionDestination.WebHookEventSubscriptionDestination != nil {
-		webHookEventSubscriptionDestinationARM, err := (*eventSubscriptionDestination.WebHookEventSubscriptionDestination).ConvertToARM(resolved)
+	// Set property ‘WebHook’:
+	if eventSubscriptionDestination.WebHook != nil {
+		webHookARM, err := (*eventSubscriptionDestination.WebHook).ConvertToARM(resolved)
 		if err != nil {
 			return nil, err
 		}
-		webHookEventSubscriptionDestination := webHookEventSubscriptionDestinationARM.(WebHookEventSubscriptionDestinationARM)
-		result.WebHookEventSubscriptionDestination = &webHookEventSubscriptionDestination
+		webHook := webHookARM.(WebHookEventSubscriptionDestinationARM)
+		result.WebHook = &webHook
 	}
 	return result, nil
 }
@@ -1394,81 +1388,81 @@ func (eventSubscriptionDestination *EventSubscriptionDestination) PopulateFromAR
 		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected EventSubscriptionDestinationARM, got %T", armInput)
 	}
 
-	// Set property ‘AzureFunctionEventSubscriptionDestination’:
-	if typedInput.AzureFunctionEventSubscriptionDestination != nil {
-		var azureFunctionEventSubscriptionDestination1 AzureFunctionEventSubscriptionDestination
-		err := azureFunctionEventSubscriptionDestination1.PopulateFromARM(owner, *typedInput.AzureFunctionEventSubscriptionDestination)
+	// Set property ‘AzureFunction’:
+	if typedInput.AzureFunction != nil {
+		var azureFunction1 AzureFunctionEventSubscriptionDestination
+		err := azureFunction1.PopulateFromARM(owner, *typedInput.AzureFunction)
 		if err != nil {
 			return err
 		}
-		azureFunctionEventSubscriptionDestination := azureFunctionEventSubscriptionDestination1
-		eventSubscriptionDestination.AzureFunctionEventSubscriptionDestination = &azureFunctionEventSubscriptionDestination
+		azureFunction := azureFunction1
+		eventSubscriptionDestination.AzureFunction = &azureFunction
 	}
 
-	// Set property ‘EventHubEventSubscriptionDestination’:
-	if typedInput.EventHubEventSubscriptionDestination != nil {
-		var eventHubEventSubscriptionDestination1 EventHubEventSubscriptionDestination
-		err := eventHubEventSubscriptionDestination1.PopulateFromARM(owner, *typedInput.EventHubEventSubscriptionDestination)
+	// Set property ‘EventHub’:
+	if typedInput.EventHub != nil {
+		var eventHub1 EventHubEventSubscriptionDestination
+		err := eventHub1.PopulateFromARM(owner, *typedInput.EventHub)
 		if err != nil {
 			return err
 		}
-		eventHubEventSubscriptionDestination := eventHubEventSubscriptionDestination1
-		eventSubscriptionDestination.EventHubEventSubscriptionDestination = &eventHubEventSubscriptionDestination
+		eventHub := eventHub1
+		eventSubscriptionDestination.EventHub = &eventHub
 	}
 
-	// Set property ‘HybridConnectionEventSubscriptionDestination’:
-	if typedInput.HybridConnectionEventSubscriptionDestination != nil {
-		var hybridConnectionEventSubscriptionDestination1 HybridConnectionEventSubscriptionDestination
-		err := hybridConnectionEventSubscriptionDestination1.PopulateFromARM(owner, *typedInput.HybridConnectionEventSubscriptionDestination)
+	// Set property ‘HybridConnection’:
+	if typedInput.HybridConnection != nil {
+		var hybridConnection1 HybridConnectionEventSubscriptionDestination
+		err := hybridConnection1.PopulateFromARM(owner, *typedInput.HybridConnection)
 		if err != nil {
 			return err
 		}
-		hybridConnectionEventSubscriptionDestination := hybridConnectionEventSubscriptionDestination1
-		eventSubscriptionDestination.HybridConnectionEventSubscriptionDestination = &hybridConnectionEventSubscriptionDestination
+		hybridConnection := hybridConnection1
+		eventSubscriptionDestination.HybridConnection = &hybridConnection
 	}
 
-	// Set property ‘ServiceBusQueueEventSubscriptionDestination’:
-	if typedInput.ServiceBusQueueEventSubscriptionDestination != nil {
-		var serviceBusQueueEventSubscriptionDestination1 ServiceBusQueueEventSubscriptionDestination
-		err := serviceBusQueueEventSubscriptionDestination1.PopulateFromARM(owner, *typedInput.ServiceBusQueueEventSubscriptionDestination)
+	// Set property ‘ServiceBusQueue’:
+	if typedInput.ServiceBusQueue != nil {
+		var serviceBusQueue1 ServiceBusQueueEventSubscriptionDestination
+		err := serviceBusQueue1.PopulateFromARM(owner, *typedInput.ServiceBusQueue)
 		if err != nil {
 			return err
 		}
-		serviceBusQueueEventSubscriptionDestination := serviceBusQueueEventSubscriptionDestination1
-		eventSubscriptionDestination.ServiceBusQueueEventSubscriptionDestination = &serviceBusQueueEventSubscriptionDestination
+		serviceBusQueue := serviceBusQueue1
+		eventSubscriptionDestination.ServiceBusQueue = &serviceBusQueue
 	}
 
-	// Set property ‘ServiceBusTopicEventSubscriptionDestination’:
-	if typedInput.ServiceBusTopicEventSubscriptionDestination != nil {
-		var serviceBusTopicEventSubscriptionDestination1 ServiceBusTopicEventSubscriptionDestination
-		err := serviceBusTopicEventSubscriptionDestination1.PopulateFromARM(owner, *typedInput.ServiceBusTopicEventSubscriptionDestination)
+	// Set property ‘ServiceBusTopic’:
+	if typedInput.ServiceBusTopic != nil {
+		var serviceBusTopic1 ServiceBusTopicEventSubscriptionDestination
+		err := serviceBusTopic1.PopulateFromARM(owner, *typedInput.ServiceBusTopic)
 		if err != nil {
 			return err
 		}
-		serviceBusTopicEventSubscriptionDestination := serviceBusTopicEventSubscriptionDestination1
-		eventSubscriptionDestination.ServiceBusTopicEventSubscriptionDestination = &serviceBusTopicEventSubscriptionDestination
+		serviceBusTopic := serviceBusTopic1
+		eventSubscriptionDestination.ServiceBusTopic = &serviceBusTopic
 	}
 
-	// Set property ‘StorageQueueEventSubscriptionDestination’:
-	if typedInput.StorageQueueEventSubscriptionDestination != nil {
-		var storageQueueEventSubscriptionDestination1 StorageQueueEventSubscriptionDestination
-		err := storageQueueEventSubscriptionDestination1.PopulateFromARM(owner, *typedInput.StorageQueueEventSubscriptionDestination)
+	// Set property ‘StorageQueue’:
+	if typedInput.StorageQueue != nil {
+		var storageQueue1 StorageQueueEventSubscriptionDestination
+		err := storageQueue1.PopulateFromARM(owner, *typedInput.StorageQueue)
 		if err != nil {
 			return err
 		}
-		storageQueueEventSubscriptionDestination := storageQueueEventSubscriptionDestination1
-		eventSubscriptionDestination.StorageQueueEventSubscriptionDestination = &storageQueueEventSubscriptionDestination
+		storageQueue := storageQueue1
+		eventSubscriptionDestination.StorageQueue = &storageQueue
 	}
 
-	// Set property ‘WebHookEventSubscriptionDestination’:
-	if typedInput.WebHookEventSubscriptionDestination != nil {
-		var webHookEventSubscriptionDestination1 WebHookEventSubscriptionDestination
-		err := webHookEventSubscriptionDestination1.PopulateFromARM(owner, *typedInput.WebHookEventSubscriptionDestination)
+	// Set property ‘WebHook’:
+	if typedInput.WebHook != nil {
+		var webHook1 WebHookEventSubscriptionDestination
+		err := webHook1.PopulateFromARM(owner, *typedInput.WebHook)
 		if err != nil {
 			return err
 		}
-		webHookEventSubscriptionDestination := webHookEventSubscriptionDestination1
-		eventSubscriptionDestination.WebHookEventSubscriptionDestination = &webHookEventSubscriptionDestination
+		webHook := webHook1
+		eventSubscriptionDestination.WebHook = &webHook
 	}
 
 	// No error
@@ -1478,88 +1472,88 @@ func (eventSubscriptionDestination *EventSubscriptionDestination) PopulateFromAR
 // AssignPropertiesFromEventSubscriptionDestination populates our EventSubscriptionDestination from the provided source EventSubscriptionDestination
 func (eventSubscriptionDestination *EventSubscriptionDestination) AssignPropertiesFromEventSubscriptionDestination(source *v1alpha1api20200601storage.EventSubscriptionDestination) error {
 
-	// AzureFunctionEventSubscriptionDestination
-	if source.AzureFunctionEventSubscriptionDestination != nil {
-		var azureFunctionEventSubscriptionDestination AzureFunctionEventSubscriptionDestination
-		err := azureFunctionEventSubscriptionDestination.AssignPropertiesFromAzureFunctionEventSubscriptionDestination(source.AzureFunctionEventSubscriptionDestination)
+	// AzureFunction
+	if source.AzureFunction != nil {
+		var azureFunction AzureFunctionEventSubscriptionDestination
+		err := azureFunction.AssignPropertiesFromAzureFunctionEventSubscriptionDestination(source.AzureFunction)
 		if err != nil {
-			return errors.Wrap(err, "populating AzureFunctionEventSubscriptionDestination from AzureFunctionEventSubscriptionDestination, calling AssignPropertiesFromAzureFunctionEventSubscriptionDestination()")
+			return errors.Wrap(err, "populating AzureFunction from AzureFunction, calling AssignPropertiesFromAzureFunctionEventSubscriptionDestination()")
 		}
-		eventSubscriptionDestination.AzureFunctionEventSubscriptionDestination = &azureFunctionEventSubscriptionDestination
+		eventSubscriptionDestination.AzureFunction = &azureFunction
 	} else {
-		eventSubscriptionDestination.AzureFunctionEventSubscriptionDestination = nil
+		eventSubscriptionDestination.AzureFunction = nil
 	}
 
-	// EventHubEventSubscriptionDestination
-	if source.EventHubEventSubscriptionDestination != nil {
-		var eventHubEventSubscriptionDestination EventHubEventSubscriptionDestination
-		err := eventHubEventSubscriptionDestination.AssignPropertiesFromEventHubEventSubscriptionDestination(source.EventHubEventSubscriptionDestination)
+	// EventHub
+	if source.EventHub != nil {
+		var eventHub EventHubEventSubscriptionDestination
+		err := eventHub.AssignPropertiesFromEventHubEventSubscriptionDestination(source.EventHub)
 		if err != nil {
-			return errors.Wrap(err, "populating EventHubEventSubscriptionDestination from EventHubEventSubscriptionDestination, calling AssignPropertiesFromEventHubEventSubscriptionDestination()")
+			return errors.Wrap(err, "populating EventHub from EventHub, calling AssignPropertiesFromEventHubEventSubscriptionDestination()")
 		}
-		eventSubscriptionDestination.EventHubEventSubscriptionDestination = &eventHubEventSubscriptionDestination
+		eventSubscriptionDestination.EventHub = &eventHub
 	} else {
-		eventSubscriptionDestination.EventHubEventSubscriptionDestination = nil
+		eventSubscriptionDestination.EventHub = nil
 	}
 
-	// HybridConnectionEventSubscriptionDestination
-	if source.HybridConnectionEventSubscriptionDestination != nil {
-		var hybridConnectionEventSubscriptionDestination HybridConnectionEventSubscriptionDestination
-		err := hybridConnectionEventSubscriptionDestination.AssignPropertiesFromHybridConnectionEventSubscriptionDestination(source.HybridConnectionEventSubscriptionDestination)
+	// HybridConnection
+	if source.HybridConnection != nil {
+		var hybridConnection HybridConnectionEventSubscriptionDestination
+		err := hybridConnection.AssignPropertiesFromHybridConnectionEventSubscriptionDestination(source.HybridConnection)
 		if err != nil {
-			return errors.Wrap(err, "populating HybridConnectionEventSubscriptionDestination from HybridConnectionEventSubscriptionDestination, calling AssignPropertiesFromHybridConnectionEventSubscriptionDestination()")
+			return errors.Wrap(err, "populating HybridConnection from HybridConnection, calling AssignPropertiesFromHybridConnectionEventSubscriptionDestination()")
 		}
-		eventSubscriptionDestination.HybridConnectionEventSubscriptionDestination = &hybridConnectionEventSubscriptionDestination
+		eventSubscriptionDestination.HybridConnection = &hybridConnection
 	} else {
-		eventSubscriptionDestination.HybridConnectionEventSubscriptionDestination = nil
+		eventSubscriptionDestination.HybridConnection = nil
 	}
 
-	// ServiceBusQueueEventSubscriptionDestination
-	if source.ServiceBusQueueEventSubscriptionDestination != nil {
-		var serviceBusQueueEventSubscriptionDestination ServiceBusQueueEventSubscriptionDestination
-		err := serviceBusQueueEventSubscriptionDestination.AssignPropertiesFromServiceBusQueueEventSubscriptionDestination(source.ServiceBusQueueEventSubscriptionDestination)
+	// ServiceBusQueue
+	if source.ServiceBusQueue != nil {
+		var serviceBusQueue ServiceBusQueueEventSubscriptionDestination
+		err := serviceBusQueue.AssignPropertiesFromServiceBusQueueEventSubscriptionDestination(source.ServiceBusQueue)
 		if err != nil {
-			return errors.Wrap(err, "populating ServiceBusQueueEventSubscriptionDestination from ServiceBusQueueEventSubscriptionDestination, calling AssignPropertiesFromServiceBusQueueEventSubscriptionDestination()")
+			return errors.Wrap(err, "populating ServiceBusQueue from ServiceBusQueue, calling AssignPropertiesFromServiceBusQueueEventSubscriptionDestination()")
 		}
-		eventSubscriptionDestination.ServiceBusQueueEventSubscriptionDestination = &serviceBusQueueEventSubscriptionDestination
+		eventSubscriptionDestination.ServiceBusQueue = &serviceBusQueue
 	} else {
-		eventSubscriptionDestination.ServiceBusQueueEventSubscriptionDestination = nil
+		eventSubscriptionDestination.ServiceBusQueue = nil
 	}
 
-	// ServiceBusTopicEventSubscriptionDestination
-	if source.ServiceBusTopicEventSubscriptionDestination != nil {
-		var serviceBusTopicEventSubscriptionDestination ServiceBusTopicEventSubscriptionDestination
-		err := serviceBusTopicEventSubscriptionDestination.AssignPropertiesFromServiceBusTopicEventSubscriptionDestination(source.ServiceBusTopicEventSubscriptionDestination)
+	// ServiceBusTopic
+	if source.ServiceBusTopic != nil {
+		var serviceBusTopic ServiceBusTopicEventSubscriptionDestination
+		err := serviceBusTopic.AssignPropertiesFromServiceBusTopicEventSubscriptionDestination(source.ServiceBusTopic)
 		if err != nil {
-			return errors.Wrap(err, "populating ServiceBusTopicEventSubscriptionDestination from ServiceBusTopicEventSubscriptionDestination, calling AssignPropertiesFromServiceBusTopicEventSubscriptionDestination()")
+			return errors.Wrap(err, "populating ServiceBusTopic from ServiceBusTopic, calling AssignPropertiesFromServiceBusTopicEventSubscriptionDestination()")
 		}
-		eventSubscriptionDestination.ServiceBusTopicEventSubscriptionDestination = &serviceBusTopicEventSubscriptionDestination
+		eventSubscriptionDestination.ServiceBusTopic = &serviceBusTopic
 	} else {
-		eventSubscriptionDestination.ServiceBusTopicEventSubscriptionDestination = nil
+		eventSubscriptionDestination.ServiceBusTopic = nil
 	}
 
-	// StorageQueueEventSubscriptionDestination
-	if source.StorageQueueEventSubscriptionDestination != nil {
-		var storageQueueEventSubscriptionDestination StorageQueueEventSubscriptionDestination
-		err := storageQueueEventSubscriptionDestination.AssignPropertiesFromStorageQueueEventSubscriptionDestination(source.StorageQueueEventSubscriptionDestination)
+	// StorageQueue
+	if source.StorageQueue != nil {
+		var storageQueue StorageQueueEventSubscriptionDestination
+		err := storageQueue.AssignPropertiesFromStorageQueueEventSubscriptionDestination(source.StorageQueue)
 		if err != nil {
-			return errors.Wrap(err, "populating StorageQueueEventSubscriptionDestination from StorageQueueEventSubscriptionDestination, calling AssignPropertiesFromStorageQueueEventSubscriptionDestination()")
+			return errors.Wrap(err, "populating StorageQueue from StorageQueue, calling AssignPropertiesFromStorageQueueEventSubscriptionDestination()")
 		}
-		eventSubscriptionDestination.StorageQueueEventSubscriptionDestination = &storageQueueEventSubscriptionDestination
+		eventSubscriptionDestination.StorageQueue = &storageQueue
 	} else {
-		eventSubscriptionDestination.StorageQueueEventSubscriptionDestination = nil
+		eventSubscriptionDestination.StorageQueue = nil
 	}
 
-	// WebHookEventSubscriptionDestination
-	if source.WebHookEventSubscriptionDestination != nil {
-		var webHookEventSubscriptionDestination WebHookEventSubscriptionDestination
-		err := webHookEventSubscriptionDestination.AssignPropertiesFromWebHookEventSubscriptionDestination(source.WebHookEventSubscriptionDestination)
+	// WebHook
+	if source.WebHook != nil {
+		var webHook WebHookEventSubscriptionDestination
+		err := webHook.AssignPropertiesFromWebHookEventSubscriptionDestination(source.WebHook)
 		if err != nil {
-			return errors.Wrap(err, "populating WebHookEventSubscriptionDestination from WebHookEventSubscriptionDestination, calling AssignPropertiesFromWebHookEventSubscriptionDestination()")
+			return errors.Wrap(err, "populating WebHook from WebHook, calling AssignPropertiesFromWebHookEventSubscriptionDestination()")
 		}
-		eventSubscriptionDestination.WebHookEventSubscriptionDestination = &webHookEventSubscriptionDestination
+		eventSubscriptionDestination.WebHook = &webHook
 	} else {
-		eventSubscriptionDestination.WebHookEventSubscriptionDestination = nil
+		eventSubscriptionDestination.WebHook = nil
 	}
 
 	// No error
@@ -1571,88 +1565,88 @@ func (eventSubscriptionDestination *EventSubscriptionDestination) AssignProperti
 	// Create a new property bag
 	propertyBag := genruntime.NewPropertyBag()
 
-	// AzureFunctionEventSubscriptionDestination
-	if eventSubscriptionDestination.AzureFunctionEventSubscriptionDestination != nil {
-		var azureFunctionEventSubscriptionDestination v1alpha1api20200601storage.AzureFunctionEventSubscriptionDestination
-		err := (*eventSubscriptionDestination.AzureFunctionEventSubscriptionDestination).AssignPropertiesToAzureFunctionEventSubscriptionDestination(&azureFunctionEventSubscriptionDestination)
+	// AzureFunction
+	if eventSubscriptionDestination.AzureFunction != nil {
+		var azureFunction v1alpha1api20200601storage.AzureFunctionEventSubscriptionDestination
+		err := (*eventSubscriptionDestination.AzureFunction).AssignPropertiesToAzureFunctionEventSubscriptionDestination(&azureFunction)
 		if err != nil {
-			return errors.Wrap(err, "populating AzureFunctionEventSubscriptionDestination from AzureFunctionEventSubscriptionDestination, calling AssignPropertiesToAzureFunctionEventSubscriptionDestination()")
+			return errors.Wrap(err, "populating AzureFunction from AzureFunction, calling AssignPropertiesToAzureFunctionEventSubscriptionDestination()")
 		}
-		destination.AzureFunctionEventSubscriptionDestination = &azureFunctionEventSubscriptionDestination
+		destination.AzureFunction = &azureFunction
 	} else {
-		destination.AzureFunctionEventSubscriptionDestination = nil
+		destination.AzureFunction = nil
 	}
 
-	// EventHubEventSubscriptionDestination
-	if eventSubscriptionDestination.EventHubEventSubscriptionDestination != nil {
-		var eventHubEventSubscriptionDestination v1alpha1api20200601storage.EventHubEventSubscriptionDestination
-		err := (*eventSubscriptionDestination.EventHubEventSubscriptionDestination).AssignPropertiesToEventHubEventSubscriptionDestination(&eventHubEventSubscriptionDestination)
+	// EventHub
+	if eventSubscriptionDestination.EventHub != nil {
+		var eventHub v1alpha1api20200601storage.EventHubEventSubscriptionDestination
+		err := (*eventSubscriptionDestination.EventHub).AssignPropertiesToEventHubEventSubscriptionDestination(&eventHub)
 		if err != nil {
-			return errors.Wrap(err, "populating EventHubEventSubscriptionDestination from EventHubEventSubscriptionDestination, calling AssignPropertiesToEventHubEventSubscriptionDestination()")
+			return errors.Wrap(err, "populating EventHub from EventHub, calling AssignPropertiesToEventHubEventSubscriptionDestination()")
 		}
-		destination.EventHubEventSubscriptionDestination = &eventHubEventSubscriptionDestination
+		destination.EventHub = &eventHub
 	} else {
-		destination.EventHubEventSubscriptionDestination = nil
+		destination.EventHub = nil
 	}
 
-	// HybridConnectionEventSubscriptionDestination
-	if eventSubscriptionDestination.HybridConnectionEventSubscriptionDestination != nil {
-		var hybridConnectionEventSubscriptionDestination v1alpha1api20200601storage.HybridConnectionEventSubscriptionDestination
-		err := (*eventSubscriptionDestination.HybridConnectionEventSubscriptionDestination).AssignPropertiesToHybridConnectionEventSubscriptionDestination(&hybridConnectionEventSubscriptionDestination)
+	// HybridConnection
+	if eventSubscriptionDestination.HybridConnection != nil {
+		var hybridConnection v1alpha1api20200601storage.HybridConnectionEventSubscriptionDestination
+		err := (*eventSubscriptionDestination.HybridConnection).AssignPropertiesToHybridConnectionEventSubscriptionDestination(&hybridConnection)
 		if err != nil {
-			return errors.Wrap(err, "populating HybridConnectionEventSubscriptionDestination from HybridConnectionEventSubscriptionDestination, calling AssignPropertiesToHybridConnectionEventSubscriptionDestination()")
+			return errors.Wrap(err, "populating HybridConnection from HybridConnection, calling AssignPropertiesToHybridConnectionEventSubscriptionDestination()")
 		}
-		destination.HybridConnectionEventSubscriptionDestination = &hybridConnectionEventSubscriptionDestination
+		destination.HybridConnection = &hybridConnection
 	} else {
-		destination.HybridConnectionEventSubscriptionDestination = nil
+		destination.HybridConnection = nil
 	}
 
-	// ServiceBusQueueEventSubscriptionDestination
-	if eventSubscriptionDestination.ServiceBusQueueEventSubscriptionDestination != nil {
-		var serviceBusQueueEventSubscriptionDestination v1alpha1api20200601storage.ServiceBusQueueEventSubscriptionDestination
-		err := (*eventSubscriptionDestination.ServiceBusQueueEventSubscriptionDestination).AssignPropertiesToServiceBusQueueEventSubscriptionDestination(&serviceBusQueueEventSubscriptionDestination)
+	// ServiceBusQueue
+	if eventSubscriptionDestination.ServiceBusQueue != nil {
+		var serviceBusQueue v1alpha1api20200601storage.ServiceBusQueueEventSubscriptionDestination
+		err := (*eventSubscriptionDestination.ServiceBusQueue).AssignPropertiesToServiceBusQueueEventSubscriptionDestination(&serviceBusQueue)
 		if err != nil {
-			return errors.Wrap(err, "populating ServiceBusQueueEventSubscriptionDestination from ServiceBusQueueEventSubscriptionDestination, calling AssignPropertiesToServiceBusQueueEventSubscriptionDestination()")
+			return errors.Wrap(err, "populating ServiceBusQueue from ServiceBusQueue, calling AssignPropertiesToServiceBusQueueEventSubscriptionDestination()")
 		}
-		destination.ServiceBusQueueEventSubscriptionDestination = &serviceBusQueueEventSubscriptionDestination
+		destination.ServiceBusQueue = &serviceBusQueue
 	} else {
-		destination.ServiceBusQueueEventSubscriptionDestination = nil
+		destination.ServiceBusQueue = nil
 	}
 
-	// ServiceBusTopicEventSubscriptionDestination
-	if eventSubscriptionDestination.ServiceBusTopicEventSubscriptionDestination != nil {
-		var serviceBusTopicEventSubscriptionDestination v1alpha1api20200601storage.ServiceBusTopicEventSubscriptionDestination
-		err := (*eventSubscriptionDestination.ServiceBusTopicEventSubscriptionDestination).AssignPropertiesToServiceBusTopicEventSubscriptionDestination(&serviceBusTopicEventSubscriptionDestination)
+	// ServiceBusTopic
+	if eventSubscriptionDestination.ServiceBusTopic != nil {
+		var serviceBusTopic v1alpha1api20200601storage.ServiceBusTopicEventSubscriptionDestination
+		err := (*eventSubscriptionDestination.ServiceBusTopic).AssignPropertiesToServiceBusTopicEventSubscriptionDestination(&serviceBusTopic)
 		if err != nil {
-			return errors.Wrap(err, "populating ServiceBusTopicEventSubscriptionDestination from ServiceBusTopicEventSubscriptionDestination, calling AssignPropertiesToServiceBusTopicEventSubscriptionDestination()")
+			return errors.Wrap(err, "populating ServiceBusTopic from ServiceBusTopic, calling AssignPropertiesToServiceBusTopicEventSubscriptionDestination()")
 		}
-		destination.ServiceBusTopicEventSubscriptionDestination = &serviceBusTopicEventSubscriptionDestination
+		destination.ServiceBusTopic = &serviceBusTopic
 	} else {
-		destination.ServiceBusTopicEventSubscriptionDestination = nil
+		destination.ServiceBusTopic = nil
 	}
 
-	// StorageQueueEventSubscriptionDestination
-	if eventSubscriptionDestination.StorageQueueEventSubscriptionDestination != nil {
-		var storageQueueEventSubscriptionDestination v1alpha1api20200601storage.StorageQueueEventSubscriptionDestination
-		err := (*eventSubscriptionDestination.StorageQueueEventSubscriptionDestination).AssignPropertiesToStorageQueueEventSubscriptionDestination(&storageQueueEventSubscriptionDestination)
+	// StorageQueue
+	if eventSubscriptionDestination.StorageQueue != nil {
+		var storageQueue v1alpha1api20200601storage.StorageQueueEventSubscriptionDestination
+		err := (*eventSubscriptionDestination.StorageQueue).AssignPropertiesToStorageQueueEventSubscriptionDestination(&storageQueue)
 		if err != nil {
-			return errors.Wrap(err, "populating StorageQueueEventSubscriptionDestination from StorageQueueEventSubscriptionDestination, calling AssignPropertiesToStorageQueueEventSubscriptionDestination()")
+			return errors.Wrap(err, "populating StorageQueue from StorageQueue, calling AssignPropertiesToStorageQueueEventSubscriptionDestination()")
 		}
-		destination.StorageQueueEventSubscriptionDestination = &storageQueueEventSubscriptionDestination
+		destination.StorageQueue = &storageQueue
 	} else {
-		destination.StorageQueueEventSubscriptionDestination = nil
+		destination.StorageQueue = nil
 	}
 
-	// WebHookEventSubscriptionDestination
-	if eventSubscriptionDestination.WebHookEventSubscriptionDestination != nil {
-		var webHookEventSubscriptionDestination v1alpha1api20200601storage.WebHookEventSubscriptionDestination
-		err := (*eventSubscriptionDestination.WebHookEventSubscriptionDestination).AssignPropertiesToWebHookEventSubscriptionDestination(&webHookEventSubscriptionDestination)
+	// WebHook
+	if eventSubscriptionDestination.WebHook != nil {
+		var webHook v1alpha1api20200601storage.WebHookEventSubscriptionDestination
+		err := (*eventSubscriptionDestination.WebHook).AssignPropertiesToWebHookEventSubscriptionDestination(&webHook)
 		if err != nil {
-			return errors.Wrap(err, "populating WebHookEventSubscriptionDestination from WebHookEventSubscriptionDestination, calling AssignPropertiesToWebHookEventSubscriptionDestination()")
+			return errors.Wrap(err, "populating WebHook from WebHook, calling AssignPropertiesToWebHookEventSubscriptionDestination()")
 		}
-		destination.WebHookEventSubscriptionDestination = &webHookEventSubscriptionDestination
+		destination.WebHook = &webHook
 	} else {
-		destination.WebHookEventSubscriptionDestination = nil
+		destination.WebHook = nil
 	}
 
 	// Update the property bag
@@ -2434,43 +2428,41 @@ func (storageBlobDeadLetterDestination *StorageBlobDeadLetterDestination) Assign
 
 //Generated from: https://schema.management.azure.com/schemas/2020-06-01/Microsoft.EventGrid.json#/definitions/AdvancedFilter
 type AdvancedFilter struct {
-	//BoolEqualsAdvancedFilter: Mutually exclusive with all other properties
-	BoolEqualsAdvancedFilter *AdvancedFilter_BoolEqualsAdvancedFilter `json:"boolEqualsAdvancedFilter,omitempty"`
+	//BoolEquals: Mutually exclusive with all other properties
+	BoolEquals *AdvancedFilter_BoolEquals `json:"boolEqualsAdvancedFilter,omitempty"`
 
-	//NumberGreaterThanAdvancedFilter: Mutually exclusive with all other properties
-	NumberGreaterThanAdvancedFilter *AdvancedFilter_NumberGreaterThanAdvancedFilter `json:"numberGreaterThanAdvancedFilter,omitempty"`
+	//NumberGreaterThan: Mutually exclusive with all other properties
+	NumberGreaterThan *AdvancedFilter_NumberGreaterThan `json:"numberGreaterThanAdvancedFilter,omitempty"`
 
-	//NumberGreaterThanOrEqualsAdvancedFilter: Mutually exclusive with all other
-	//properties
-	NumberGreaterThanOrEqualsAdvancedFilter *AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilter `json:"numberGreaterThanOrEqualsAdvancedFilter,omitempty"`
+	//NumberGreaterThanOrEquals: Mutually exclusive with all other properties
+	NumberGreaterThanOrEquals *AdvancedFilter_NumberGreaterThanOrEquals `json:"numberGreaterThanOrEqualsAdvancedFilter,omitempty"`
 
-	//NumberInAdvancedFilter: Mutually exclusive with all other properties
-	NumberInAdvancedFilter *AdvancedFilter_NumberInAdvancedFilter `json:"numberInAdvancedFilter,omitempty"`
+	//NumberIn: Mutually exclusive with all other properties
+	NumberIn *AdvancedFilter_NumberIn `json:"numberInAdvancedFilter,omitempty"`
 
-	//NumberLessThanAdvancedFilter: Mutually exclusive with all other properties
-	NumberLessThanAdvancedFilter *AdvancedFilter_NumberLessThanAdvancedFilter `json:"numberLessThanAdvancedFilter,omitempty"`
+	//NumberLessThan: Mutually exclusive with all other properties
+	NumberLessThan *AdvancedFilter_NumberLessThan `json:"numberLessThanAdvancedFilter,omitempty"`
 
-	//NumberLessThanOrEqualsAdvancedFilter: Mutually exclusive with all other
-	//properties
-	NumberLessThanOrEqualsAdvancedFilter *AdvancedFilter_NumberLessThanOrEqualsAdvancedFilter `json:"numberLessThanOrEqualsAdvancedFilter,omitempty"`
+	//NumberLessThanOrEquals: Mutually exclusive with all other properties
+	NumberLessThanOrEquals *AdvancedFilter_NumberLessThanOrEquals `json:"numberLessThanOrEqualsAdvancedFilter,omitempty"`
 
-	//NumberNotInAdvancedFilter: Mutually exclusive with all other properties
-	NumberNotInAdvancedFilter *AdvancedFilter_NumberNotInAdvancedFilter `json:"numberNotInAdvancedFilter,omitempty"`
+	//NumberNotIn: Mutually exclusive with all other properties
+	NumberNotIn *AdvancedFilter_NumberNotIn `json:"numberNotInAdvancedFilter,omitempty"`
 
-	//StringBeginsWithAdvancedFilter: Mutually exclusive with all other properties
-	StringBeginsWithAdvancedFilter *AdvancedFilter_StringBeginsWithAdvancedFilter `json:"stringBeginsWithAdvancedFilter,omitempty"`
+	//StringBeginsWith: Mutually exclusive with all other properties
+	StringBeginsWith *AdvancedFilter_StringBeginsWith `json:"stringBeginsWithAdvancedFilter,omitempty"`
 
-	//StringContainsAdvancedFilter: Mutually exclusive with all other properties
-	StringContainsAdvancedFilter *AdvancedFilter_StringContainsAdvancedFilter `json:"stringContainsAdvancedFilter,omitempty"`
+	//StringContains: Mutually exclusive with all other properties
+	StringContains *AdvancedFilter_StringContains `json:"stringContainsAdvancedFilter,omitempty"`
 
-	//StringEndsWithAdvancedFilter: Mutually exclusive with all other properties
-	StringEndsWithAdvancedFilter *AdvancedFilter_StringEndsWithAdvancedFilter `json:"stringEndsWithAdvancedFilter,omitempty"`
+	//StringEndsWith: Mutually exclusive with all other properties
+	StringEndsWith *AdvancedFilter_StringEndsWith `json:"stringEndsWithAdvancedFilter,omitempty"`
 
-	//StringInAdvancedFilter: Mutually exclusive with all other properties
-	StringInAdvancedFilter *AdvancedFilter_StringInAdvancedFilter `json:"stringInAdvancedFilter,omitempty"`
+	//StringIn: Mutually exclusive with all other properties
+	StringIn *AdvancedFilter_StringIn `json:"stringInAdvancedFilter,omitempty"`
 
-	//StringNotInAdvancedFilter: Mutually exclusive with all other properties
-	StringNotInAdvancedFilter *AdvancedFilter_StringNotInAdvancedFilter `json:"stringNotInAdvancedFilter,omitempty"`
+	//StringNotIn: Mutually exclusive with all other properties
+	StringNotIn *AdvancedFilter_StringNotIn `json:"stringNotInAdvancedFilter,omitempty"`
 }
 
 var _ genruntime.ARMTransformer = &AdvancedFilter{}
@@ -2482,124 +2474,124 @@ func (advancedFilter *AdvancedFilter) ConvertToARM(resolved genruntime.ConvertTo
 	}
 	var result AdvancedFilterARM
 
-	// Set property ‘BoolEqualsAdvancedFilter’:
-	if advancedFilter.BoolEqualsAdvancedFilter != nil {
-		boolEqualsAdvancedFilterARM, err := (*advancedFilter.BoolEqualsAdvancedFilter).ConvertToARM(resolved)
+	// Set property ‘BoolEquals’:
+	if advancedFilter.BoolEquals != nil {
+		boolEqualsARM, err := (*advancedFilter.BoolEquals).ConvertToARM(resolved)
 		if err != nil {
 			return nil, err
 		}
-		boolEqualsAdvancedFilter := boolEqualsAdvancedFilterARM.(AdvancedFilter_BoolEqualsAdvancedFilterARM)
-		result.BoolEqualsAdvancedFilter = &boolEqualsAdvancedFilter
+		boolEquals := boolEqualsARM.(AdvancedFilter_BoolEqualsARM)
+		result.BoolEquals = &boolEquals
 	}
 
-	// Set property ‘NumberGreaterThanAdvancedFilter’:
-	if advancedFilter.NumberGreaterThanAdvancedFilter != nil {
-		numberGreaterThanAdvancedFilterARM, err := (*advancedFilter.NumberGreaterThanAdvancedFilter).ConvertToARM(resolved)
+	// Set property ‘NumberGreaterThan’:
+	if advancedFilter.NumberGreaterThan != nil {
+		numberGreaterThanARM, err := (*advancedFilter.NumberGreaterThan).ConvertToARM(resolved)
 		if err != nil {
 			return nil, err
 		}
-		numberGreaterThanAdvancedFilter := numberGreaterThanAdvancedFilterARM.(AdvancedFilter_NumberGreaterThanAdvancedFilterARM)
-		result.NumberGreaterThanAdvancedFilter = &numberGreaterThanAdvancedFilter
+		numberGreaterThan := numberGreaterThanARM.(AdvancedFilter_NumberGreaterThanARM)
+		result.NumberGreaterThan = &numberGreaterThan
 	}
 
-	// Set property ‘NumberGreaterThanOrEqualsAdvancedFilter’:
-	if advancedFilter.NumberGreaterThanOrEqualsAdvancedFilter != nil {
-		numberGreaterThanOrEqualsAdvancedFilterARM, err := (*advancedFilter.NumberGreaterThanOrEqualsAdvancedFilter).ConvertToARM(resolved)
+	// Set property ‘NumberGreaterThanOrEquals’:
+	if advancedFilter.NumberGreaterThanOrEquals != nil {
+		numberGreaterThanOrEqualsARM, err := (*advancedFilter.NumberGreaterThanOrEquals).ConvertToARM(resolved)
 		if err != nil {
 			return nil, err
 		}
-		numberGreaterThanOrEqualsAdvancedFilter := numberGreaterThanOrEqualsAdvancedFilterARM.(AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilterARM)
-		result.NumberGreaterThanOrEqualsAdvancedFilter = &numberGreaterThanOrEqualsAdvancedFilter
+		numberGreaterThanOrEquals := numberGreaterThanOrEqualsARM.(AdvancedFilter_NumberGreaterThanOrEqualsARM)
+		result.NumberGreaterThanOrEquals = &numberGreaterThanOrEquals
 	}
 
-	// Set property ‘NumberInAdvancedFilter’:
-	if advancedFilter.NumberInAdvancedFilter != nil {
-		numberInAdvancedFilterARM, err := (*advancedFilter.NumberInAdvancedFilter).ConvertToARM(resolved)
+	// Set property ‘NumberIn’:
+	if advancedFilter.NumberIn != nil {
+		numberInARM, err := (*advancedFilter.NumberIn).ConvertToARM(resolved)
 		if err != nil {
 			return nil, err
 		}
-		numberInAdvancedFilter := numberInAdvancedFilterARM.(AdvancedFilter_NumberInAdvancedFilterARM)
-		result.NumberInAdvancedFilter = &numberInAdvancedFilter
+		numberIn := numberInARM.(AdvancedFilter_NumberInARM)
+		result.NumberIn = &numberIn
 	}
 
-	// Set property ‘NumberLessThanAdvancedFilter’:
-	if advancedFilter.NumberLessThanAdvancedFilter != nil {
-		numberLessThanAdvancedFilterARM, err := (*advancedFilter.NumberLessThanAdvancedFilter).ConvertToARM(resolved)
+	// Set property ‘NumberLessThan’:
+	if advancedFilter.NumberLessThan != nil {
+		numberLessThanARM, err := (*advancedFilter.NumberLessThan).ConvertToARM(resolved)
 		if err != nil {
 			return nil, err
 		}
-		numberLessThanAdvancedFilter := numberLessThanAdvancedFilterARM.(AdvancedFilter_NumberLessThanAdvancedFilterARM)
-		result.NumberLessThanAdvancedFilter = &numberLessThanAdvancedFilter
+		numberLessThan := numberLessThanARM.(AdvancedFilter_NumberLessThanARM)
+		result.NumberLessThan = &numberLessThan
 	}
 
-	// Set property ‘NumberLessThanOrEqualsAdvancedFilter’:
-	if advancedFilter.NumberLessThanOrEqualsAdvancedFilter != nil {
-		numberLessThanOrEqualsAdvancedFilterARM, err := (*advancedFilter.NumberLessThanOrEqualsAdvancedFilter).ConvertToARM(resolved)
+	// Set property ‘NumberLessThanOrEquals’:
+	if advancedFilter.NumberLessThanOrEquals != nil {
+		numberLessThanOrEqualsARM, err := (*advancedFilter.NumberLessThanOrEquals).ConvertToARM(resolved)
 		if err != nil {
 			return nil, err
 		}
-		numberLessThanOrEqualsAdvancedFilter := numberLessThanOrEqualsAdvancedFilterARM.(AdvancedFilter_NumberLessThanOrEqualsAdvancedFilterARM)
-		result.NumberLessThanOrEqualsAdvancedFilter = &numberLessThanOrEqualsAdvancedFilter
+		numberLessThanOrEquals := numberLessThanOrEqualsARM.(AdvancedFilter_NumberLessThanOrEqualsARM)
+		result.NumberLessThanOrEquals = &numberLessThanOrEquals
 	}
 
-	// Set property ‘NumberNotInAdvancedFilter’:
-	if advancedFilter.NumberNotInAdvancedFilter != nil {
-		numberNotInAdvancedFilterARM, err := (*advancedFilter.NumberNotInAdvancedFilter).ConvertToARM(resolved)
+	// Set property ‘NumberNotIn’:
+	if advancedFilter.NumberNotIn != nil {
+		numberNotInARM, err := (*advancedFilter.NumberNotIn).ConvertToARM(resolved)
 		if err != nil {
 			return nil, err
 		}
-		numberNotInAdvancedFilter := numberNotInAdvancedFilterARM.(AdvancedFilter_NumberNotInAdvancedFilterARM)
-		result.NumberNotInAdvancedFilter = &numberNotInAdvancedFilter
+		numberNotIn := numberNotInARM.(AdvancedFilter_NumberNotInARM)
+		result.NumberNotIn = &numberNotIn
 	}
 
-	// Set property ‘StringBeginsWithAdvancedFilter’:
-	if advancedFilter.StringBeginsWithAdvancedFilter != nil {
-		stringBeginsWithAdvancedFilterARM, err := (*advancedFilter.StringBeginsWithAdvancedFilter).ConvertToARM(resolved)
+	// Set property ‘StringBeginsWith’:
+	if advancedFilter.StringBeginsWith != nil {
+		stringBeginsWithARM, err := (*advancedFilter.StringBeginsWith).ConvertToARM(resolved)
 		if err != nil {
 			return nil, err
 		}
-		stringBeginsWithAdvancedFilter := stringBeginsWithAdvancedFilterARM.(AdvancedFilter_StringBeginsWithAdvancedFilterARM)
-		result.StringBeginsWithAdvancedFilter = &stringBeginsWithAdvancedFilter
+		stringBeginsWith := stringBeginsWithARM.(AdvancedFilter_StringBeginsWithARM)
+		result.StringBeginsWith = &stringBeginsWith
 	}
 
-	// Set property ‘StringContainsAdvancedFilter’:
-	if advancedFilter.StringContainsAdvancedFilter != nil {
-		stringContainsAdvancedFilterARM, err := (*advancedFilter.StringContainsAdvancedFilter).ConvertToARM(resolved)
+	// Set property ‘StringContains’:
+	if advancedFilter.StringContains != nil {
+		stringContainsARM, err := (*advancedFilter.StringContains).ConvertToARM(resolved)
 		if err != nil {
 			return nil, err
 		}
-		stringContainsAdvancedFilter := stringContainsAdvancedFilterARM.(AdvancedFilter_StringContainsAdvancedFilterARM)
-		result.StringContainsAdvancedFilter = &stringContainsAdvancedFilter
+		stringContains := stringContainsARM.(AdvancedFilter_StringContainsARM)
+		result.StringContains = &stringContains
 	}
 
-	// Set property ‘StringEndsWithAdvancedFilter’:
-	if advancedFilter.StringEndsWithAdvancedFilter != nil {
-		stringEndsWithAdvancedFilterARM, err := (*advancedFilter.StringEndsWithAdvancedFilter).ConvertToARM(resolved)
+	// Set property ‘StringEndsWith’:
+	if advancedFilter.StringEndsWith != nil {
+		stringEndsWithARM, err := (*advancedFilter.StringEndsWith).ConvertToARM(resolved)
 		if err != nil {
 			return nil, err
 		}
-		stringEndsWithAdvancedFilter := stringEndsWithAdvancedFilterARM.(AdvancedFilter_StringEndsWithAdvancedFilterARM)
-		result.StringEndsWithAdvancedFilter = &stringEndsWithAdvancedFilter
+		stringEndsWith := stringEndsWithARM.(AdvancedFilter_StringEndsWithARM)
+		result.StringEndsWith = &stringEndsWith
 	}
 
-	// Set property ‘StringInAdvancedFilter’:
-	if advancedFilter.StringInAdvancedFilter != nil {
-		stringInAdvancedFilterARM, err := (*advancedFilter.StringInAdvancedFilter).ConvertToARM(resolved)
+	// Set property ‘StringIn’:
+	if advancedFilter.StringIn != nil {
+		stringInARM, err := (*advancedFilter.StringIn).ConvertToARM(resolved)
 		if err != nil {
 			return nil, err
 		}
-		stringInAdvancedFilter := stringInAdvancedFilterARM.(AdvancedFilter_StringInAdvancedFilterARM)
-		result.StringInAdvancedFilter = &stringInAdvancedFilter
+		stringIn := stringInARM.(AdvancedFilter_StringInARM)
+		result.StringIn = &stringIn
 	}
 
-	// Set property ‘StringNotInAdvancedFilter’:
-	if advancedFilter.StringNotInAdvancedFilter != nil {
-		stringNotInAdvancedFilterARM, err := (*advancedFilter.StringNotInAdvancedFilter).ConvertToARM(resolved)
+	// Set property ‘StringNotIn’:
+	if advancedFilter.StringNotIn != nil {
+		stringNotInARM, err := (*advancedFilter.StringNotIn).ConvertToARM(resolved)
 		if err != nil {
 			return nil, err
 		}
-		stringNotInAdvancedFilter := stringNotInAdvancedFilterARM.(AdvancedFilter_StringNotInAdvancedFilterARM)
-		result.StringNotInAdvancedFilter = &stringNotInAdvancedFilter
+		stringNotIn := stringNotInARM.(AdvancedFilter_StringNotInARM)
+		result.StringNotIn = &stringNotIn
 	}
 	return result, nil
 }
@@ -2616,136 +2608,136 @@ func (advancedFilter *AdvancedFilter) PopulateFromARM(owner genruntime.Arbitrary
 		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilterARM, got %T", armInput)
 	}
 
-	// Set property ‘BoolEqualsAdvancedFilter’:
-	if typedInput.BoolEqualsAdvancedFilter != nil {
-		var boolEqualsAdvancedFilter1 AdvancedFilter_BoolEqualsAdvancedFilter
-		err := boolEqualsAdvancedFilter1.PopulateFromARM(owner, *typedInput.BoolEqualsAdvancedFilter)
+	// Set property ‘BoolEquals’:
+	if typedInput.BoolEquals != nil {
+		var boolEquals1 AdvancedFilter_BoolEquals
+		err := boolEquals1.PopulateFromARM(owner, *typedInput.BoolEquals)
 		if err != nil {
 			return err
 		}
-		boolEqualsAdvancedFilter := boolEqualsAdvancedFilter1
-		advancedFilter.BoolEqualsAdvancedFilter = &boolEqualsAdvancedFilter
+		boolEquals := boolEquals1
+		advancedFilter.BoolEquals = &boolEquals
 	}
 
-	// Set property ‘NumberGreaterThanAdvancedFilter’:
-	if typedInput.NumberGreaterThanAdvancedFilter != nil {
-		var numberGreaterThanAdvancedFilter1 AdvancedFilter_NumberGreaterThanAdvancedFilter
-		err := numberGreaterThanAdvancedFilter1.PopulateFromARM(owner, *typedInput.NumberGreaterThanAdvancedFilter)
+	// Set property ‘NumberGreaterThan’:
+	if typedInput.NumberGreaterThan != nil {
+		var numberGreaterThan1 AdvancedFilter_NumberGreaterThan
+		err := numberGreaterThan1.PopulateFromARM(owner, *typedInput.NumberGreaterThan)
 		if err != nil {
 			return err
 		}
-		numberGreaterThanAdvancedFilter := numberGreaterThanAdvancedFilter1
-		advancedFilter.NumberGreaterThanAdvancedFilter = &numberGreaterThanAdvancedFilter
+		numberGreaterThan := numberGreaterThan1
+		advancedFilter.NumberGreaterThan = &numberGreaterThan
 	}
 
-	// Set property ‘NumberGreaterThanOrEqualsAdvancedFilter’:
-	if typedInput.NumberGreaterThanOrEqualsAdvancedFilter != nil {
-		var numberGreaterThanOrEqualsAdvancedFilter1 AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilter
-		err := numberGreaterThanOrEqualsAdvancedFilter1.PopulateFromARM(owner, *typedInput.NumberGreaterThanOrEqualsAdvancedFilter)
+	// Set property ‘NumberGreaterThanOrEquals’:
+	if typedInput.NumberGreaterThanOrEquals != nil {
+		var numberGreaterThanOrEquals1 AdvancedFilter_NumberGreaterThanOrEquals
+		err := numberGreaterThanOrEquals1.PopulateFromARM(owner, *typedInput.NumberGreaterThanOrEquals)
 		if err != nil {
 			return err
 		}
-		numberGreaterThanOrEqualsAdvancedFilter := numberGreaterThanOrEqualsAdvancedFilter1
-		advancedFilter.NumberGreaterThanOrEqualsAdvancedFilter = &numberGreaterThanOrEqualsAdvancedFilter
+		numberGreaterThanOrEquals := numberGreaterThanOrEquals1
+		advancedFilter.NumberGreaterThanOrEquals = &numberGreaterThanOrEquals
 	}
 
-	// Set property ‘NumberInAdvancedFilter’:
-	if typedInput.NumberInAdvancedFilter != nil {
-		var numberInAdvancedFilter1 AdvancedFilter_NumberInAdvancedFilter
-		err := numberInAdvancedFilter1.PopulateFromARM(owner, *typedInput.NumberInAdvancedFilter)
+	// Set property ‘NumberIn’:
+	if typedInput.NumberIn != nil {
+		var numberIn1 AdvancedFilter_NumberIn
+		err := numberIn1.PopulateFromARM(owner, *typedInput.NumberIn)
 		if err != nil {
 			return err
 		}
-		numberInAdvancedFilter := numberInAdvancedFilter1
-		advancedFilter.NumberInAdvancedFilter = &numberInAdvancedFilter
+		numberIn := numberIn1
+		advancedFilter.NumberIn = &numberIn
 	}
 
-	// Set property ‘NumberLessThanAdvancedFilter’:
-	if typedInput.NumberLessThanAdvancedFilter != nil {
-		var numberLessThanAdvancedFilter1 AdvancedFilter_NumberLessThanAdvancedFilter
-		err := numberLessThanAdvancedFilter1.PopulateFromARM(owner, *typedInput.NumberLessThanAdvancedFilter)
+	// Set property ‘NumberLessThan’:
+	if typedInput.NumberLessThan != nil {
+		var numberLessThan1 AdvancedFilter_NumberLessThan
+		err := numberLessThan1.PopulateFromARM(owner, *typedInput.NumberLessThan)
 		if err != nil {
 			return err
 		}
-		numberLessThanAdvancedFilter := numberLessThanAdvancedFilter1
-		advancedFilter.NumberLessThanAdvancedFilter = &numberLessThanAdvancedFilter
+		numberLessThan := numberLessThan1
+		advancedFilter.NumberLessThan = &numberLessThan
 	}
 
-	// Set property ‘NumberLessThanOrEqualsAdvancedFilter’:
-	if typedInput.NumberLessThanOrEqualsAdvancedFilter != nil {
-		var numberLessThanOrEqualsAdvancedFilter1 AdvancedFilter_NumberLessThanOrEqualsAdvancedFilter
-		err := numberLessThanOrEqualsAdvancedFilter1.PopulateFromARM(owner, *typedInput.NumberLessThanOrEqualsAdvancedFilter)
+	// Set property ‘NumberLessThanOrEquals’:
+	if typedInput.NumberLessThanOrEquals != nil {
+		var numberLessThanOrEquals1 AdvancedFilter_NumberLessThanOrEquals
+		err := numberLessThanOrEquals1.PopulateFromARM(owner, *typedInput.NumberLessThanOrEquals)
 		if err != nil {
 			return err
 		}
-		numberLessThanOrEqualsAdvancedFilter := numberLessThanOrEqualsAdvancedFilter1
-		advancedFilter.NumberLessThanOrEqualsAdvancedFilter = &numberLessThanOrEqualsAdvancedFilter
+		numberLessThanOrEquals := numberLessThanOrEquals1
+		advancedFilter.NumberLessThanOrEquals = &numberLessThanOrEquals
 	}
 
-	// Set property ‘NumberNotInAdvancedFilter’:
-	if typedInput.NumberNotInAdvancedFilter != nil {
-		var numberNotInAdvancedFilter1 AdvancedFilter_NumberNotInAdvancedFilter
-		err := numberNotInAdvancedFilter1.PopulateFromARM(owner, *typedInput.NumberNotInAdvancedFilter)
+	// Set property ‘NumberNotIn’:
+	if typedInput.NumberNotIn != nil {
+		var numberNotIn1 AdvancedFilter_NumberNotIn
+		err := numberNotIn1.PopulateFromARM(owner, *typedInput.NumberNotIn)
 		if err != nil {
 			return err
 		}
-		numberNotInAdvancedFilter := numberNotInAdvancedFilter1
-		advancedFilter.NumberNotInAdvancedFilter = &numberNotInAdvancedFilter
+		numberNotIn := numberNotIn1
+		advancedFilter.NumberNotIn = &numberNotIn
 	}
 
-	// Set property ‘StringBeginsWithAdvancedFilter’:
-	if typedInput.StringBeginsWithAdvancedFilter != nil {
-		var stringBeginsWithAdvancedFilter1 AdvancedFilter_StringBeginsWithAdvancedFilter
-		err := stringBeginsWithAdvancedFilter1.PopulateFromARM(owner, *typedInput.StringBeginsWithAdvancedFilter)
+	// Set property ‘StringBeginsWith’:
+	if typedInput.StringBeginsWith != nil {
+		var stringBeginsWith1 AdvancedFilter_StringBeginsWith
+		err := stringBeginsWith1.PopulateFromARM(owner, *typedInput.StringBeginsWith)
 		if err != nil {
 			return err
 		}
-		stringBeginsWithAdvancedFilter := stringBeginsWithAdvancedFilter1
-		advancedFilter.StringBeginsWithAdvancedFilter = &stringBeginsWithAdvancedFilter
+		stringBeginsWith := stringBeginsWith1
+		advancedFilter.StringBeginsWith = &stringBeginsWith
 	}
 
-	// Set property ‘StringContainsAdvancedFilter’:
-	if typedInput.StringContainsAdvancedFilter != nil {
-		var stringContainsAdvancedFilter1 AdvancedFilter_StringContainsAdvancedFilter
-		err := stringContainsAdvancedFilter1.PopulateFromARM(owner, *typedInput.StringContainsAdvancedFilter)
+	// Set property ‘StringContains’:
+	if typedInput.StringContains != nil {
+		var stringContains1 AdvancedFilter_StringContains
+		err := stringContains1.PopulateFromARM(owner, *typedInput.StringContains)
 		if err != nil {
 			return err
 		}
-		stringContainsAdvancedFilter := stringContainsAdvancedFilter1
-		advancedFilter.StringContainsAdvancedFilter = &stringContainsAdvancedFilter
+		stringContains := stringContains1
+		advancedFilter.StringContains = &stringContains
 	}
 
-	// Set property ‘StringEndsWithAdvancedFilter’:
-	if typedInput.StringEndsWithAdvancedFilter != nil {
-		var stringEndsWithAdvancedFilter1 AdvancedFilter_StringEndsWithAdvancedFilter
-		err := stringEndsWithAdvancedFilter1.PopulateFromARM(owner, *typedInput.StringEndsWithAdvancedFilter)
+	// Set property ‘StringEndsWith’:
+	if typedInput.StringEndsWith != nil {
+		var stringEndsWith1 AdvancedFilter_StringEndsWith
+		err := stringEndsWith1.PopulateFromARM(owner, *typedInput.StringEndsWith)
 		if err != nil {
 			return err
 		}
-		stringEndsWithAdvancedFilter := stringEndsWithAdvancedFilter1
-		advancedFilter.StringEndsWithAdvancedFilter = &stringEndsWithAdvancedFilter
+		stringEndsWith := stringEndsWith1
+		advancedFilter.StringEndsWith = &stringEndsWith
 	}
 
-	// Set property ‘StringInAdvancedFilter’:
-	if typedInput.StringInAdvancedFilter != nil {
-		var stringInAdvancedFilter1 AdvancedFilter_StringInAdvancedFilter
-		err := stringInAdvancedFilter1.PopulateFromARM(owner, *typedInput.StringInAdvancedFilter)
+	// Set property ‘StringIn’:
+	if typedInput.StringIn != nil {
+		var stringIn1 AdvancedFilter_StringIn
+		err := stringIn1.PopulateFromARM(owner, *typedInput.StringIn)
 		if err != nil {
 			return err
 		}
-		stringInAdvancedFilter := stringInAdvancedFilter1
-		advancedFilter.StringInAdvancedFilter = &stringInAdvancedFilter
+		stringIn := stringIn1
+		advancedFilter.StringIn = &stringIn
 	}
 
-	// Set property ‘StringNotInAdvancedFilter’:
-	if typedInput.StringNotInAdvancedFilter != nil {
-		var stringNotInAdvancedFilter1 AdvancedFilter_StringNotInAdvancedFilter
-		err := stringNotInAdvancedFilter1.PopulateFromARM(owner, *typedInput.StringNotInAdvancedFilter)
+	// Set property ‘StringNotIn’:
+	if typedInput.StringNotIn != nil {
+		var stringNotIn1 AdvancedFilter_StringNotIn
+		err := stringNotIn1.PopulateFromARM(owner, *typedInput.StringNotIn)
 		if err != nil {
 			return err
 		}
-		stringNotInAdvancedFilter := stringNotInAdvancedFilter1
-		advancedFilter.StringNotInAdvancedFilter = &stringNotInAdvancedFilter
+		stringNotIn := stringNotIn1
+		advancedFilter.StringNotIn = &stringNotIn
 	}
 
 	// No error
@@ -2755,148 +2747,148 @@ func (advancedFilter *AdvancedFilter) PopulateFromARM(owner genruntime.Arbitrary
 // AssignPropertiesFromAdvancedFilter populates our AdvancedFilter from the provided source AdvancedFilter
 func (advancedFilter *AdvancedFilter) AssignPropertiesFromAdvancedFilter(source *v1alpha1api20200601storage.AdvancedFilter) error {
 
-	// BoolEqualsAdvancedFilter
-	if source.BoolEqualsAdvancedFilter != nil {
-		var boolEqualsAdvancedFilter AdvancedFilter_BoolEqualsAdvancedFilter
-		err := boolEqualsAdvancedFilter.AssignPropertiesFromAdvancedFilterBoolEqualsAdvancedFilter(source.BoolEqualsAdvancedFilter)
+	// BoolEquals
+	if source.BoolEquals != nil {
+		var boolEqual AdvancedFilter_BoolEquals
+		err := boolEqual.AssignPropertiesFromAdvancedFilterBoolEquals(source.BoolEquals)
 		if err != nil {
-			return errors.Wrap(err, "populating BoolEqualsAdvancedFilter from BoolEqualsAdvancedFilter, calling AssignPropertiesFromAdvancedFilterBoolEqualsAdvancedFilter()")
+			return errors.Wrap(err, "populating BoolEquals from BoolEquals, calling AssignPropertiesFromAdvancedFilterBoolEquals()")
 		}
-		advancedFilter.BoolEqualsAdvancedFilter = &boolEqualsAdvancedFilter
+		advancedFilter.BoolEquals = &boolEqual
 	} else {
-		advancedFilter.BoolEqualsAdvancedFilter = nil
+		advancedFilter.BoolEquals = nil
 	}
 
-	// NumberGreaterThanAdvancedFilter
-	if source.NumberGreaterThanAdvancedFilter != nil {
-		var numberGreaterThanAdvancedFilter AdvancedFilter_NumberGreaterThanAdvancedFilter
-		err := numberGreaterThanAdvancedFilter.AssignPropertiesFromAdvancedFilterNumberGreaterThanAdvancedFilter(source.NumberGreaterThanAdvancedFilter)
+	// NumberGreaterThan
+	if source.NumberGreaterThan != nil {
+		var numberGreaterThan AdvancedFilter_NumberGreaterThan
+		err := numberGreaterThan.AssignPropertiesFromAdvancedFilterNumberGreaterThan(source.NumberGreaterThan)
 		if err != nil {
-			return errors.Wrap(err, "populating NumberGreaterThanAdvancedFilter from NumberGreaterThanAdvancedFilter, calling AssignPropertiesFromAdvancedFilterNumberGreaterThanAdvancedFilter()")
+			return errors.Wrap(err, "populating NumberGreaterThan from NumberGreaterThan, calling AssignPropertiesFromAdvancedFilterNumberGreaterThan()")
 		}
-		advancedFilter.NumberGreaterThanAdvancedFilter = &numberGreaterThanAdvancedFilter
+		advancedFilter.NumberGreaterThan = &numberGreaterThan
 	} else {
-		advancedFilter.NumberGreaterThanAdvancedFilter = nil
+		advancedFilter.NumberGreaterThan = nil
 	}
 
-	// NumberGreaterThanOrEqualsAdvancedFilter
-	if source.NumberGreaterThanOrEqualsAdvancedFilter != nil {
-		var numberGreaterThanOrEqualsAdvancedFilter AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilter
-		err := numberGreaterThanOrEqualsAdvancedFilter.AssignPropertiesFromAdvancedFilterNumberGreaterThanOrEqualsAdvancedFilter(source.NumberGreaterThanOrEqualsAdvancedFilter)
+	// NumberGreaterThanOrEquals
+	if source.NumberGreaterThanOrEquals != nil {
+		var numberGreaterThanOrEqual AdvancedFilter_NumberGreaterThanOrEquals
+		err := numberGreaterThanOrEqual.AssignPropertiesFromAdvancedFilterNumberGreaterThanOrEquals(source.NumberGreaterThanOrEquals)
 		if err != nil {
-			return errors.Wrap(err, "populating NumberGreaterThanOrEqualsAdvancedFilter from NumberGreaterThanOrEqualsAdvancedFilter, calling AssignPropertiesFromAdvancedFilterNumberGreaterThanOrEqualsAdvancedFilter()")
+			return errors.Wrap(err, "populating NumberGreaterThanOrEquals from NumberGreaterThanOrEquals, calling AssignPropertiesFromAdvancedFilterNumberGreaterThanOrEquals()")
 		}
-		advancedFilter.NumberGreaterThanOrEqualsAdvancedFilter = &numberGreaterThanOrEqualsAdvancedFilter
+		advancedFilter.NumberGreaterThanOrEquals = &numberGreaterThanOrEqual
 	} else {
-		advancedFilter.NumberGreaterThanOrEqualsAdvancedFilter = nil
+		advancedFilter.NumberGreaterThanOrEquals = nil
 	}
 
-	// NumberInAdvancedFilter
-	if source.NumberInAdvancedFilter != nil {
-		var numberInAdvancedFilter AdvancedFilter_NumberInAdvancedFilter
-		err := numberInAdvancedFilter.AssignPropertiesFromAdvancedFilterNumberInAdvancedFilter(source.NumberInAdvancedFilter)
+	// NumberIn
+	if source.NumberIn != nil {
+		var numberIn AdvancedFilter_NumberIn
+		err := numberIn.AssignPropertiesFromAdvancedFilterNumberIn(source.NumberIn)
 		if err != nil {
-			return errors.Wrap(err, "populating NumberInAdvancedFilter from NumberInAdvancedFilter, calling AssignPropertiesFromAdvancedFilterNumberInAdvancedFilter()")
+			return errors.Wrap(err, "populating NumberIn from NumberIn, calling AssignPropertiesFromAdvancedFilterNumberIn()")
 		}
-		advancedFilter.NumberInAdvancedFilter = &numberInAdvancedFilter
+		advancedFilter.NumberIn = &numberIn
 	} else {
-		advancedFilter.NumberInAdvancedFilter = nil
+		advancedFilter.NumberIn = nil
 	}
 
-	// NumberLessThanAdvancedFilter
-	if source.NumberLessThanAdvancedFilter != nil {
-		var numberLessThanAdvancedFilter AdvancedFilter_NumberLessThanAdvancedFilter
-		err := numberLessThanAdvancedFilter.AssignPropertiesFromAdvancedFilterNumberLessThanAdvancedFilter(source.NumberLessThanAdvancedFilter)
+	// NumberLessThan
+	if source.NumberLessThan != nil {
+		var numberLessThan AdvancedFilter_NumberLessThan
+		err := numberLessThan.AssignPropertiesFromAdvancedFilterNumberLessThan(source.NumberLessThan)
 		if err != nil {
-			return errors.Wrap(err, "populating NumberLessThanAdvancedFilter from NumberLessThanAdvancedFilter, calling AssignPropertiesFromAdvancedFilterNumberLessThanAdvancedFilter()")
+			return errors.Wrap(err, "populating NumberLessThan from NumberLessThan, calling AssignPropertiesFromAdvancedFilterNumberLessThan()")
 		}
-		advancedFilter.NumberLessThanAdvancedFilter = &numberLessThanAdvancedFilter
+		advancedFilter.NumberLessThan = &numberLessThan
 	} else {
-		advancedFilter.NumberLessThanAdvancedFilter = nil
+		advancedFilter.NumberLessThan = nil
 	}
 
-	// NumberLessThanOrEqualsAdvancedFilter
-	if source.NumberLessThanOrEqualsAdvancedFilter != nil {
-		var numberLessThanOrEqualsAdvancedFilter AdvancedFilter_NumberLessThanOrEqualsAdvancedFilter
-		err := numberLessThanOrEqualsAdvancedFilter.AssignPropertiesFromAdvancedFilterNumberLessThanOrEqualsAdvancedFilter(source.NumberLessThanOrEqualsAdvancedFilter)
+	// NumberLessThanOrEquals
+	if source.NumberLessThanOrEquals != nil {
+		var numberLessThanOrEqual AdvancedFilter_NumberLessThanOrEquals
+		err := numberLessThanOrEqual.AssignPropertiesFromAdvancedFilterNumberLessThanOrEquals(source.NumberLessThanOrEquals)
 		if err != nil {
-			return errors.Wrap(err, "populating NumberLessThanOrEqualsAdvancedFilter from NumberLessThanOrEqualsAdvancedFilter, calling AssignPropertiesFromAdvancedFilterNumberLessThanOrEqualsAdvancedFilter()")
+			return errors.Wrap(err, "populating NumberLessThanOrEquals from NumberLessThanOrEquals, calling AssignPropertiesFromAdvancedFilterNumberLessThanOrEquals()")
 		}
-		advancedFilter.NumberLessThanOrEqualsAdvancedFilter = &numberLessThanOrEqualsAdvancedFilter
+		advancedFilter.NumberLessThanOrEquals = &numberLessThanOrEqual
 	} else {
-		advancedFilter.NumberLessThanOrEqualsAdvancedFilter = nil
+		advancedFilter.NumberLessThanOrEquals = nil
 	}
 
-	// NumberNotInAdvancedFilter
-	if source.NumberNotInAdvancedFilter != nil {
-		var numberNotInAdvancedFilter AdvancedFilter_NumberNotInAdvancedFilter
-		err := numberNotInAdvancedFilter.AssignPropertiesFromAdvancedFilterNumberNotInAdvancedFilter(source.NumberNotInAdvancedFilter)
+	// NumberNotIn
+	if source.NumberNotIn != nil {
+		var numberNotIn AdvancedFilter_NumberNotIn
+		err := numberNotIn.AssignPropertiesFromAdvancedFilterNumberNotIn(source.NumberNotIn)
 		if err != nil {
-			return errors.Wrap(err, "populating NumberNotInAdvancedFilter from NumberNotInAdvancedFilter, calling AssignPropertiesFromAdvancedFilterNumberNotInAdvancedFilter()")
+			return errors.Wrap(err, "populating NumberNotIn from NumberNotIn, calling AssignPropertiesFromAdvancedFilterNumberNotIn()")
 		}
-		advancedFilter.NumberNotInAdvancedFilter = &numberNotInAdvancedFilter
+		advancedFilter.NumberNotIn = &numberNotIn
 	} else {
-		advancedFilter.NumberNotInAdvancedFilter = nil
+		advancedFilter.NumberNotIn = nil
 	}
 
-	// StringBeginsWithAdvancedFilter
-	if source.StringBeginsWithAdvancedFilter != nil {
-		var stringBeginsWithAdvancedFilter AdvancedFilter_StringBeginsWithAdvancedFilter
-		err := stringBeginsWithAdvancedFilter.AssignPropertiesFromAdvancedFilterStringBeginsWithAdvancedFilter(source.StringBeginsWithAdvancedFilter)
+	// StringBeginsWith
+	if source.StringBeginsWith != nil {
+		var stringBeginsWith AdvancedFilter_StringBeginsWith
+		err := stringBeginsWith.AssignPropertiesFromAdvancedFilterStringBeginsWith(source.StringBeginsWith)
 		if err != nil {
-			return errors.Wrap(err, "populating StringBeginsWithAdvancedFilter from StringBeginsWithAdvancedFilter, calling AssignPropertiesFromAdvancedFilterStringBeginsWithAdvancedFilter()")
+			return errors.Wrap(err, "populating StringBeginsWith from StringBeginsWith, calling AssignPropertiesFromAdvancedFilterStringBeginsWith()")
 		}
-		advancedFilter.StringBeginsWithAdvancedFilter = &stringBeginsWithAdvancedFilter
+		advancedFilter.StringBeginsWith = &stringBeginsWith
 	} else {
-		advancedFilter.StringBeginsWithAdvancedFilter = nil
+		advancedFilter.StringBeginsWith = nil
 	}
 
-	// StringContainsAdvancedFilter
-	if source.StringContainsAdvancedFilter != nil {
-		var stringContainsAdvancedFilter AdvancedFilter_StringContainsAdvancedFilter
-		err := stringContainsAdvancedFilter.AssignPropertiesFromAdvancedFilterStringContainsAdvancedFilter(source.StringContainsAdvancedFilter)
+	// StringContains
+	if source.StringContains != nil {
+		var stringContain AdvancedFilter_StringContains
+		err := stringContain.AssignPropertiesFromAdvancedFilterStringContains(source.StringContains)
 		if err != nil {
-			return errors.Wrap(err, "populating StringContainsAdvancedFilter from StringContainsAdvancedFilter, calling AssignPropertiesFromAdvancedFilterStringContainsAdvancedFilter()")
+			return errors.Wrap(err, "populating StringContains from StringContains, calling AssignPropertiesFromAdvancedFilterStringContains()")
 		}
-		advancedFilter.StringContainsAdvancedFilter = &stringContainsAdvancedFilter
+		advancedFilter.StringContains = &stringContain
 	} else {
-		advancedFilter.StringContainsAdvancedFilter = nil
+		advancedFilter.StringContains = nil
 	}
 
-	// StringEndsWithAdvancedFilter
-	if source.StringEndsWithAdvancedFilter != nil {
-		var stringEndsWithAdvancedFilter AdvancedFilter_StringEndsWithAdvancedFilter
-		err := stringEndsWithAdvancedFilter.AssignPropertiesFromAdvancedFilterStringEndsWithAdvancedFilter(source.StringEndsWithAdvancedFilter)
+	// StringEndsWith
+	if source.StringEndsWith != nil {
+		var stringEndsWith AdvancedFilter_StringEndsWith
+		err := stringEndsWith.AssignPropertiesFromAdvancedFilterStringEndsWith(source.StringEndsWith)
 		if err != nil {
-			return errors.Wrap(err, "populating StringEndsWithAdvancedFilter from StringEndsWithAdvancedFilter, calling AssignPropertiesFromAdvancedFilterStringEndsWithAdvancedFilter()")
+			return errors.Wrap(err, "populating StringEndsWith from StringEndsWith, calling AssignPropertiesFromAdvancedFilterStringEndsWith()")
 		}
-		advancedFilter.StringEndsWithAdvancedFilter = &stringEndsWithAdvancedFilter
+		advancedFilter.StringEndsWith = &stringEndsWith
 	} else {
-		advancedFilter.StringEndsWithAdvancedFilter = nil
+		advancedFilter.StringEndsWith = nil
 	}
 
-	// StringInAdvancedFilter
-	if source.StringInAdvancedFilter != nil {
-		var stringInAdvancedFilter AdvancedFilter_StringInAdvancedFilter
-		err := stringInAdvancedFilter.AssignPropertiesFromAdvancedFilterStringInAdvancedFilter(source.StringInAdvancedFilter)
+	// StringIn
+	if source.StringIn != nil {
+		var stringIn AdvancedFilter_StringIn
+		err := stringIn.AssignPropertiesFromAdvancedFilterStringIn(source.StringIn)
 		if err != nil {
-			return errors.Wrap(err, "populating StringInAdvancedFilter from StringInAdvancedFilter, calling AssignPropertiesFromAdvancedFilterStringInAdvancedFilter()")
+			return errors.Wrap(err, "populating StringIn from StringIn, calling AssignPropertiesFromAdvancedFilterStringIn()")
 		}
-		advancedFilter.StringInAdvancedFilter = &stringInAdvancedFilter
+		advancedFilter.StringIn = &stringIn
 	} else {
-		advancedFilter.StringInAdvancedFilter = nil
+		advancedFilter.StringIn = nil
 	}
 
-	// StringNotInAdvancedFilter
-	if source.StringNotInAdvancedFilter != nil {
-		var stringNotInAdvancedFilter AdvancedFilter_StringNotInAdvancedFilter
-		err := stringNotInAdvancedFilter.AssignPropertiesFromAdvancedFilterStringNotInAdvancedFilter(source.StringNotInAdvancedFilter)
+	// StringNotIn
+	if source.StringNotIn != nil {
+		var stringNotIn AdvancedFilter_StringNotIn
+		err := stringNotIn.AssignPropertiesFromAdvancedFilterStringNotIn(source.StringNotIn)
 		if err != nil {
-			return errors.Wrap(err, "populating StringNotInAdvancedFilter from StringNotInAdvancedFilter, calling AssignPropertiesFromAdvancedFilterStringNotInAdvancedFilter()")
+			return errors.Wrap(err, "populating StringNotIn from StringNotIn, calling AssignPropertiesFromAdvancedFilterStringNotIn()")
 		}
-		advancedFilter.StringNotInAdvancedFilter = &stringNotInAdvancedFilter
+		advancedFilter.StringNotIn = &stringNotIn
 	} else {
-		advancedFilter.StringNotInAdvancedFilter = nil
+		advancedFilter.StringNotIn = nil
 	}
 
 	// No error
@@ -2908,148 +2900,148 @@ func (advancedFilter *AdvancedFilter) AssignPropertiesToAdvancedFilter(destinati
 	// Create a new property bag
 	propertyBag := genruntime.NewPropertyBag()
 
-	// BoolEqualsAdvancedFilter
-	if advancedFilter.BoolEqualsAdvancedFilter != nil {
-		var boolEqualsAdvancedFilter v1alpha1api20200601storage.AdvancedFilter_BoolEqualsAdvancedFilter
-		err := (*advancedFilter.BoolEqualsAdvancedFilter).AssignPropertiesToAdvancedFilterBoolEqualsAdvancedFilter(&boolEqualsAdvancedFilter)
+	// BoolEquals
+	if advancedFilter.BoolEquals != nil {
+		var boolEqual v1alpha1api20200601storage.AdvancedFilter_BoolEquals
+		err := (*advancedFilter.BoolEquals).AssignPropertiesToAdvancedFilterBoolEquals(&boolEqual)
 		if err != nil {
-			return errors.Wrap(err, "populating BoolEqualsAdvancedFilter from BoolEqualsAdvancedFilter, calling AssignPropertiesToAdvancedFilterBoolEqualsAdvancedFilter()")
+			return errors.Wrap(err, "populating BoolEquals from BoolEquals, calling AssignPropertiesToAdvancedFilterBoolEquals()")
 		}
-		destination.BoolEqualsAdvancedFilter = &boolEqualsAdvancedFilter
+		destination.BoolEquals = &boolEqual
 	} else {
-		destination.BoolEqualsAdvancedFilter = nil
+		destination.BoolEquals = nil
 	}
 
-	// NumberGreaterThanAdvancedFilter
-	if advancedFilter.NumberGreaterThanAdvancedFilter != nil {
-		var numberGreaterThanAdvancedFilter v1alpha1api20200601storage.AdvancedFilter_NumberGreaterThanAdvancedFilter
-		err := (*advancedFilter.NumberGreaterThanAdvancedFilter).AssignPropertiesToAdvancedFilterNumberGreaterThanAdvancedFilter(&numberGreaterThanAdvancedFilter)
+	// NumberGreaterThan
+	if advancedFilter.NumberGreaterThan != nil {
+		var numberGreaterThan v1alpha1api20200601storage.AdvancedFilter_NumberGreaterThan
+		err := (*advancedFilter.NumberGreaterThan).AssignPropertiesToAdvancedFilterNumberGreaterThan(&numberGreaterThan)
 		if err != nil {
-			return errors.Wrap(err, "populating NumberGreaterThanAdvancedFilter from NumberGreaterThanAdvancedFilter, calling AssignPropertiesToAdvancedFilterNumberGreaterThanAdvancedFilter()")
+			return errors.Wrap(err, "populating NumberGreaterThan from NumberGreaterThan, calling AssignPropertiesToAdvancedFilterNumberGreaterThan()")
 		}
-		destination.NumberGreaterThanAdvancedFilter = &numberGreaterThanAdvancedFilter
+		destination.NumberGreaterThan = &numberGreaterThan
 	} else {
-		destination.NumberGreaterThanAdvancedFilter = nil
+		destination.NumberGreaterThan = nil
 	}
 
-	// NumberGreaterThanOrEqualsAdvancedFilter
-	if advancedFilter.NumberGreaterThanOrEqualsAdvancedFilter != nil {
-		var numberGreaterThanOrEqualsAdvancedFilter v1alpha1api20200601storage.AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilter
-		err := (*advancedFilter.NumberGreaterThanOrEqualsAdvancedFilter).AssignPropertiesToAdvancedFilterNumberGreaterThanOrEqualsAdvancedFilter(&numberGreaterThanOrEqualsAdvancedFilter)
+	// NumberGreaterThanOrEquals
+	if advancedFilter.NumberGreaterThanOrEquals != nil {
+		var numberGreaterThanOrEqual v1alpha1api20200601storage.AdvancedFilter_NumberGreaterThanOrEquals
+		err := (*advancedFilter.NumberGreaterThanOrEquals).AssignPropertiesToAdvancedFilterNumberGreaterThanOrEquals(&numberGreaterThanOrEqual)
 		if err != nil {
-			return errors.Wrap(err, "populating NumberGreaterThanOrEqualsAdvancedFilter from NumberGreaterThanOrEqualsAdvancedFilter, calling AssignPropertiesToAdvancedFilterNumberGreaterThanOrEqualsAdvancedFilter()")
+			return errors.Wrap(err, "populating NumberGreaterThanOrEquals from NumberGreaterThanOrEquals, calling AssignPropertiesToAdvancedFilterNumberGreaterThanOrEquals()")
 		}
-		destination.NumberGreaterThanOrEqualsAdvancedFilter = &numberGreaterThanOrEqualsAdvancedFilter
+		destination.NumberGreaterThanOrEquals = &numberGreaterThanOrEqual
 	} else {
-		destination.NumberGreaterThanOrEqualsAdvancedFilter = nil
+		destination.NumberGreaterThanOrEquals = nil
 	}
 
-	// NumberInAdvancedFilter
-	if advancedFilter.NumberInAdvancedFilter != nil {
-		var numberInAdvancedFilter v1alpha1api20200601storage.AdvancedFilter_NumberInAdvancedFilter
-		err := (*advancedFilter.NumberInAdvancedFilter).AssignPropertiesToAdvancedFilterNumberInAdvancedFilter(&numberInAdvancedFilter)
+	// NumberIn
+	if advancedFilter.NumberIn != nil {
+		var numberIn v1alpha1api20200601storage.AdvancedFilter_NumberIn
+		err := (*advancedFilter.NumberIn).AssignPropertiesToAdvancedFilterNumberIn(&numberIn)
 		if err != nil {
-			return errors.Wrap(err, "populating NumberInAdvancedFilter from NumberInAdvancedFilter, calling AssignPropertiesToAdvancedFilterNumberInAdvancedFilter()")
+			return errors.Wrap(err, "populating NumberIn from NumberIn, calling AssignPropertiesToAdvancedFilterNumberIn()")
 		}
-		destination.NumberInAdvancedFilter = &numberInAdvancedFilter
+		destination.NumberIn = &numberIn
 	} else {
-		destination.NumberInAdvancedFilter = nil
+		destination.NumberIn = nil
 	}
 
-	// NumberLessThanAdvancedFilter
-	if advancedFilter.NumberLessThanAdvancedFilter != nil {
-		var numberLessThanAdvancedFilter v1alpha1api20200601storage.AdvancedFilter_NumberLessThanAdvancedFilter
-		err := (*advancedFilter.NumberLessThanAdvancedFilter).AssignPropertiesToAdvancedFilterNumberLessThanAdvancedFilter(&numberLessThanAdvancedFilter)
+	// NumberLessThan
+	if advancedFilter.NumberLessThan != nil {
+		var numberLessThan v1alpha1api20200601storage.AdvancedFilter_NumberLessThan
+		err := (*advancedFilter.NumberLessThan).AssignPropertiesToAdvancedFilterNumberLessThan(&numberLessThan)
 		if err != nil {
-			return errors.Wrap(err, "populating NumberLessThanAdvancedFilter from NumberLessThanAdvancedFilter, calling AssignPropertiesToAdvancedFilterNumberLessThanAdvancedFilter()")
+			return errors.Wrap(err, "populating NumberLessThan from NumberLessThan, calling AssignPropertiesToAdvancedFilterNumberLessThan()")
 		}
-		destination.NumberLessThanAdvancedFilter = &numberLessThanAdvancedFilter
+		destination.NumberLessThan = &numberLessThan
 	} else {
-		destination.NumberLessThanAdvancedFilter = nil
+		destination.NumberLessThan = nil
 	}
 
-	// NumberLessThanOrEqualsAdvancedFilter
-	if advancedFilter.NumberLessThanOrEqualsAdvancedFilter != nil {
-		var numberLessThanOrEqualsAdvancedFilter v1alpha1api20200601storage.AdvancedFilter_NumberLessThanOrEqualsAdvancedFilter
-		err := (*advancedFilter.NumberLessThanOrEqualsAdvancedFilter).AssignPropertiesToAdvancedFilterNumberLessThanOrEqualsAdvancedFilter(&numberLessThanOrEqualsAdvancedFilter)
+	// NumberLessThanOrEquals
+	if advancedFilter.NumberLessThanOrEquals != nil {
+		var numberLessThanOrEqual v1alpha1api20200601storage.AdvancedFilter_NumberLessThanOrEquals
+		err := (*advancedFilter.NumberLessThanOrEquals).AssignPropertiesToAdvancedFilterNumberLessThanOrEquals(&numberLessThanOrEqual)
 		if err != nil {
-			return errors.Wrap(err, "populating NumberLessThanOrEqualsAdvancedFilter from NumberLessThanOrEqualsAdvancedFilter, calling AssignPropertiesToAdvancedFilterNumberLessThanOrEqualsAdvancedFilter()")
+			return errors.Wrap(err, "populating NumberLessThanOrEquals from NumberLessThanOrEquals, calling AssignPropertiesToAdvancedFilterNumberLessThanOrEquals()")
 		}
-		destination.NumberLessThanOrEqualsAdvancedFilter = &numberLessThanOrEqualsAdvancedFilter
+		destination.NumberLessThanOrEquals = &numberLessThanOrEqual
 	} else {
-		destination.NumberLessThanOrEqualsAdvancedFilter = nil
+		destination.NumberLessThanOrEquals = nil
 	}
 
-	// NumberNotInAdvancedFilter
-	if advancedFilter.NumberNotInAdvancedFilter != nil {
-		var numberNotInAdvancedFilter v1alpha1api20200601storage.AdvancedFilter_NumberNotInAdvancedFilter
-		err := (*advancedFilter.NumberNotInAdvancedFilter).AssignPropertiesToAdvancedFilterNumberNotInAdvancedFilter(&numberNotInAdvancedFilter)
+	// NumberNotIn
+	if advancedFilter.NumberNotIn != nil {
+		var numberNotIn v1alpha1api20200601storage.AdvancedFilter_NumberNotIn
+		err := (*advancedFilter.NumberNotIn).AssignPropertiesToAdvancedFilterNumberNotIn(&numberNotIn)
 		if err != nil {
-			return errors.Wrap(err, "populating NumberNotInAdvancedFilter from NumberNotInAdvancedFilter, calling AssignPropertiesToAdvancedFilterNumberNotInAdvancedFilter()")
+			return errors.Wrap(err, "populating NumberNotIn from NumberNotIn, calling AssignPropertiesToAdvancedFilterNumberNotIn()")
 		}
-		destination.NumberNotInAdvancedFilter = &numberNotInAdvancedFilter
+		destination.NumberNotIn = &numberNotIn
 	} else {
-		destination.NumberNotInAdvancedFilter = nil
+		destination.NumberNotIn = nil
 	}
 
-	// StringBeginsWithAdvancedFilter
-	if advancedFilter.StringBeginsWithAdvancedFilter != nil {
-		var stringBeginsWithAdvancedFilter v1alpha1api20200601storage.AdvancedFilter_StringBeginsWithAdvancedFilter
-		err := (*advancedFilter.StringBeginsWithAdvancedFilter).AssignPropertiesToAdvancedFilterStringBeginsWithAdvancedFilter(&stringBeginsWithAdvancedFilter)
+	// StringBeginsWith
+	if advancedFilter.StringBeginsWith != nil {
+		var stringBeginsWith v1alpha1api20200601storage.AdvancedFilter_StringBeginsWith
+		err := (*advancedFilter.StringBeginsWith).AssignPropertiesToAdvancedFilterStringBeginsWith(&stringBeginsWith)
 		if err != nil {
-			return errors.Wrap(err, "populating StringBeginsWithAdvancedFilter from StringBeginsWithAdvancedFilter, calling AssignPropertiesToAdvancedFilterStringBeginsWithAdvancedFilter()")
+			return errors.Wrap(err, "populating StringBeginsWith from StringBeginsWith, calling AssignPropertiesToAdvancedFilterStringBeginsWith()")
 		}
-		destination.StringBeginsWithAdvancedFilter = &stringBeginsWithAdvancedFilter
+		destination.StringBeginsWith = &stringBeginsWith
 	} else {
-		destination.StringBeginsWithAdvancedFilter = nil
+		destination.StringBeginsWith = nil
 	}
 
-	// StringContainsAdvancedFilter
-	if advancedFilter.StringContainsAdvancedFilter != nil {
-		var stringContainsAdvancedFilter v1alpha1api20200601storage.AdvancedFilter_StringContainsAdvancedFilter
-		err := (*advancedFilter.StringContainsAdvancedFilter).AssignPropertiesToAdvancedFilterStringContainsAdvancedFilter(&stringContainsAdvancedFilter)
+	// StringContains
+	if advancedFilter.StringContains != nil {
+		var stringContain v1alpha1api20200601storage.AdvancedFilter_StringContains
+		err := (*advancedFilter.StringContains).AssignPropertiesToAdvancedFilterStringContains(&stringContain)
 		if err != nil {
-			return errors.Wrap(err, "populating StringContainsAdvancedFilter from StringContainsAdvancedFilter, calling AssignPropertiesToAdvancedFilterStringContainsAdvancedFilter()")
+			return errors.Wrap(err, "populating StringContains from StringContains, calling AssignPropertiesToAdvancedFilterStringContains()")
 		}
-		destination.StringContainsAdvancedFilter = &stringContainsAdvancedFilter
+		destination.StringContains = &stringContain
 	} else {
-		destination.StringContainsAdvancedFilter = nil
+		destination.StringContains = nil
 	}
 
-	// StringEndsWithAdvancedFilter
-	if advancedFilter.StringEndsWithAdvancedFilter != nil {
-		var stringEndsWithAdvancedFilter v1alpha1api20200601storage.AdvancedFilter_StringEndsWithAdvancedFilter
-		err := (*advancedFilter.StringEndsWithAdvancedFilter).AssignPropertiesToAdvancedFilterStringEndsWithAdvancedFilter(&stringEndsWithAdvancedFilter)
+	// StringEndsWith
+	if advancedFilter.StringEndsWith != nil {
+		var stringEndsWith v1alpha1api20200601storage.AdvancedFilter_StringEndsWith
+		err := (*advancedFilter.StringEndsWith).AssignPropertiesToAdvancedFilterStringEndsWith(&stringEndsWith)
 		if err != nil {
-			return errors.Wrap(err, "populating StringEndsWithAdvancedFilter from StringEndsWithAdvancedFilter, calling AssignPropertiesToAdvancedFilterStringEndsWithAdvancedFilter()")
+			return errors.Wrap(err, "populating StringEndsWith from StringEndsWith, calling AssignPropertiesToAdvancedFilterStringEndsWith()")
 		}
-		destination.StringEndsWithAdvancedFilter = &stringEndsWithAdvancedFilter
+		destination.StringEndsWith = &stringEndsWith
 	} else {
-		destination.StringEndsWithAdvancedFilter = nil
+		destination.StringEndsWith = nil
 	}
 
-	// StringInAdvancedFilter
-	if advancedFilter.StringInAdvancedFilter != nil {
-		var stringInAdvancedFilter v1alpha1api20200601storage.AdvancedFilter_StringInAdvancedFilter
-		err := (*advancedFilter.StringInAdvancedFilter).AssignPropertiesToAdvancedFilterStringInAdvancedFilter(&stringInAdvancedFilter)
+	// StringIn
+	if advancedFilter.StringIn != nil {
+		var stringIn v1alpha1api20200601storage.AdvancedFilter_StringIn
+		err := (*advancedFilter.StringIn).AssignPropertiesToAdvancedFilterStringIn(&stringIn)
 		if err != nil {
-			return errors.Wrap(err, "populating StringInAdvancedFilter from StringInAdvancedFilter, calling AssignPropertiesToAdvancedFilterStringInAdvancedFilter()")
+			return errors.Wrap(err, "populating StringIn from StringIn, calling AssignPropertiesToAdvancedFilterStringIn()")
 		}
-		destination.StringInAdvancedFilter = &stringInAdvancedFilter
+		destination.StringIn = &stringIn
 	} else {
-		destination.StringInAdvancedFilter = nil
+		destination.StringIn = nil
 	}
 
-	// StringNotInAdvancedFilter
-	if advancedFilter.StringNotInAdvancedFilter != nil {
-		var stringNotInAdvancedFilter v1alpha1api20200601storage.AdvancedFilter_StringNotInAdvancedFilter
-		err := (*advancedFilter.StringNotInAdvancedFilter).AssignPropertiesToAdvancedFilterStringNotInAdvancedFilter(&stringNotInAdvancedFilter)
+	// StringNotIn
+	if advancedFilter.StringNotIn != nil {
+		var stringNotIn v1alpha1api20200601storage.AdvancedFilter_StringNotIn
+		err := (*advancedFilter.StringNotIn).AssignPropertiesToAdvancedFilterStringNotIn(&stringNotIn)
 		if err != nil {
-			return errors.Wrap(err, "populating StringNotInAdvancedFilter from StringNotInAdvancedFilter, calling AssignPropertiesToAdvancedFilterStringNotInAdvancedFilter()")
+			return errors.Wrap(err, "populating StringNotIn from StringNotIn, calling AssignPropertiesToAdvancedFilterStringNotIn()")
 		}
-		destination.StringNotInAdvancedFilter = &stringNotInAdvancedFilter
+		destination.StringNotIn = &stringNotIn
 	} else {
-		destination.StringNotInAdvancedFilter = nil
+		destination.StringNotIn = nil
 	}
 
 	// Update the property bag
@@ -4137,114 +4129,114 @@ const (
 	AdvancedFilterStatusOperatorTypeStringNotIn               = AdvancedFilterStatusOperatorType("StringNotIn")
 )
 
-type AdvancedFilter_BoolEqualsAdvancedFilter struct {
+type AdvancedFilter_BoolEquals struct {
 	//Key: The field/property in the event based on which you want to filter.
 	Key *string `json:"key,omitempty"`
 
 	// +kubebuilder:validation:Required
-	OperatorType AdvancedFilterBoolEqualsAdvancedFilterOperatorType `json:"operatorType"`
+	OperatorType AdvancedFilterBoolEqualsOperatorType `json:"operatorType"`
 
 	//Value: The boolean filter value.
 	Value *bool `json:"value,omitempty"`
 }
 
-var _ genruntime.ARMTransformer = &AdvancedFilter_BoolEqualsAdvancedFilter{}
+var _ genruntime.ARMTransformer = &AdvancedFilter_BoolEquals{}
 
 // ConvertToARM converts from a Kubernetes CRD object to an ARM object
-func (advancedFilterBoolEqualsAdvancedFilter *AdvancedFilter_BoolEqualsAdvancedFilter) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
-	if advancedFilterBoolEqualsAdvancedFilter == nil {
+func (advancedFilterBoolEquals *AdvancedFilter_BoolEquals) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
+	if advancedFilterBoolEquals == nil {
 		return nil, nil
 	}
-	var result AdvancedFilter_BoolEqualsAdvancedFilterARM
+	var result AdvancedFilter_BoolEqualsARM
 
 	// Set property ‘Key’:
-	if advancedFilterBoolEqualsAdvancedFilter.Key != nil {
-		key := *advancedFilterBoolEqualsAdvancedFilter.Key
+	if advancedFilterBoolEquals.Key != nil {
+		key := *advancedFilterBoolEquals.Key
 		result.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	result.OperatorType = advancedFilterBoolEqualsAdvancedFilter.OperatorType
+	result.OperatorType = advancedFilterBoolEquals.OperatorType
 
 	// Set property ‘Value’:
-	if advancedFilterBoolEqualsAdvancedFilter.Value != nil {
-		value := *advancedFilterBoolEqualsAdvancedFilter.Value
+	if advancedFilterBoolEquals.Value != nil {
+		value := *advancedFilterBoolEquals.Value
 		result.Value = &value
 	}
 	return result, nil
 }
 
 // CreateEmptyARMValue returns an empty ARM value suitable for deserializing into
-func (advancedFilterBoolEqualsAdvancedFilter *AdvancedFilter_BoolEqualsAdvancedFilter) CreateEmptyARMValue() genruntime.ARMResourceStatus {
-	return &AdvancedFilter_BoolEqualsAdvancedFilterARM{}
+func (advancedFilterBoolEquals *AdvancedFilter_BoolEquals) CreateEmptyARMValue() genruntime.ARMResourceStatus {
+	return &AdvancedFilter_BoolEqualsARM{}
 }
 
 // PopulateFromARM populates a Kubernetes CRD object from an Azure ARM object
-func (advancedFilterBoolEqualsAdvancedFilter *AdvancedFilter_BoolEqualsAdvancedFilter) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
-	typedInput, ok := armInput.(AdvancedFilter_BoolEqualsAdvancedFilterARM)
+func (advancedFilterBoolEquals *AdvancedFilter_BoolEquals) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
+	typedInput, ok := armInput.(AdvancedFilter_BoolEqualsARM)
 	if !ok {
-		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_BoolEqualsAdvancedFilterARM, got %T", armInput)
+		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_BoolEqualsARM, got %T", armInput)
 	}
 
 	// Set property ‘Key’:
 	if typedInput.Key != nil {
 		key := *typedInput.Key
-		advancedFilterBoolEqualsAdvancedFilter.Key = &key
+		advancedFilterBoolEquals.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	advancedFilterBoolEqualsAdvancedFilter.OperatorType = typedInput.OperatorType
+	advancedFilterBoolEquals.OperatorType = typedInput.OperatorType
 
 	// Set property ‘Value’:
 	if typedInput.Value != nil {
 		value := *typedInput.Value
-		advancedFilterBoolEqualsAdvancedFilter.Value = &value
+		advancedFilterBoolEquals.Value = &value
 	}
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesFromAdvancedFilterBoolEqualsAdvancedFilter populates our AdvancedFilter_BoolEqualsAdvancedFilter from the provided source AdvancedFilter_BoolEqualsAdvancedFilter
-func (advancedFilterBoolEqualsAdvancedFilter *AdvancedFilter_BoolEqualsAdvancedFilter) AssignPropertiesFromAdvancedFilterBoolEqualsAdvancedFilter(source *v1alpha1api20200601storage.AdvancedFilter_BoolEqualsAdvancedFilter) error {
+// AssignPropertiesFromAdvancedFilterBoolEquals populates our AdvancedFilter_BoolEquals from the provided source AdvancedFilter_BoolEquals
+func (advancedFilterBoolEquals *AdvancedFilter_BoolEquals) AssignPropertiesFromAdvancedFilterBoolEquals(source *v1alpha1api20200601storage.AdvancedFilter_BoolEquals) error {
 
 	// Key
-	advancedFilterBoolEqualsAdvancedFilter.Key = genruntime.ClonePointerToString(source.Key)
+	advancedFilterBoolEquals.Key = genruntime.ClonePointerToString(source.Key)
 
 	// OperatorType
 	if source.OperatorType != nil {
-		advancedFilterBoolEqualsAdvancedFilter.OperatorType = AdvancedFilterBoolEqualsAdvancedFilterOperatorType(*source.OperatorType)
+		advancedFilterBoolEquals.OperatorType = AdvancedFilterBoolEqualsOperatorType(*source.OperatorType)
 	} else {
-		advancedFilterBoolEqualsAdvancedFilter.OperatorType = ""
+		advancedFilterBoolEquals.OperatorType = ""
 	}
 
 	// Value
 	if source.Value != nil {
 		value := *source.Value
-		advancedFilterBoolEqualsAdvancedFilter.Value = &value
+		advancedFilterBoolEquals.Value = &value
 	} else {
-		advancedFilterBoolEqualsAdvancedFilter.Value = nil
+		advancedFilterBoolEquals.Value = nil
 	}
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesToAdvancedFilterBoolEqualsAdvancedFilter populates the provided destination AdvancedFilter_BoolEqualsAdvancedFilter from our AdvancedFilter_BoolEqualsAdvancedFilter
-func (advancedFilterBoolEqualsAdvancedFilter *AdvancedFilter_BoolEqualsAdvancedFilter) AssignPropertiesToAdvancedFilterBoolEqualsAdvancedFilter(destination *v1alpha1api20200601storage.AdvancedFilter_BoolEqualsAdvancedFilter) error {
+// AssignPropertiesToAdvancedFilterBoolEquals populates the provided destination AdvancedFilter_BoolEquals from our AdvancedFilter_BoolEquals
+func (advancedFilterBoolEquals *AdvancedFilter_BoolEquals) AssignPropertiesToAdvancedFilterBoolEquals(destination *v1alpha1api20200601storage.AdvancedFilter_BoolEquals) error {
 	// Create a new property bag
 	propertyBag := genruntime.NewPropertyBag()
 
 	// Key
-	destination.Key = genruntime.ClonePointerToString(advancedFilterBoolEqualsAdvancedFilter.Key)
+	destination.Key = genruntime.ClonePointerToString(advancedFilterBoolEquals.Key)
 
 	// OperatorType
-	operatorType := string(advancedFilterBoolEqualsAdvancedFilter.OperatorType)
+	operatorType := string(advancedFilterBoolEquals.OperatorType)
 	destination.OperatorType = &operatorType
 
 	// Value
-	if advancedFilterBoolEqualsAdvancedFilter.Value != nil {
-		value := *advancedFilterBoolEqualsAdvancedFilter.Value
+	if advancedFilterBoolEquals.Value != nil {
+		value := *advancedFilterBoolEquals.Value
 		destination.Value = &value
 	} else {
 		destination.Value = nil
@@ -4261,114 +4253,114 @@ func (advancedFilterBoolEqualsAdvancedFilter *AdvancedFilter_BoolEqualsAdvancedF
 	return nil
 }
 
-type AdvancedFilter_NumberGreaterThanAdvancedFilter struct {
+type AdvancedFilter_NumberGreaterThan struct {
 	//Key: The field/property in the event based on which you want to filter.
 	Key *string `json:"key,omitempty"`
 
 	// +kubebuilder:validation:Required
-	OperatorType AdvancedFilterNumberGreaterThanAdvancedFilterOperatorType `json:"operatorType"`
+	OperatorType AdvancedFilterNumberGreaterThanOperatorType `json:"operatorType"`
 
 	//Value: The filter value.
 	Value *float64 `json:"value,omitempty"`
 }
 
-var _ genruntime.ARMTransformer = &AdvancedFilter_NumberGreaterThanAdvancedFilter{}
+var _ genruntime.ARMTransformer = &AdvancedFilter_NumberGreaterThan{}
 
 // ConvertToARM converts from a Kubernetes CRD object to an ARM object
-func (advancedFilterNumberGreaterThanAdvancedFilter *AdvancedFilter_NumberGreaterThanAdvancedFilter) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
-	if advancedFilterNumberGreaterThanAdvancedFilter == nil {
+func (advancedFilterNumberGreaterThan *AdvancedFilter_NumberGreaterThan) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
+	if advancedFilterNumberGreaterThan == nil {
 		return nil, nil
 	}
-	var result AdvancedFilter_NumberGreaterThanAdvancedFilterARM
+	var result AdvancedFilter_NumberGreaterThanARM
 
 	// Set property ‘Key’:
-	if advancedFilterNumberGreaterThanAdvancedFilter.Key != nil {
-		key := *advancedFilterNumberGreaterThanAdvancedFilter.Key
+	if advancedFilterNumberGreaterThan.Key != nil {
+		key := *advancedFilterNumberGreaterThan.Key
 		result.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	result.OperatorType = advancedFilterNumberGreaterThanAdvancedFilter.OperatorType
+	result.OperatorType = advancedFilterNumberGreaterThan.OperatorType
 
 	// Set property ‘Value’:
-	if advancedFilterNumberGreaterThanAdvancedFilter.Value != nil {
-		value := *advancedFilterNumberGreaterThanAdvancedFilter.Value
+	if advancedFilterNumberGreaterThan.Value != nil {
+		value := *advancedFilterNumberGreaterThan.Value
 		result.Value = &value
 	}
 	return result, nil
 }
 
 // CreateEmptyARMValue returns an empty ARM value suitable for deserializing into
-func (advancedFilterNumberGreaterThanAdvancedFilter *AdvancedFilter_NumberGreaterThanAdvancedFilter) CreateEmptyARMValue() genruntime.ARMResourceStatus {
-	return &AdvancedFilter_NumberGreaterThanAdvancedFilterARM{}
+func (advancedFilterNumberGreaterThan *AdvancedFilter_NumberGreaterThan) CreateEmptyARMValue() genruntime.ARMResourceStatus {
+	return &AdvancedFilter_NumberGreaterThanARM{}
 }
 
 // PopulateFromARM populates a Kubernetes CRD object from an Azure ARM object
-func (advancedFilterNumberGreaterThanAdvancedFilter *AdvancedFilter_NumberGreaterThanAdvancedFilter) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
-	typedInput, ok := armInput.(AdvancedFilter_NumberGreaterThanAdvancedFilterARM)
+func (advancedFilterNumberGreaterThan *AdvancedFilter_NumberGreaterThan) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
+	typedInput, ok := armInput.(AdvancedFilter_NumberGreaterThanARM)
 	if !ok {
-		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_NumberGreaterThanAdvancedFilterARM, got %T", armInput)
+		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_NumberGreaterThanARM, got %T", armInput)
 	}
 
 	// Set property ‘Key’:
 	if typedInput.Key != nil {
 		key := *typedInput.Key
-		advancedFilterNumberGreaterThanAdvancedFilter.Key = &key
+		advancedFilterNumberGreaterThan.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	advancedFilterNumberGreaterThanAdvancedFilter.OperatorType = typedInput.OperatorType
+	advancedFilterNumberGreaterThan.OperatorType = typedInput.OperatorType
 
 	// Set property ‘Value’:
 	if typedInput.Value != nil {
 		value := *typedInput.Value
-		advancedFilterNumberGreaterThanAdvancedFilter.Value = &value
+		advancedFilterNumberGreaterThan.Value = &value
 	}
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesFromAdvancedFilterNumberGreaterThanAdvancedFilter populates our AdvancedFilter_NumberGreaterThanAdvancedFilter from the provided source AdvancedFilter_NumberGreaterThanAdvancedFilter
-func (advancedFilterNumberGreaterThanAdvancedFilter *AdvancedFilter_NumberGreaterThanAdvancedFilter) AssignPropertiesFromAdvancedFilterNumberGreaterThanAdvancedFilter(source *v1alpha1api20200601storage.AdvancedFilter_NumberGreaterThanAdvancedFilter) error {
+// AssignPropertiesFromAdvancedFilterNumberGreaterThan populates our AdvancedFilter_NumberGreaterThan from the provided source AdvancedFilter_NumberGreaterThan
+func (advancedFilterNumberGreaterThan *AdvancedFilter_NumberGreaterThan) AssignPropertiesFromAdvancedFilterNumberGreaterThan(source *v1alpha1api20200601storage.AdvancedFilter_NumberGreaterThan) error {
 
 	// Key
-	advancedFilterNumberGreaterThanAdvancedFilter.Key = genruntime.ClonePointerToString(source.Key)
+	advancedFilterNumberGreaterThan.Key = genruntime.ClonePointerToString(source.Key)
 
 	// OperatorType
 	if source.OperatorType != nil {
-		advancedFilterNumberGreaterThanAdvancedFilter.OperatorType = AdvancedFilterNumberGreaterThanAdvancedFilterOperatorType(*source.OperatorType)
+		advancedFilterNumberGreaterThan.OperatorType = AdvancedFilterNumberGreaterThanOperatorType(*source.OperatorType)
 	} else {
-		advancedFilterNumberGreaterThanAdvancedFilter.OperatorType = ""
+		advancedFilterNumberGreaterThan.OperatorType = ""
 	}
 
 	// Value
 	if source.Value != nil {
 		value := *source.Value
-		advancedFilterNumberGreaterThanAdvancedFilter.Value = &value
+		advancedFilterNumberGreaterThan.Value = &value
 	} else {
-		advancedFilterNumberGreaterThanAdvancedFilter.Value = nil
+		advancedFilterNumberGreaterThan.Value = nil
 	}
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesToAdvancedFilterNumberGreaterThanAdvancedFilter populates the provided destination AdvancedFilter_NumberGreaterThanAdvancedFilter from our AdvancedFilter_NumberGreaterThanAdvancedFilter
-func (advancedFilterNumberGreaterThanAdvancedFilter *AdvancedFilter_NumberGreaterThanAdvancedFilter) AssignPropertiesToAdvancedFilterNumberGreaterThanAdvancedFilter(destination *v1alpha1api20200601storage.AdvancedFilter_NumberGreaterThanAdvancedFilter) error {
+// AssignPropertiesToAdvancedFilterNumberGreaterThan populates the provided destination AdvancedFilter_NumberGreaterThan from our AdvancedFilter_NumberGreaterThan
+func (advancedFilterNumberGreaterThan *AdvancedFilter_NumberGreaterThan) AssignPropertiesToAdvancedFilterNumberGreaterThan(destination *v1alpha1api20200601storage.AdvancedFilter_NumberGreaterThan) error {
 	// Create a new property bag
 	propertyBag := genruntime.NewPropertyBag()
 
 	// Key
-	destination.Key = genruntime.ClonePointerToString(advancedFilterNumberGreaterThanAdvancedFilter.Key)
+	destination.Key = genruntime.ClonePointerToString(advancedFilterNumberGreaterThan.Key)
 
 	// OperatorType
-	operatorType := string(advancedFilterNumberGreaterThanAdvancedFilter.OperatorType)
+	operatorType := string(advancedFilterNumberGreaterThan.OperatorType)
 	destination.OperatorType = &operatorType
 
 	// Value
-	if advancedFilterNumberGreaterThanAdvancedFilter.Value != nil {
-		value := *advancedFilterNumberGreaterThanAdvancedFilter.Value
+	if advancedFilterNumberGreaterThan.Value != nil {
+		value := *advancedFilterNumberGreaterThan.Value
 		destination.Value = &value
 	} else {
 		destination.Value = nil
@@ -4385,114 +4377,114 @@ func (advancedFilterNumberGreaterThanAdvancedFilter *AdvancedFilter_NumberGreate
 	return nil
 }
 
-type AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilter struct {
+type AdvancedFilter_NumberGreaterThanOrEquals struct {
 	//Key: The field/property in the event based on which you want to filter.
 	Key *string `json:"key,omitempty"`
 
 	// +kubebuilder:validation:Required
-	OperatorType AdvancedFilterNumberGreaterThanOrEqualsAdvancedFilterOperatorType `json:"operatorType"`
+	OperatorType AdvancedFilterNumberGreaterThanOrEqualsOperatorType `json:"operatorType"`
 
 	//Value: The filter value.
 	Value *float64 `json:"value,omitempty"`
 }
 
-var _ genruntime.ARMTransformer = &AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilter{}
+var _ genruntime.ARMTransformer = &AdvancedFilter_NumberGreaterThanOrEquals{}
 
 // ConvertToARM converts from a Kubernetes CRD object to an ARM object
-func (advancedFilterNumberGreaterThanOrEqualsAdvancedFilter *AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilter) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
-	if advancedFilterNumberGreaterThanOrEqualsAdvancedFilter == nil {
+func (advancedFilterNumberGreaterThanOrEquals *AdvancedFilter_NumberGreaterThanOrEquals) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
+	if advancedFilterNumberGreaterThanOrEquals == nil {
 		return nil, nil
 	}
-	var result AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilterARM
+	var result AdvancedFilter_NumberGreaterThanOrEqualsARM
 
 	// Set property ‘Key’:
-	if advancedFilterNumberGreaterThanOrEqualsAdvancedFilter.Key != nil {
-		key := *advancedFilterNumberGreaterThanOrEqualsAdvancedFilter.Key
+	if advancedFilterNumberGreaterThanOrEquals.Key != nil {
+		key := *advancedFilterNumberGreaterThanOrEquals.Key
 		result.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	result.OperatorType = advancedFilterNumberGreaterThanOrEqualsAdvancedFilter.OperatorType
+	result.OperatorType = advancedFilterNumberGreaterThanOrEquals.OperatorType
 
 	// Set property ‘Value’:
-	if advancedFilterNumberGreaterThanOrEqualsAdvancedFilter.Value != nil {
-		value := *advancedFilterNumberGreaterThanOrEqualsAdvancedFilter.Value
+	if advancedFilterNumberGreaterThanOrEquals.Value != nil {
+		value := *advancedFilterNumberGreaterThanOrEquals.Value
 		result.Value = &value
 	}
 	return result, nil
 }
 
 // CreateEmptyARMValue returns an empty ARM value suitable for deserializing into
-func (advancedFilterNumberGreaterThanOrEqualsAdvancedFilter *AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilter) CreateEmptyARMValue() genruntime.ARMResourceStatus {
-	return &AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilterARM{}
+func (advancedFilterNumberGreaterThanOrEquals *AdvancedFilter_NumberGreaterThanOrEquals) CreateEmptyARMValue() genruntime.ARMResourceStatus {
+	return &AdvancedFilter_NumberGreaterThanOrEqualsARM{}
 }
 
 // PopulateFromARM populates a Kubernetes CRD object from an Azure ARM object
-func (advancedFilterNumberGreaterThanOrEqualsAdvancedFilter *AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilter) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
-	typedInput, ok := armInput.(AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilterARM)
+func (advancedFilterNumberGreaterThanOrEquals *AdvancedFilter_NumberGreaterThanOrEquals) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
+	typedInput, ok := armInput.(AdvancedFilter_NumberGreaterThanOrEqualsARM)
 	if !ok {
-		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilterARM, got %T", armInput)
+		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_NumberGreaterThanOrEqualsARM, got %T", armInput)
 	}
 
 	// Set property ‘Key’:
 	if typedInput.Key != nil {
 		key := *typedInput.Key
-		advancedFilterNumberGreaterThanOrEqualsAdvancedFilter.Key = &key
+		advancedFilterNumberGreaterThanOrEquals.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	advancedFilterNumberGreaterThanOrEqualsAdvancedFilter.OperatorType = typedInput.OperatorType
+	advancedFilterNumberGreaterThanOrEquals.OperatorType = typedInput.OperatorType
 
 	// Set property ‘Value’:
 	if typedInput.Value != nil {
 		value := *typedInput.Value
-		advancedFilterNumberGreaterThanOrEqualsAdvancedFilter.Value = &value
+		advancedFilterNumberGreaterThanOrEquals.Value = &value
 	}
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesFromAdvancedFilterNumberGreaterThanOrEqualsAdvancedFilter populates our AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilter from the provided source AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilter
-func (advancedFilterNumberGreaterThanOrEqualsAdvancedFilter *AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilter) AssignPropertiesFromAdvancedFilterNumberGreaterThanOrEqualsAdvancedFilter(source *v1alpha1api20200601storage.AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilter) error {
+// AssignPropertiesFromAdvancedFilterNumberGreaterThanOrEquals populates our AdvancedFilter_NumberGreaterThanOrEquals from the provided source AdvancedFilter_NumberGreaterThanOrEquals
+func (advancedFilterNumberGreaterThanOrEquals *AdvancedFilter_NumberGreaterThanOrEquals) AssignPropertiesFromAdvancedFilterNumberGreaterThanOrEquals(source *v1alpha1api20200601storage.AdvancedFilter_NumberGreaterThanOrEquals) error {
 
 	// Key
-	advancedFilterNumberGreaterThanOrEqualsAdvancedFilter.Key = genruntime.ClonePointerToString(source.Key)
+	advancedFilterNumberGreaterThanOrEquals.Key = genruntime.ClonePointerToString(source.Key)
 
 	// OperatorType
 	if source.OperatorType != nil {
-		advancedFilterNumberGreaterThanOrEqualsAdvancedFilter.OperatorType = AdvancedFilterNumberGreaterThanOrEqualsAdvancedFilterOperatorType(*source.OperatorType)
+		advancedFilterNumberGreaterThanOrEquals.OperatorType = AdvancedFilterNumberGreaterThanOrEqualsOperatorType(*source.OperatorType)
 	} else {
-		advancedFilterNumberGreaterThanOrEqualsAdvancedFilter.OperatorType = ""
+		advancedFilterNumberGreaterThanOrEquals.OperatorType = ""
 	}
 
 	// Value
 	if source.Value != nil {
 		value := *source.Value
-		advancedFilterNumberGreaterThanOrEqualsAdvancedFilter.Value = &value
+		advancedFilterNumberGreaterThanOrEquals.Value = &value
 	} else {
-		advancedFilterNumberGreaterThanOrEqualsAdvancedFilter.Value = nil
+		advancedFilterNumberGreaterThanOrEquals.Value = nil
 	}
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesToAdvancedFilterNumberGreaterThanOrEqualsAdvancedFilter populates the provided destination AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilter from our AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilter
-func (advancedFilterNumberGreaterThanOrEqualsAdvancedFilter *AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilter) AssignPropertiesToAdvancedFilterNumberGreaterThanOrEqualsAdvancedFilter(destination *v1alpha1api20200601storage.AdvancedFilter_NumberGreaterThanOrEqualsAdvancedFilter) error {
+// AssignPropertiesToAdvancedFilterNumberGreaterThanOrEquals populates the provided destination AdvancedFilter_NumberGreaterThanOrEquals from our AdvancedFilter_NumberGreaterThanOrEquals
+func (advancedFilterNumberGreaterThanOrEquals *AdvancedFilter_NumberGreaterThanOrEquals) AssignPropertiesToAdvancedFilterNumberGreaterThanOrEquals(destination *v1alpha1api20200601storage.AdvancedFilter_NumberGreaterThanOrEquals) error {
 	// Create a new property bag
 	propertyBag := genruntime.NewPropertyBag()
 
 	// Key
-	destination.Key = genruntime.ClonePointerToString(advancedFilterNumberGreaterThanOrEqualsAdvancedFilter.Key)
+	destination.Key = genruntime.ClonePointerToString(advancedFilterNumberGreaterThanOrEquals.Key)
 
 	// OperatorType
-	operatorType := string(advancedFilterNumberGreaterThanOrEqualsAdvancedFilter.OperatorType)
+	operatorType := string(advancedFilterNumberGreaterThanOrEquals.OperatorType)
 	destination.OperatorType = &operatorType
 
 	// Value
-	if advancedFilterNumberGreaterThanOrEqualsAdvancedFilter.Value != nil {
-		value := *advancedFilterNumberGreaterThanOrEqualsAdvancedFilter.Value
+	if advancedFilterNumberGreaterThanOrEquals.Value != nil {
+		value := *advancedFilterNumberGreaterThanOrEquals.Value
 		destination.Value = &value
 	} else {
 		destination.Value = nil
@@ -4509,83 +4501,83 @@ func (advancedFilterNumberGreaterThanOrEqualsAdvancedFilter *AdvancedFilter_Numb
 	return nil
 }
 
-type AdvancedFilter_NumberInAdvancedFilter struct {
+type AdvancedFilter_NumberIn struct {
 	//Key: The field/property in the event based on which you want to filter.
 	Key *string `json:"key,omitempty"`
 
 	// +kubebuilder:validation:Required
-	OperatorType AdvancedFilterNumberInAdvancedFilterOperatorType `json:"operatorType"`
+	OperatorType AdvancedFilterNumberInOperatorType `json:"operatorType"`
 
 	//Values: The set of filter values.
 	Values []float64 `json:"values,omitempty"`
 }
 
-var _ genruntime.ARMTransformer = &AdvancedFilter_NumberInAdvancedFilter{}
+var _ genruntime.ARMTransformer = &AdvancedFilter_NumberIn{}
 
 // ConvertToARM converts from a Kubernetes CRD object to an ARM object
-func (advancedFilterNumberInAdvancedFilter *AdvancedFilter_NumberInAdvancedFilter) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
-	if advancedFilterNumberInAdvancedFilter == nil {
+func (advancedFilterNumberIn *AdvancedFilter_NumberIn) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
+	if advancedFilterNumberIn == nil {
 		return nil, nil
 	}
-	var result AdvancedFilter_NumberInAdvancedFilterARM
+	var result AdvancedFilter_NumberInARM
 
 	// Set property ‘Key’:
-	if advancedFilterNumberInAdvancedFilter.Key != nil {
-		key := *advancedFilterNumberInAdvancedFilter.Key
+	if advancedFilterNumberIn.Key != nil {
+		key := *advancedFilterNumberIn.Key
 		result.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	result.OperatorType = advancedFilterNumberInAdvancedFilter.OperatorType
+	result.OperatorType = advancedFilterNumberIn.OperatorType
 
 	// Set property ‘Values’:
-	for _, item := range advancedFilterNumberInAdvancedFilter.Values {
+	for _, item := range advancedFilterNumberIn.Values {
 		result.Values = append(result.Values, item)
 	}
 	return result, nil
 }
 
 // CreateEmptyARMValue returns an empty ARM value suitable for deserializing into
-func (advancedFilterNumberInAdvancedFilter *AdvancedFilter_NumberInAdvancedFilter) CreateEmptyARMValue() genruntime.ARMResourceStatus {
-	return &AdvancedFilter_NumberInAdvancedFilterARM{}
+func (advancedFilterNumberIn *AdvancedFilter_NumberIn) CreateEmptyARMValue() genruntime.ARMResourceStatus {
+	return &AdvancedFilter_NumberInARM{}
 }
 
 // PopulateFromARM populates a Kubernetes CRD object from an Azure ARM object
-func (advancedFilterNumberInAdvancedFilter *AdvancedFilter_NumberInAdvancedFilter) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
-	typedInput, ok := armInput.(AdvancedFilter_NumberInAdvancedFilterARM)
+func (advancedFilterNumberIn *AdvancedFilter_NumberIn) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
+	typedInput, ok := armInput.(AdvancedFilter_NumberInARM)
 	if !ok {
-		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_NumberInAdvancedFilterARM, got %T", armInput)
+		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_NumberInARM, got %T", armInput)
 	}
 
 	// Set property ‘Key’:
 	if typedInput.Key != nil {
 		key := *typedInput.Key
-		advancedFilterNumberInAdvancedFilter.Key = &key
+		advancedFilterNumberIn.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	advancedFilterNumberInAdvancedFilter.OperatorType = typedInput.OperatorType
+	advancedFilterNumberIn.OperatorType = typedInput.OperatorType
 
 	// Set property ‘Values’:
 	for _, item := range typedInput.Values {
-		advancedFilterNumberInAdvancedFilter.Values = append(advancedFilterNumberInAdvancedFilter.Values, item)
+		advancedFilterNumberIn.Values = append(advancedFilterNumberIn.Values, item)
 	}
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesFromAdvancedFilterNumberInAdvancedFilter populates our AdvancedFilter_NumberInAdvancedFilter from the provided source AdvancedFilter_NumberInAdvancedFilter
-func (advancedFilterNumberInAdvancedFilter *AdvancedFilter_NumberInAdvancedFilter) AssignPropertiesFromAdvancedFilterNumberInAdvancedFilter(source *v1alpha1api20200601storage.AdvancedFilter_NumberInAdvancedFilter) error {
+// AssignPropertiesFromAdvancedFilterNumberIn populates our AdvancedFilter_NumberIn from the provided source AdvancedFilter_NumberIn
+func (advancedFilterNumberIn *AdvancedFilter_NumberIn) AssignPropertiesFromAdvancedFilterNumberIn(source *v1alpha1api20200601storage.AdvancedFilter_NumberIn) error {
 
 	// Key
-	advancedFilterNumberInAdvancedFilter.Key = genruntime.ClonePointerToString(source.Key)
+	advancedFilterNumberIn.Key = genruntime.ClonePointerToString(source.Key)
 
 	// OperatorType
 	if source.OperatorType != nil {
-		advancedFilterNumberInAdvancedFilter.OperatorType = AdvancedFilterNumberInAdvancedFilterOperatorType(*source.OperatorType)
+		advancedFilterNumberIn.OperatorType = AdvancedFilterNumberInOperatorType(*source.OperatorType)
 	} else {
-		advancedFilterNumberInAdvancedFilter.OperatorType = ""
+		advancedFilterNumberIn.OperatorType = ""
 	}
 
 	// Values
@@ -4596,31 +4588,31 @@ func (advancedFilterNumberInAdvancedFilter *AdvancedFilter_NumberInAdvancedFilte
 			valueItem := valueItem
 			valueList[valueIndex] = valueItem
 		}
-		advancedFilterNumberInAdvancedFilter.Values = valueList
+		advancedFilterNumberIn.Values = valueList
 	} else {
-		advancedFilterNumberInAdvancedFilter.Values = nil
+		advancedFilterNumberIn.Values = nil
 	}
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesToAdvancedFilterNumberInAdvancedFilter populates the provided destination AdvancedFilter_NumberInAdvancedFilter from our AdvancedFilter_NumberInAdvancedFilter
-func (advancedFilterNumberInAdvancedFilter *AdvancedFilter_NumberInAdvancedFilter) AssignPropertiesToAdvancedFilterNumberInAdvancedFilter(destination *v1alpha1api20200601storage.AdvancedFilter_NumberInAdvancedFilter) error {
+// AssignPropertiesToAdvancedFilterNumberIn populates the provided destination AdvancedFilter_NumberIn from our AdvancedFilter_NumberIn
+func (advancedFilterNumberIn *AdvancedFilter_NumberIn) AssignPropertiesToAdvancedFilterNumberIn(destination *v1alpha1api20200601storage.AdvancedFilter_NumberIn) error {
 	// Create a new property bag
 	propertyBag := genruntime.NewPropertyBag()
 
 	// Key
-	destination.Key = genruntime.ClonePointerToString(advancedFilterNumberInAdvancedFilter.Key)
+	destination.Key = genruntime.ClonePointerToString(advancedFilterNumberIn.Key)
 
 	// OperatorType
-	operatorType := string(advancedFilterNumberInAdvancedFilter.OperatorType)
+	operatorType := string(advancedFilterNumberIn.OperatorType)
 	destination.OperatorType = &operatorType
 
 	// Values
-	if advancedFilterNumberInAdvancedFilter.Values != nil {
-		valueList := make([]float64, len(advancedFilterNumberInAdvancedFilter.Values))
-		for valueIndex, valueItem := range advancedFilterNumberInAdvancedFilter.Values {
+	if advancedFilterNumberIn.Values != nil {
+		valueList := make([]float64, len(advancedFilterNumberIn.Values))
+		for valueIndex, valueItem := range advancedFilterNumberIn.Values {
 			// Shadow the loop variable to avoid aliasing
 			valueItem := valueItem
 			valueList[valueIndex] = valueItem
@@ -4641,114 +4633,114 @@ func (advancedFilterNumberInAdvancedFilter *AdvancedFilter_NumberInAdvancedFilte
 	return nil
 }
 
-type AdvancedFilter_NumberLessThanAdvancedFilter struct {
+type AdvancedFilter_NumberLessThan struct {
 	//Key: The field/property in the event based on which you want to filter.
 	Key *string `json:"key,omitempty"`
 
 	// +kubebuilder:validation:Required
-	OperatorType AdvancedFilterNumberLessThanAdvancedFilterOperatorType `json:"operatorType"`
+	OperatorType AdvancedFilterNumberLessThanOperatorType `json:"operatorType"`
 
 	//Value: The filter value.
 	Value *float64 `json:"value,omitempty"`
 }
 
-var _ genruntime.ARMTransformer = &AdvancedFilter_NumberLessThanAdvancedFilter{}
+var _ genruntime.ARMTransformer = &AdvancedFilter_NumberLessThan{}
 
 // ConvertToARM converts from a Kubernetes CRD object to an ARM object
-func (advancedFilterNumberLessThanAdvancedFilter *AdvancedFilter_NumberLessThanAdvancedFilter) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
-	if advancedFilterNumberLessThanAdvancedFilter == nil {
+func (advancedFilterNumberLessThan *AdvancedFilter_NumberLessThan) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
+	if advancedFilterNumberLessThan == nil {
 		return nil, nil
 	}
-	var result AdvancedFilter_NumberLessThanAdvancedFilterARM
+	var result AdvancedFilter_NumberLessThanARM
 
 	// Set property ‘Key’:
-	if advancedFilterNumberLessThanAdvancedFilter.Key != nil {
-		key := *advancedFilterNumberLessThanAdvancedFilter.Key
+	if advancedFilterNumberLessThan.Key != nil {
+		key := *advancedFilterNumberLessThan.Key
 		result.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	result.OperatorType = advancedFilterNumberLessThanAdvancedFilter.OperatorType
+	result.OperatorType = advancedFilterNumberLessThan.OperatorType
 
 	// Set property ‘Value’:
-	if advancedFilterNumberLessThanAdvancedFilter.Value != nil {
-		value := *advancedFilterNumberLessThanAdvancedFilter.Value
+	if advancedFilterNumberLessThan.Value != nil {
+		value := *advancedFilterNumberLessThan.Value
 		result.Value = &value
 	}
 	return result, nil
 }
 
 // CreateEmptyARMValue returns an empty ARM value suitable for deserializing into
-func (advancedFilterNumberLessThanAdvancedFilter *AdvancedFilter_NumberLessThanAdvancedFilter) CreateEmptyARMValue() genruntime.ARMResourceStatus {
-	return &AdvancedFilter_NumberLessThanAdvancedFilterARM{}
+func (advancedFilterNumberLessThan *AdvancedFilter_NumberLessThan) CreateEmptyARMValue() genruntime.ARMResourceStatus {
+	return &AdvancedFilter_NumberLessThanARM{}
 }
 
 // PopulateFromARM populates a Kubernetes CRD object from an Azure ARM object
-func (advancedFilterNumberLessThanAdvancedFilter *AdvancedFilter_NumberLessThanAdvancedFilter) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
-	typedInput, ok := armInput.(AdvancedFilter_NumberLessThanAdvancedFilterARM)
+func (advancedFilterNumberLessThan *AdvancedFilter_NumberLessThan) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
+	typedInput, ok := armInput.(AdvancedFilter_NumberLessThanARM)
 	if !ok {
-		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_NumberLessThanAdvancedFilterARM, got %T", armInput)
+		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_NumberLessThanARM, got %T", armInput)
 	}
 
 	// Set property ‘Key’:
 	if typedInput.Key != nil {
 		key := *typedInput.Key
-		advancedFilterNumberLessThanAdvancedFilter.Key = &key
+		advancedFilterNumberLessThan.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	advancedFilterNumberLessThanAdvancedFilter.OperatorType = typedInput.OperatorType
+	advancedFilterNumberLessThan.OperatorType = typedInput.OperatorType
 
 	// Set property ‘Value’:
 	if typedInput.Value != nil {
 		value := *typedInput.Value
-		advancedFilterNumberLessThanAdvancedFilter.Value = &value
+		advancedFilterNumberLessThan.Value = &value
 	}
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesFromAdvancedFilterNumberLessThanAdvancedFilter populates our AdvancedFilter_NumberLessThanAdvancedFilter from the provided source AdvancedFilter_NumberLessThanAdvancedFilter
-func (advancedFilterNumberLessThanAdvancedFilter *AdvancedFilter_NumberLessThanAdvancedFilter) AssignPropertiesFromAdvancedFilterNumberLessThanAdvancedFilter(source *v1alpha1api20200601storage.AdvancedFilter_NumberLessThanAdvancedFilter) error {
+// AssignPropertiesFromAdvancedFilterNumberLessThan populates our AdvancedFilter_NumberLessThan from the provided source AdvancedFilter_NumberLessThan
+func (advancedFilterNumberLessThan *AdvancedFilter_NumberLessThan) AssignPropertiesFromAdvancedFilterNumberLessThan(source *v1alpha1api20200601storage.AdvancedFilter_NumberLessThan) error {
 
 	// Key
-	advancedFilterNumberLessThanAdvancedFilter.Key = genruntime.ClonePointerToString(source.Key)
+	advancedFilterNumberLessThan.Key = genruntime.ClonePointerToString(source.Key)
 
 	// OperatorType
 	if source.OperatorType != nil {
-		advancedFilterNumberLessThanAdvancedFilter.OperatorType = AdvancedFilterNumberLessThanAdvancedFilterOperatorType(*source.OperatorType)
+		advancedFilterNumberLessThan.OperatorType = AdvancedFilterNumberLessThanOperatorType(*source.OperatorType)
 	} else {
-		advancedFilterNumberLessThanAdvancedFilter.OperatorType = ""
+		advancedFilterNumberLessThan.OperatorType = ""
 	}
 
 	// Value
 	if source.Value != nil {
 		value := *source.Value
-		advancedFilterNumberLessThanAdvancedFilter.Value = &value
+		advancedFilterNumberLessThan.Value = &value
 	} else {
-		advancedFilterNumberLessThanAdvancedFilter.Value = nil
+		advancedFilterNumberLessThan.Value = nil
 	}
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesToAdvancedFilterNumberLessThanAdvancedFilter populates the provided destination AdvancedFilter_NumberLessThanAdvancedFilter from our AdvancedFilter_NumberLessThanAdvancedFilter
-func (advancedFilterNumberLessThanAdvancedFilter *AdvancedFilter_NumberLessThanAdvancedFilter) AssignPropertiesToAdvancedFilterNumberLessThanAdvancedFilter(destination *v1alpha1api20200601storage.AdvancedFilter_NumberLessThanAdvancedFilter) error {
+// AssignPropertiesToAdvancedFilterNumberLessThan populates the provided destination AdvancedFilter_NumberLessThan from our AdvancedFilter_NumberLessThan
+func (advancedFilterNumberLessThan *AdvancedFilter_NumberLessThan) AssignPropertiesToAdvancedFilterNumberLessThan(destination *v1alpha1api20200601storage.AdvancedFilter_NumberLessThan) error {
 	// Create a new property bag
 	propertyBag := genruntime.NewPropertyBag()
 
 	// Key
-	destination.Key = genruntime.ClonePointerToString(advancedFilterNumberLessThanAdvancedFilter.Key)
+	destination.Key = genruntime.ClonePointerToString(advancedFilterNumberLessThan.Key)
 
 	// OperatorType
-	operatorType := string(advancedFilterNumberLessThanAdvancedFilter.OperatorType)
+	operatorType := string(advancedFilterNumberLessThan.OperatorType)
 	destination.OperatorType = &operatorType
 
 	// Value
-	if advancedFilterNumberLessThanAdvancedFilter.Value != nil {
-		value := *advancedFilterNumberLessThanAdvancedFilter.Value
+	if advancedFilterNumberLessThan.Value != nil {
+		value := *advancedFilterNumberLessThan.Value
 		destination.Value = &value
 	} else {
 		destination.Value = nil
@@ -4765,114 +4757,114 @@ func (advancedFilterNumberLessThanAdvancedFilter *AdvancedFilter_NumberLessThanA
 	return nil
 }
 
-type AdvancedFilter_NumberLessThanOrEqualsAdvancedFilter struct {
+type AdvancedFilter_NumberLessThanOrEquals struct {
 	//Key: The field/property in the event based on which you want to filter.
 	Key *string `json:"key,omitempty"`
 
 	// +kubebuilder:validation:Required
-	OperatorType AdvancedFilterNumberLessThanOrEqualsAdvancedFilterOperatorType `json:"operatorType"`
+	OperatorType AdvancedFilterNumberLessThanOrEqualsOperatorType `json:"operatorType"`
 
 	//Value: The filter value.
 	Value *float64 `json:"value,omitempty"`
 }
 
-var _ genruntime.ARMTransformer = &AdvancedFilter_NumberLessThanOrEqualsAdvancedFilter{}
+var _ genruntime.ARMTransformer = &AdvancedFilter_NumberLessThanOrEquals{}
 
 // ConvertToARM converts from a Kubernetes CRD object to an ARM object
-func (advancedFilterNumberLessThanOrEqualsAdvancedFilter *AdvancedFilter_NumberLessThanOrEqualsAdvancedFilter) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
-	if advancedFilterNumberLessThanOrEqualsAdvancedFilter == nil {
+func (advancedFilterNumberLessThanOrEquals *AdvancedFilter_NumberLessThanOrEquals) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
+	if advancedFilterNumberLessThanOrEquals == nil {
 		return nil, nil
 	}
-	var result AdvancedFilter_NumberLessThanOrEqualsAdvancedFilterARM
+	var result AdvancedFilter_NumberLessThanOrEqualsARM
 
 	// Set property ‘Key’:
-	if advancedFilterNumberLessThanOrEqualsAdvancedFilter.Key != nil {
-		key := *advancedFilterNumberLessThanOrEqualsAdvancedFilter.Key
+	if advancedFilterNumberLessThanOrEquals.Key != nil {
+		key := *advancedFilterNumberLessThanOrEquals.Key
 		result.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	result.OperatorType = advancedFilterNumberLessThanOrEqualsAdvancedFilter.OperatorType
+	result.OperatorType = advancedFilterNumberLessThanOrEquals.OperatorType
 
 	// Set property ‘Value’:
-	if advancedFilterNumberLessThanOrEqualsAdvancedFilter.Value != nil {
-		value := *advancedFilterNumberLessThanOrEqualsAdvancedFilter.Value
+	if advancedFilterNumberLessThanOrEquals.Value != nil {
+		value := *advancedFilterNumberLessThanOrEquals.Value
 		result.Value = &value
 	}
 	return result, nil
 }
 
 // CreateEmptyARMValue returns an empty ARM value suitable for deserializing into
-func (advancedFilterNumberLessThanOrEqualsAdvancedFilter *AdvancedFilter_NumberLessThanOrEqualsAdvancedFilter) CreateEmptyARMValue() genruntime.ARMResourceStatus {
-	return &AdvancedFilter_NumberLessThanOrEqualsAdvancedFilterARM{}
+func (advancedFilterNumberLessThanOrEquals *AdvancedFilter_NumberLessThanOrEquals) CreateEmptyARMValue() genruntime.ARMResourceStatus {
+	return &AdvancedFilter_NumberLessThanOrEqualsARM{}
 }
 
 // PopulateFromARM populates a Kubernetes CRD object from an Azure ARM object
-func (advancedFilterNumberLessThanOrEqualsAdvancedFilter *AdvancedFilter_NumberLessThanOrEqualsAdvancedFilter) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
-	typedInput, ok := armInput.(AdvancedFilter_NumberLessThanOrEqualsAdvancedFilterARM)
+func (advancedFilterNumberLessThanOrEquals *AdvancedFilter_NumberLessThanOrEquals) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
+	typedInput, ok := armInput.(AdvancedFilter_NumberLessThanOrEqualsARM)
 	if !ok {
-		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_NumberLessThanOrEqualsAdvancedFilterARM, got %T", armInput)
+		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_NumberLessThanOrEqualsARM, got %T", armInput)
 	}
 
 	// Set property ‘Key’:
 	if typedInput.Key != nil {
 		key := *typedInput.Key
-		advancedFilterNumberLessThanOrEqualsAdvancedFilter.Key = &key
+		advancedFilterNumberLessThanOrEquals.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	advancedFilterNumberLessThanOrEqualsAdvancedFilter.OperatorType = typedInput.OperatorType
+	advancedFilterNumberLessThanOrEquals.OperatorType = typedInput.OperatorType
 
 	// Set property ‘Value’:
 	if typedInput.Value != nil {
 		value := *typedInput.Value
-		advancedFilterNumberLessThanOrEqualsAdvancedFilter.Value = &value
+		advancedFilterNumberLessThanOrEquals.Value = &value
 	}
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesFromAdvancedFilterNumberLessThanOrEqualsAdvancedFilter populates our AdvancedFilter_NumberLessThanOrEqualsAdvancedFilter from the provided source AdvancedFilter_NumberLessThanOrEqualsAdvancedFilter
-func (advancedFilterNumberLessThanOrEqualsAdvancedFilter *AdvancedFilter_NumberLessThanOrEqualsAdvancedFilter) AssignPropertiesFromAdvancedFilterNumberLessThanOrEqualsAdvancedFilter(source *v1alpha1api20200601storage.AdvancedFilter_NumberLessThanOrEqualsAdvancedFilter) error {
+// AssignPropertiesFromAdvancedFilterNumberLessThanOrEquals populates our AdvancedFilter_NumberLessThanOrEquals from the provided source AdvancedFilter_NumberLessThanOrEquals
+func (advancedFilterNumberLessThanOrEquals *AdvancedFilter_NumberLessThanOrEquals) AssignPropertiesFromAdvancedFilterNumberLessThanOrEquals(source *v1alpha1api20200601storage.AdvancedFilter_NumberLessThanOrEquals) error {
 
 	// Key
-	advancedFilterNumberLessThanOrEqualsAdvancedFilter.Key = genruntime.ClonePointerToString(source.Key)
+	advancedFilterNumberLessThanOrEquals.Key = genruntime.ClonePointerToString(source.Key)
 
 	// OperatorType
 	if source.OperatorType != nil {
-		advancedFilterNumberLessThanOrEqualsAdvancedFilter.OperatorType = AdvancedFilterNumberLessThanOrEqualsAdvancedFilterOperatorType(*source.OperatorType)
+		advancedFilterNumberLessThanOrEquals.OperatorType = AdvancedFilterNumberLessThanOrEqualsOperatorType(*source.OperatorType)
 	} else {
-		advancedFilterNumberLessThanOrEqualsAdvancedFilter.OperatorType = ""
+		advancedFilterNumberLessThanOrEquals.OperatorType = ""
 	}
 
 	// Value
 	if source.Value != nil {
 		value := *source.Value
-		advancedFilterNumberLessThanOrEqualsAdvancedFilter.Value = &value
+		advancedFilterNumberLessThanOrEquals.Value = &value
 	} else {
-		advancedFilterNumberLessThanOrEqualsAdvancedFilter.Value = nil
+		advancedFilterNumberLessThanOrEquals.Value = nil
 	}
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesToAdvancedFilterNumberLessThanOrEqualsAdvancedFilter populates the provided destination AdvancedFilter_NumberLessThanOrEqualsAdvancedFilter from our AdvancedFilter_NumberLessThanOrEqualsAdvancedFilter
-func (advancedFilterNumberLessThanOrEqualsAdvancedFilter *AdvancedFilter_NumberLessThanOrEqualsAdvancedFilter) AssignPropertiesToAdvancedFilterNumberLessThanOrEqualsAdvancedFilter(destination *v1alpha1api20200601storage.AdvancedFilter_NumberLessThanOrEqualsAdvancedFilter) error {
+// AssignPropertiesToAdvancedFilterNumberLessThanOrEquals populates the provided destination AdvancedFilter_NumberLessThanOrEquals from our AdvancedFilter_NumberLessThanOrEquals
+func (advancedFilterNumberLessThanOrEquals *AdvancedFilter_NumberLessThanOrEquals) AssignPropertiesToAdvancedFilterNumberLessThanOrEquals(destination *v1alpha1api20200601storage.AdvancedFilter_NumberLessThanOrEquals) error {
 	// Create a new property bag
 	propertyBag := genruntime.NewPropertyBag()
 
 	// Key
-	destination.Key = genruntime.ClonePointerToString(advancedFilterNumberLessThanOrEqualsAdvancedFilter.Key)
+	destination.Key = genruntime.ClonePointerToString(advancedFilterNumberLessThanOrEquals.Key)
 
 	// OperatorType
-	operatorType := string(advancedFilterNumberLessThanOrEqualsAdvancedFilter.OperatorType)
+	operatorType := string(advancedFilterNumberLessThanOrEquals.OperatorType)
 	destination.OperatorType = &operatorType
 
 	// Value
-	if advancedFilterNumberLessThanOrEqualsAdvancedFilter.Value != nil {
-		value := *advancedFilterNumberLessThanOrEqualsAdvancedFilter.Value
+	if advancedFilterNumberLessThanOrEquals.Value != nil {
+		value := *advancedFilterNumberLessThanOrEquals.Value
 		destination.Value = &value
 	} else {
 		destination.Value = nil
@@ -4889,83 +4881,83 @@ func (advancedFilterNumberLessThanOrEqualsAdvancedFilter *AdvancedFilter_NumberL
 	return nil
 }
 
-type AdvancedFilter_NumberNotInAdvancedFilter struct {
+type AdvancedFilter_NumberNotIn struct {
 	//Key: The field/property in the event based on which you want to filter.
 	Key *string `json:"key,omitempty"`
 
 	// +kubebuilder:validation:Required
-	OperatorType AdvancedFilterNumberNotInAdvancedFilterOperatorType `json:"operatorType"`
+	OperatorType AdvancedFilterNumberNotInOperatorType `json:"operatorType"`
 
 	//Values: The set of filter values.
 	Values []float64 `json:"values,omitempty"`
 }
 
-var _ genruntime.ARMTransformer = &AdvancedFilter_NumberNotInAdvancedFilter{}
+var _ genruntime.ARMTransformer = &AdvancedFilter_NumberNotIn{}
 
 // ConvertToARM converts from a Kubernetes CRD object to an ARM object
-func (advancedFilterNumberNotInAdvancedFilter *AdvancedFilter_NumberNotInAdvancedFilter) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
-	if advancedFilterNumberNotInAdvancedFilter == nil {
+func (advancedFilterNumberNotIn *AdvancedFilter_NumberNotIn) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
+	if advancedFilterNumberNotIn == nil {
 		return nil, nil
 	}
-	var result AdvancedFilter_NumberNotInAdvancedFilterARM
+	var result AdvancedFilter_NumberNotInARM
 
 	// Set property ‘Key’:
-	if advancedFilterNumberNotInAdvancedFilter.Key != nil {
-		key := *advancedFilterNumberNotInAdvancedFilter.Key
+	if advancedFilterNumberNotIn.Key != nil {
+		key := *advancedFilterNumberNotIn.Key
 		result.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	result.OperatorType = advancedFilterNumberNotInAdvancedFilter.OperatorType
+	result.OperatorType = advancedFilterNumberNotIn.OperatorType
 
 	// Set property ‘Values’:
-	for _, item := range advancedFilterNumberNotInAdvancedFilter.Values {
+	for _, item := range advancedFilterNumberNotIn.Values {
 		result.Values = append(result.Values, item)
 	}
 	return result, nil
 }
 
 // CreateEmptyARMValue returns an empty ARM value suitable for deserializing into
-func (advancedFilterNumberNotInAdvancedFilter *AdvancedFilter_NumberNotInAdvancedFilter) CreateEmptyARMValue() genruntime.ARMResourceStatus {
-	return &AdvancedFilter_NumberNotInAdvancedFilterARM{}
+func (advancedFilterNumberNotIn *AdvancedFilter_NumberNotIn) CreateEmptyARMValue() genruntime.ARMResourceStatus {
+	return &AdvancedFilter_NumberNotInARM{}
 }
 
 // PopulateFromARM populates a Kubernetes CRD object from an Azure ARM object
-func (advancedFilterNumberNotInAdvancedFilter *AdvancedFilter_NumberNotInAdvancedFilter) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
-	typedInput, ok := armInput.(AdvancedFilter_NumberNotInAdvancedFilterARM)
+func (advancedFilterNumberNotIn *AdvancedFilter_NumberNotIn) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
+	typedInput, ok := armInput.(AdvancedFilter_NumberNotInARM)
 	if !ok {
-		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_NumberNotInAdvancedFilterARM, got %T", armInput)
+		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_NumberNotInARM, got %T", armInput)
 	}
 
 	// Set property ‘Key’:
 	if typedInput.Key != nil {
 		key := *typedInput.Key
-		advancedFilterNumberNotInAdvancedFilter.Key = &key
+		advancedFilterNumberNotIn.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	advancedFilterNumberNotInAdvancedFilter.OperatorType = typedInput.OperatorType
+	advancedFilterNumberNotIn.OperatorType = typedInput.OperatorType
 
 	// Set property ‘Values’:
 	for _, item := range typedInput.Values {
-		advancedFilterNumberNotInAdvancedFilter.Values = append(advancedFilterNumberNotInAdvancedFilter.Values, item)
+		advancedFilterNumberNotIn.Values = append(advancedFilterNumberNotIn.Values, item)
 	}
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesFromAdvancedFilterNumberNotInAdvancedFilter populates our AdvancedFilter_NumberNotInAdvancedFilter from the provided source AdvancedFilter_NumberNotInAdvancedFilter
-func (advancedFilterNumberNotInAdvancedFilter *AdvancedFilter_NumberNotInAdvancedFilter) AssignPropertiesFromAdvancedFilterNumberNotInAdvancedFilter(source *v1alpha1api20200601storage.AdvancedFilter_NumberNotInAdvancedFilter) error {
+// AssignPropertiesFromAdvancedFilterNumberNotIn populates our AdvancedFilter_NumberNotIn from the provided source AdvancedFilter_NumberNotIn
+func (advancedFilterNumberNotIn *AdvancedFilter_NumberNotIn) AssignPropertiesFromAdvancedFilterNumberNotIn(source *v1alpha1api20200601storage.AdvancedFilter_NumberNotIn) error {
 
 	// Key
-	advancedFilterNumberNotInAdvancedFilter.Key = genruntime.ClonePointerToString(source.Key)
+	advancedFilterNumberNotIn.Key = genruntime.ClonePointerToString(source.Key)
 
 	// OperatorType
 	if source.OperatorType != nil {
-		advancedFilterNumberNotInAdvancedFilter.OperatorType = AdvancedFilterNumberNotInAdvancedFilterOperatorType(*source.OperatorType)
+		advancedFilterNumberNotIn.OperatorType = AdvancedFilterNumberNotInOperatorType(*source.OperatorType)
 	} else {
-		advancedFilterNumberNotInAdvancedFilter.OperatorType = ""
+		advancedFilterNumberNotIn.OperatorType = ""
 	}
 
 	// Values
@@ -4976,31 +4968,31 @@ func (advancedFilterNumberNotInAdvancedFilter *AdvancedFilter_NumberNotInAdvance
 			valueItem := valueItem
 			valueList[valueIndex] = valueItem
 		}
-		advancedFilterNumberNotInAdvancedFilter.Values = valueList
+		advancedFilterNumberNotIn.Values = valueList
 	} else {
-		advancedFilterNumberNotInAdvancedFilter.Values = nil
+		advancedFilterNumberNotIn.Values = nil
 	}
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesToAdvancedFilterNumberNotInAdvancedFilter populates the provided destination AdvancedFilter_NumberNotInAdvancedFilter from our AdvancedFilter_NumberNotInAdvancedFilter
-func (advancedFilterNumberNotInAdvancedFilter *AdvancedFilter_NumberNotInAdvancedFilter) AssignPropertiesToAdvancedFilterNumberNotInAdvancedFilter(destination *v1alpha1api20200601storage.AdvancedFilter_NumberNotInAdvancedFilter) error {
+// AssignPropertiesToAdvancedFilterNumberNotIn populates the provided destination AdvancedFilter_NumberNotIn from our AdvancedFilter_NumberNotIn
+func (advancedFilterNumberNotIn *AdvancedFilter_NumberNotIn) AssignPropertiesToAdvancedFilterNumberNotIn(destination *v1alpha1api20200601storage.AdvancedFilter_NumberNotIn) error {
 	// Create a new property bag
 	propertyBag := genruntime.NewPropertyBag()
 
 	// Key
-	destination.Key = genruntime.ClonePointerToString(advancedFilterNumberNotInAdvancedFilter.Key)
+	destination.Key = genruntime.ClonePointerToString(advancedFilterNumberNotIn.Key)
 
 	// OperatorType
-	operatorType := string(advancedFilterNumberNotInAdvancedFilter.OperatorType)
+	operatorType := string(advancedFilterNumberNotIn.OperatorType)
 	destination.OperatorType = &operatorType
 
 	// Values
-	if advancedFilterNumberNotInAdvancedFilter.Values != nil {
-		valueList := make([]float64, len(advancedFilterNumberNotInAdvancedFilter.Values))
-		for valueIndex, valueItem := range advancedFilterNumberNotInAdvancedFilter.Values {
+	if advancedFilterNumberNotIn.Values != nil {
+		valueList := make([]float64, len(advancedFilterNumberNotIn.Values))
+		for valueIndex, valueItem := range advancedFilterNumberNotIn.Values {
 			// Shadow the loop variable to avoid aliasing
 			valueItem := valueItem
 			valueList[valueIndex] = valueItem
@@ -5021,106 +5013,106 @@ func (advancedFilterNumberNotInAdvancedFilter *AdvancedFilter_NumberNotInAdvance
 	return nil
 }
 
-type AdvancedFilter_StringBeginsWithAdvancedFilter struct {
+type AdvancedFilter_StringBeginsWith struct {
 	//Key: The field/property in the event based on which you want to filter.
 	Key *string `json:"key,omitempty"`
 
 	// +kubebuilder:validation:Required
-	OperatorType AdvancedFilterStringBeginsWithAdvancedFilterOperatorType `json:"operatorType"`
+	OperatorType AdvancedFilterStringBeginsWithOperatorType `json:"operatorType"`
 
 	//Values: The set of filter values.
 	Values []string `json:"values,omitempty"`
 }
 
-var _ genruntime.ARMTransformer = &AdvancedFilter_StringBeginsWithAdvancedFilter{}
+var _ genruntime.ARMTransformer = &AdvancedFilter_StringBeginsWith{}
 
 // ConvertToARM converts from a Kubernetes CRD object to an ARM object
-func (advancedFilterStringBeginsWithAdvancedFilter *AdvancedFilter_StringBeginsWithAdvancedFilter) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
-	if advancedFilterStringBeginsWithAdvancedFilter == nil {
+func (advancedFilterStringBeginsWith *AdvancedFilter_StringBeginsWith) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
+	if advancedFilterStringBeginsWith == nil {
 		return nil, nil
 	}
-	var result AdvancedFilter_StringBeginsWithAdvancedFilterARM
+	var result AdvancedFilter_StringBeginsWithARM
 
 	// Set property ‘Key’:
-	if advancedFilterStringBeginsWithAdvancedFilter.Key != nil {
-		key := *advancedFilterStringBeginsWithAdvancedFilter.Key
+	if advancedFilterStringBeginsWith.Key != nil {
+		key := *advancedFilterStringBeginsWith.Key
 		result.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	result.OperatorType = advancedFilterStringBeginsWithAdvancedFilter.OperatorType
+	result.OperatorType = advancedFilterStringBeginsWith.OperatorType
 
 	// Set property ‘Values’:
-	for _, item := range advancedFilterStringBeginsWithAdvancedFilter.Values {
+	for _, item := range advancedFilterStringBeginsWith.Values {
 		result.Values = append(result.Values, item)
 	}
 	return result, nil
 }
 
 // CreateEmptyARMValue returns an empty ARM value suitable for deserializing into
-func (advancedFilterStringBeginsWithAdvancedFilter *AdvancedFilter_StringBeginsWithAdvancedFilter) CreateEmptyARMValue() genruntime.ARMResourceStatus {
-	return &AdvancedFilter_StringBeginsWithAdvancedFilterARM{}
+func (advancedFilterStringBeginsWith *AdvancedFilter_StringBeginsWith) CreateEmptyARMValue() genruntime.ARMResourceStatus {
+	return &AdvancedFilter_StringBeginsWithARM{}
 }
 
 // PopulateFromARM populates a Kubernetes CRD object from an Azure ARM object
-func (advancedFilterStringBeginsWithAdvancedFilter *AdvancedFilter_StringBeginsWithAdvancedFilter) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
-	typedInput, ok := armInput.(AdvancedFilter_StringBeginsWithAdvancedFilterARM)
+func (advancedFilterStringBeginsWith *AdvancedFilter_StringBeginsWith) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
+	typedInput, ok := armInput.(AdvancedFilter_StringBeginsWithARM)
 	if !ok {
-		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_StringBeginsWithAdvancedFilterARM, got %T", armInput)
+		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_StringBeginsWithARM, got %T", armInput)
 	}
 
 	// Set property ‘Key’:
 	if typedInput.Key != nil {
 		key := *typedInput.Key
-		advancedFilterStringBeginsWithAdvancedFilter.Key = &key
+		advancedFilterStringBeginsWith.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	advancedFilterStringBeginsWithAdvancedFilter.OperatorType = typedInput.OperatorType
+	advancedFilterStringBeginsWith.OperatorType = typedInput.OperatorType
 
 	// Set property ‘Values’:
 	for _, item := range typedInput.Values {
-		advancedFilterStringBeginsWithAdvancedFilter.Values = append(advancedFilterStringBeginsWithAdvancedFilter.Values, item)
+		advancedFilterStringBeginsWith.Values = append(advancedFilterStringBeginsWith.Values, item)
 	}
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesFromAdvancedFilterStringBeginsWithAdvancedFilter populates our AdvancedFilter_StringBeginsWithAdvancedFilter from the provided source AdvancedFilter_StringBeginsWithAdvancedFilter
-func (advancedFilterStringBeginsWithAdvancedFilter *AdvancedFilter_StringBeginsWithAdvancedFilter) AssignPropertiesFromAdvancedFilterStringBeginsWithAdvancedFilter(source *v1alpha1api20200601storage.AdvancedFilter_StringBeginsWithAdvancedFilter) error {
+// AssignPropertiesFromAdvancedFilterStringBeginsWith populates our AdvancedFilter_StringBeginsWith from the provided source AdvancedFilter_StringBeginsWith
+func (advancedFilterStringBeginsWith *AdvancedFilter_StringBeginsWith) AssignPropertiesFromAdvancedFilterStringBeginsWith(source *v1alpha1api20200601storage.AdvancedFilter_StringBeginsWith) error {
 
 	// Key
-	advancedFilterStringBeginsWithAdvancedFilter.Key = genruntime.ClonePointerToString(source.Key)
+	advancedFilterStringBeginsWith.Key = genruntime.ClonePointerToString(source.Key)
 
 	// OperatorType
 	if source.OperatorType != nil {
-		advancedFilterStringBeginsWithAdvancedFilter.OperatorType = AdvancedFilterStringBeginsWithAdvancedFilterOperatorType(*source.OperatorType)
+		advancedFilterStringBeginsWith.OperatorType = AdvancedFilterStringBeginsWithOperatorType(*source.OperatorType)
 	} else {
-		advancedFilterStringBeginsWithAdvancedFilter.OperatorType = ""
+		advancedFilterStringBeginsWith.OperatorType = ""
 	}
 
 	// Values
-	advancedFilterStringBeginsWithAdvancedFilter.Values = genruntime.CloneSliceOfString(source.Values)
+	advancedFilterStringBeginsWith.Values = genruntime.CloneSliceOfString(source.Values)
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesToAdvancedFilterStringBeginsWithAdvancedFilter populates the provided destination AdvancedFilter_StringBeginsWithAdvancedFilter from our AdvancedFilter_StringBeginsWithAdvancedFilter
-func (advancedFilterStringBeginsWithAdvancedFilter *AdvancedFilter_StringBeginsWithAdvancedFilter) AssignPropertiesToAdvancedFilterStringBeginsWithAdvancedFilter(destination *v1alpha1api20200601storage.AdvancedFilter_StringBeginsWithAdvancedFilter) error {
+// AssignPropertiesToAdvancedFilterStringBeginsWith populates the provided destination AdvancedFilter_StringBeginsWith from our AdvancedFilter_StringBeginsWith
+func (advancedFilterStringBeginsWith *AdvancedFilter_StringBeginsWith) AssignPropertiesToAdvancedFilterStringBeginsWith(destination *v1alpha1api20200601storage.AdvancedFilter_StringBeginsWith) error {
 	// Create a new property bag
 	propertyBag := genruntime.NewPropertyBag()
 
 	// Key
-	destination.Key = genruntime.ClonePointerToString(advancedFilterStringBeginsWithAdvancedFilter.Key)
+	destination.Key = genruntime.ClonePointerToString(advancedFilterStringBeginsWith.Key)
 
 	// OperatorType
-	operatorType := string(advancedFilterStringBeginsWithAdvancedFilter.OperatorType)
+	operatorType := string(advancedFilterStringBeginsWith.OperatorType)
 	destination.OperatorType = &operatorType
 
 	// Values
-	destination.Values = genruntime.CloneSliceOfString(advancedFilterStringBeginsWithAdvancedFilter.Values)
+	destination.Values = genruntime.CloneSliceOfString(advancedFilterStringBeginsWith.Values)
 
 	// Update the property bag
 	if len(propertyBag) > 0 {
@@ -5133,106 +5125,106 @@ func (advancedFilterStringBeginsWithAdvancedFilter *AdvancedFilter_StringBeginsW
 	return nil
 }
 
-type AdvancedFilter_StringContainsAdvancedFilter struct {
+type AdvancedFilter_StringContains struct {
 	//Key: The field/property in the event based on which you want to filter.
 	Key *string `json:"key,omitempty"`
 
 	// +kubebuilder:validation:Required
-	OperatorType AdvancedFilterStringContainsAdvancedFilterOperatorType `json:"operatorType"`
+	OperatorType AdvancedFilterStringContainsOperatorType `json:"operatorType"`
 
 	//Values: The set of filter values.
 	Values []string `json:"values,omitempty"`
 }
 
-var _ genruntime.ARMTransformer = &AdvancedFilter_StringContainsAdvancedFilter{}
+var _ genruntime.ARMTransformer = &AdvancedFilter_StringContains{}
 
 // ConvertToARM converts from a Kubernetes CRD object to an ARM object
-func (advancedFilterStringContainsAdvancedFilter *AdvancedFilter_StringContainsAdvancedFilter) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
-	if advancedFilterStringContainsAdvancedFilter == nil {
+func (advancedFilterStringContains *AdvancedFilter_StringContains) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
+	if advancedFilterStringContains == nil {
 		return nil, nil
 	}
-	var result AdvancedFilter_StringContainsAdvancedFilterARM
+	var result AdvancedFilter_StringContainsARM
 
 	// Set property ‘Key’:
-	if advancedFilterStringContainsAdvancedFilter.Key != nil {
-		key := *advancedFilterStringContainsAdvancedFilter.Key
+	if advancedFilterStringContains.Key != nil {
+		key := *advancedFilterStringContains.Key
 		result.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	result.OperatorType = advancedFilterStringContainsAdvancedFilter.OperatorType
+	result.OperatorType = advancedFilterStringContains.OperatorType
 
 	// Set property ‘Values’:
-	for _, item := range advancedFilterStringContainsAdvancedFilter.Values {
+	for _, item := range advancedFilterStringContains.Values {
 		result.Values = append(result.Values, item)
 	}
 	return result, nil
 }
 
 // CreateEmptyARMValue returns an empty ARM value suitable for deserializing into
-func (advancedFilterStringContainsAdvancedFilter *AdvancedFilter_StringContainsAdvancedFilter) CreateEmptyARMValue() genruntime.ARMResourceStatus {
-	return &AdvancedFilter_StringContainsAdvancedFilterARM{}
+func (advancedFilterStringContains *AdvancedFilter_StringContains) CreateEmptyARMValue() genruntime.ARMResourceStatus {
+	return &AdvancedFilter_StringContainsARM{}
 }
 
 // PopulateFromARM populates a Kubernetes CRD object from an Azure ARM object
-func (advancedFilterStringContainsAdvancedFilter *AdvancedFilter_StringContainsAdvancedFilter) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
-	typedInput, ok := armInput.(AdvancedFilter_StringContainsAdvancedFilterARM)
+func (advancedFilterStringContains *AdvancedFilter_StringContains) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
+	typedInput, ok := armInput.(AdvancedFilter_StringContainsARM)
 	if !ok {
-		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_StringContainsAdvancedFilterARM, got %T", armInput)
+		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_StringContainsARM, got %T", armInput)
 	}
 
 	// Set property ‘Key’:
 	if typedInput.Key != nil {
 		key := *typedInput.Key
-		advancedFilterStringContainsAdvancedFilter.Key = &key
+		advancedFilterStringContains.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	advancedFilterStringContainsAdvancedFilter.OperatorType = typedInput.OperatorType
+	advancedFilterStringContains.OperatorType = typedInput.OperatorType
 
 	// Set property ‘Values’:
 	for _, item := range typedInput.Values {
-		advancedFilterStringContainsAdvancedFilter.Values = append(advancedFilterStringContainsAdvancedFilter.Values, item)
+		advancedFilterStringContains.Values = append(advancedFilterStringContains.Values, item)
 	}
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesFromAdvancedFilterStringContainsAdvancedFilter populates our AdvancedFilter_StringContainsAdvancedFilter from the provided source AdvancedFilter_StringContainsAdvancedFilter
-func (advancedFilterStringContainsAdvancedFilter *AdvancedFilter_StringContainsAdvancedFilter) AssignPropertiesFromAdvancedFilterStringContainsAdvancedFilter(source *v1alpha1api20200601storage.AdvancedFilter_StringContainsAdvancedFilter) error {
+// AssignPropertiesFromAdvancedFilterStringContains populates our AdvancedFilter_StringContains from the provided source AdvancedFilter_StringContains
+func (advancedFilterStringContains *AdvancedFilter_StringContains) AssignPropertiesFromAdvancedFilterStringContains(source *v1alpha1api20200601storage.AdvancedFilter_StringContains) error {
 
 	// Key
-	advancedFilterStringContainsAdvancedFilter.Key = genruntime.ClonePointerToString(source.Key)
+	advancedFilterStringContains.Key = genruntime.ClonePointerToString(source.Key)
 
 	// OperatorType
 	if source.OperatorType != nil {
-		advancedFilterStringContainsAdvancedFilter.OperatorType = AdvancedFilterStringContainsAdvancedFilterOperatorType(*source.OperatorType)
+		advancedFilterStringContains.OperatorType = AdvancedFilterStringContainsOperatorType(*source.OperatorType)
 	} else {
-		advancedFilterStringContainsAdvancedFilter.OperatorType = ""
+		advancedFilterStringContains.OperatorType = ""
 	}
 
 	// Values
-	advancedFilterStringContainsAdvancedFilter.Values = genruntime.CloneSliceOfString(source.Values)
+	advancedFilterStringContains.Values = genruntime.CloneSliceOfString(source.Values)
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesToAdvancedFilterStringContainsAdvancedFilter populates the provided destination AdvancedFilter_StringContainsAdvancedFilter from our AdvancedFilter_StringContainsAdvancedFilter
-func (advancedFilterStringContainsAdvancedFilter *AdvancedFilter_StringContainsAdvancedFilter) AssignPropertiesToAdvancedFilterStringContainsAdvancedFilter(destination *v1alpha1api20200601storage.AdvancedFilter_StringContainsAdvancedFilter) error {
+// AssignPropertiesToAdvancedFilterStringContains populates the provided destination AdvancedFilter_StringContains from our AdvancedFilter_StringContains
+func (advancedFilterStringContains *AdvancedFilter_StringContains) AssignPropertiesToAdvancedFilterStringContains(destination *v1alpha1api20200601storage.AdvancedFilter_StringContains) error {
 	// Create a new property bag
 	propertyBag := genruntime.NewPropertyBag()
 
 	// Key
-	destination.Key = genruntime.ClonePointerToString(advancedFilterStringContainsAdvancedFilter.Key)
+	destination.Key = genruntime.ClonePointerToString(advancedFilterStringContains.Key)
 
 	// OperatorType
-	operatorType := string(advancedFilterStringContainsAdvancedFilter.OperatorType)
+	operatorType := string(advancedFilterStringContains.OperatorType)
 	destination.OperatorType = &operatorType
 
 	// Values
-	destination.Values = genruntime.CloneSliceOfString(advancedFilterStringContainsAdvancedFilter.Values)
+	destination.Values = genruntime.CloneSliceOfString(advancedFilterStringContains.Values)
 
 	// Update the property bag
 	if len(propertyBag) > 0 {
@@ -5245,106 +5237,106 @@ func (advancedFilterStringContainsAdvancedFilter *AdvancedFilter_StringContainsA
 	return nil
 }
 
-type AdvancedFilter_StringEndsWithAdvancedFilter struct {
+type AdvancedFilter_StringEndsWith struct {
 	//Key: The field/property in the event based on which you want to filter.
 	Key *string `json:"key,omitempty"`
 
 	// +kubebuilder:validation:Required
-	OperatorType AdvancedFilterStringEndsWithAdvancedFilterOperatorType `json:"operatorType"`
+	OperatorType AdvancedFilterStringEndsWithOperatorType `json:"operatorType"`
 
 	//Values: The set of filter values.
 	Values []string `json:"values,omitempty"`
 }
 
-var _ genruntime.ARMTransformer = &AdvancedFilter_StringEndsWithAdvancedFilter{}
+var _ genruntime.ARMTransformer = &AdvancedFilter_StringEndsWith{}
 
 // ConvertToARM converts from a Kubernetes CRD object to an ARM object
-func (advancedFilterStringEndsWithAdvancedFilter *AdvancedFilter_StringEndsWithAdvancedFilter) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
-	if advancedFilterStringEndsWithAdvancedFilter == nil {
+func (advancedFilterStringEndsWith *AdvancedFilter_StringEndsWith) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
+	if advancedFilterStringEndsWith == nil {
 		return nil, nil
 	}
-	var result AdvancedFilter_StringEndsWithAdvancedFilterARM
+	var result AdvancedFilter_StringEndsWithARM
 
 	// Set property ‘Key’:
-	if advancedFilterStringEndsWithAdvancedFilter.Key != nil {
-		key := *advancedFilterStringEndsWithAdvancedFilter.Key
+	if advancedFilterStringEndsWith.Key != nil {
+		key := *advancedFilterStringEndsWith.Key
 		result.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	result.OperatorType = advancedFilterStringEndsWithAdvancedFilter.OperatorType
+	result.OperatorType = advancedFilterStringEndsWith.OperatorType
 
 	// Set property ‘Values’:
-	for _, item := range advancedFilterStringEndsWithAdvancedFilter.Values {
+	for _, item := range advancedFilterStringEndsWith.Values {
 		result.Values = append(result.Values, item)
 	}
 	return result, nil
 }
 
 // CreateEmptyARMValue returns an empty ARM value suitable for deserializing into
-func (advancedFilterStringEndsWithAdvancedFilter *AdvancedFilter_StringEndsWithAdvancedFilter) CreateEmptyARMValue() genruntime.ARMResourceStatus {
-	return &AdvancedFilter_StringEndsWithAdvancedFilterARM{}
+func (advancedFilterStringEndsWith *AdvancedFilter_StringEndsWith) CreateEmptyARMValue() genruntime.ARMResourceStatus {
+	return &AdvancedFilter_StringEndsWithARM{}
 }
 
 // PopulateFromARM populates a Kubernetes CRD object from an Azure ARM object
-func (advancedFilterStringEndsWithAdvancedFilter *AdvancedFilter_StringEndsWithAdvancedFilter) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
-	typedInput, ok := armInput.(AdvancedFilter_StringEndsWithAdvancedFilterARM)
+func (advancedFilterStringEndsWith *AdvancedFilter_StringEndsWith) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
+	typedInput, ok := armInput.(AdvancedFilter_StringEndsWithARM)
 	if !ok {
-		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_StringEndsWithAdvancedFilterARM, got %T", armInput)
+		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_StringEndsWithARM, got %T", armInput)
 	}
 
 	// Set property ‘Key’:
 	if typedInput.Key != nil {
 		key := *typedInput.Key
-		advancedFilterStringEndsWithAdvancedFilter.Key = &key
+		advancedFilterStringEndsWith.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	advancedFilterStringEndsWithAdvancedFilter.OperatorType = typedInput.OperatorType
+	advancedFilterStringEndsWith.OperatorType = typedInput.OperatorType
 
 	// Set property ‘Values’:
 	for _, item := range typedInput.Values {
-		advancedFilterStringEndsWithAdvancedFilter.Values = append(advancedFilterStringEndsWithAdvancedFilter.Values, item)
+		advancedFilterStringEndsWith.Values = append(advancedFilterStringEndsWith.Values, item)
 	}
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesFromAdvancedFilterStringEndsWithAdvancedFilter populates our AdvancedFilter_StringEndsWithAdvancedFilter from the provided source AdvancedFilter_StringEndsWithAdvancedFilter
-func (advancedFilterStringEndsWithAdvancedFilter *AdvancedFilter_StringEndsWithAdvancedFilter) AssignPropertiesFromAdvancedFilterStringEndsWithAdvancedFilter(source *v1alpha1api20200601storage.AdvancedFilter_StringEndsWithAdvancedFilter) error {
+// AssignPropertiesFromAdvancedFilterStringEndsWith populates our AdvancedFilter_StringEndsWith from the provided source AdvancedFilter_StringEndsWith
+func (advancedFilterStringEndsWith *AdvancedFilter_StringEndsWith) AssignPropertiesFromAdvancedFilterStringEndsWith(source *v1alpha1api20200601storage.AdvancedFilter_StringEndsWith) error {
 
 	// Key
-	advancedFilterStringEndsWithAdvancedFilter.Key = genruntime.ClonePointerToString(source.Key)
+	advancedFilterStringEndsWith.Key = genruntime.ClonePointerToString(source.Key)
 
 	// OperatorType
 	if source.OperatorType != nil {
-		advancedFilterStringEndsWithAdvancedFilter.OperatorType = AdvancedFilterStringEndsWithAdvancedFilterOperatorType(*source.OperatorType)
+		advancedFilterStringEndsWith.OperatorType = AdvancedFilterStringEndsWithOperatorType(*source.OperatorType)
 	} else {
-		advancedFilterStringEndsWithAdvancedFilter.OperatorType = ""
+		advancedFilterStringEndsWith.OperatorType = ""
 	}
 
 	// Values
-	advancedFilterStringEndsWithAdvancedFilter.Values = genruntime.CloneSliceOfString(source.Values)
+	advancedFilterStringEndsWith.Values = genruntime.CloneSliceOfString(source.Values)
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesToAdvancedFilterStringEndsWithAdvancedFilter populates the provided destination AdvancedFilter_StringEndsWithAdvancedFilter from our AdvancedFilter_StringEndsWithAdvancedFilter
-func (advancedFilterStringEndsWithAdvancedFilter *AdvancedFilter_StringEndsWithAdvancedFilter) AssignPropertiesToAdvancedFilterStringEndsWithAdvancedFilter(destination *v1alpha1api20200601storage.AdvancedFilter_StringEndsWithAdvancedFilter) error {
+// AssignPropertiesToAdvancedFilterStringEndsWith populates the provided destination AdvancedFilter_StringEndsWith from our AdvancedFilter_StringEndsWith
+func (advancedFilterStringEndsWith *AdvancedFilter_StringEndsWith) AssignPropertiesToAdvancedFilterStringEndsWith(destination *v1alpha1api20200601storage.AdvancedFilter_StringEndsWith) error {
 	// Create a new property bag
 	propertyBag := genruntime.NewPropertyBag()
 
 	// Key
-	destination.Key = genruntime.ClonePointerToString(advancedFilterStringEndsWithAdvancedFilter.Key)
+	destination.Key = genruntime.ClonePointerToString(advancedFilterStringEndsWith.Key)
 
 	// OperatorType
-	operatorType := string(advancedFilterStringEndsWithAdvancedFilter.OperatorType)
+	operatorType := string(advancedFilterStringEndsWith.OperatorType)
 	destination.OperatorType = &operatorType
 
 	// Values
-	destination.Values = genruntime.CloneSliceOfString(advancedFilterStringEndsWithAdvancedFilter.Values)
+	destination.Values = genruntime.CloneSliceOfString(advancedFilterStringEndsWith.Values)
 
 	// Update the property bag
 	if len(propertyBag) > 0 {
@@ -5357,106 +5349,106 @@ func (advancedFilterStringEndsWithAdvancedFilter *AdvancedFilter_StringEndsWithA
 	return nil
 }
 
-type AdvancedFilter_StringInAdvancedFilter struct {
+type AdvancedFilter_StringIn struct {
 	//Key: The field/property in the event based on which you want to filter.
 	Key *string `json:"key,omitempty"`
 
 	// +kubebuilder:validation:Required
-	OperatorType AdvancedFilterStringInAdvancedFilterOperatorType `json:"operatorType"`
+	OperatorType AdvancedFilterStringInOperatorType `json:"operatorType"`
 
 	//Values: The set of filter values.
 	Values []string `json:"values,omitempty"`
 }
 
-var _ genruntime.ARMTransformer = &AdvancedFilter_StringInAdvancedFilter{}
+var _ genruntime.ARMTransformer = &AdvancedFilter_StringIn{}
 
 // ConvertToARM converts from a Kubernetes CRD object to an ARM object
-func (advancedFilterStringInAdvancedFilter *AdvancedFilter_StringInAdvancedFilter) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
-	if advancedFilterStringInAdvancedFilter == nil {
+func (advancedFilterStringIn *AdvancedFilter_StringIn) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
+	if advancedFilterStringIn == nil {
 		return nil, nil
 	}
-	var result AdvancedFilter_StringInAdvancedFilterARM
+	var result AdvancedFilter_StringInARM
 
 	// Set property ‘Key’:
-	if advancedFilterStringInAdvancedFilter.Key != nil {
-		key := *advancedFilterStringInAdvancedFilter.Key
+	if advancedFilterStringIn.Key != nil {
+		key := *advancedFilterStringIn.Key
 		result.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	result.OperatorType = advancedFilterStringInAdvancedFilter.OperatorType
+	result.OperatorType = advancedFilterStringIn.OperatorType
 
 	// Set property ‘Values’:
-	for _, item := range advancedFilterStringInAdvancedFilter.Values {
+	for _, item := range advancedFilterStringIn.Values {
 		result.Values = append(result.Values, item)
 	}
 	return result, nil
 }
 
 // CreateEmptyARMValue returns an empty ARM value suitable for deserializing into
-func (advancedFilterStringInAdvancedFilter *AdvancedFilter_StringInAdvancedFilter) CreateEmptyARMValue() genruntime.ARMResourceStatus {
-	return &AdvancedFilter_StringInAdvancedFilterARM{}
+func (advancedFilterStringIn *AdvancedFilter_StringIn) CreateEmptyARMValue() genruntime.ARMResourceStatus {
+	return &AdvancedFilter_StringInARM{}
 }
 
 // PopulateFromARM populates a Kubernetes CRD object from an Azure ARM object
-func (advancedFilterStringInAdvancedFilter *AdvancedFilter_StringInAdvancedFilter) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
-	typedInput, ok := armInput.(AdvancedFilter_StringInAdvancedFilterARM)
+func (advancedFilterStringIn *AdvancedFilter_StringIn) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
+	typedInput, ok := armInput.(AdvancedFilter_StringInARM)
 	if !ok {
-		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_StringInAdvancedFilterARM, got %T", armInput)
+		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_StringInARM, got %T", armInput)
 	}
 
 	// Set property ‘Key’:
 	if typedInput.Key != nil {
 		key := *typedInput.Key
-		advancedFilterStringInAdvancedFilter.Key = &key
+		advancedFilterStringIn.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	advancedFilterStringInAdvancedFilter.OperatorType = typedInput.OperatorType
+	advancedFilterStringIn.OperatorType = typedInput.OperatorType
 
 	// Set property ‘Values’:
 	for _, item := range typedInput.Values {
-		advancedFilterStringInAdvancedFilter.Values = append(advancedFilterStringInAdvancedFilter.Values, item)
+		advancedFilterStringIn.Values = append(advancedFilterStringIn.Values, item)
 	}
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesFromAdvancedFilterStringInAdvancedFilter populates our AdvancedFilter_StringInAdvancedFilter from the provided source AdvancedFilter_StringInAdvancedFilter
-func (advancedFilterStringInAdvancedFilter *AdvancedFilter_StringInAdvancedFilter) AssignPropertiesFromAdvancedFilterStringInAdvancedFilter(source *v1alpha1api20200601storage.AdvancedFilter_StringInAdvancedFilter) error {
+// AssignPropertiesFromAdvancedFilterStringIn populates our AdvancedFilter_StringIn from the provided source AdvancedFilter_StringIn
+func (advancedFilterStringIn *AdvancedFilter_StringIn) AssignPropertiesFromAdvancedFilterStringIn(source *v1alpha1api20200601storage.AdvancedFilter_StringIn) error {
 
 	// Key
-	advancedFilterStringInAdvancedFilter.Key = genruntime.ClonePointerToString(source.Key)
+	advancedFilterStringIn.Key = genruntime.ClonePointerToString(source.Key)
 
 	// OperatorType
 	if source.OperatorType != nil {
-		advancedFilterStringInAdvancedFilter.OperatorType = AdvancedFilterStringInAdvancedFilterOperatorType(*source.OperatorType)
+		advancedFilterStringIn.OperatorType = AdvancedFilterStringInOperatorType(*source.OperatorType)
 	} else {
-		advancedFilterStringInAdvancedFilter.OperatorType = ""
+		advancedFilterStringIn.OperatorType = ""
 	}
 
 	// Values
-	advancedFilterStringInAdvancedFilter.Values = genruntime.CloneSliceOfString(source.Values)
+	advancedFilterStringIn.Values = genruntime.CloneSliceOfString(source.Values)
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesToAdvancedFilterStringInAdvancedFilter populates the provided destination AdvancedFilter_StringInAdvancedFilter from our AdvancedFilter_StringInAdvancedFilter
-func (advancedFilterStringInAdvancedFilter *AdvancedFilter_StringInAdvancedFilter) AssignPropertiesToAdvancedFilterStringInAdvancedFilter(destination *v1alpha1api20200601storage.AdvancedFilter_StringInAdvancedFilter) error {
+// AssignPropertiesToAdvancedFilterStringIn populates the provided destination AdvancedFilter_StringIn from our AdvancedFilter_StringIn
+func (advancedFilterStringIn *AdvancedFilter_StringIn) AssignPropertiesToAdvancedFilterStringIn(destination *v1alpha1api20200601storage.AdvancedFilter_StringIn) error {
 	// Create a new property bag
 	propertyBag := genruntime.NewPropertyBag()
 
 	// Key
-	destination.Key = genruntime.ClonePointerToString(advancedFilterStringInAdvancedFilter.Key)
+	destination.Key = genruntime.ClonePointerToString(advancedFilterStringIn.Key)
 
 	// OperatorType
-	operatorType := string(advancedFilterStringInAdvancedFilter.OperatorType)
+	operatorType := string(advancedFilterStringIn.OperatorType)
 	destination.OperatorType = &operatorType
 
 	// Values
-	destination.Values = genruntime.CloneSliceOfString(advancedFilterStringInAdvancedFilter.Values)
+	destination.Values = genruntime.CloneSliceOfString(advancedFilterStringIn.Values)
 
 	// Update the property bag
 	if len(propertyBag) > 0 {
@@ -5469,106 +5461,106 @@ func (advancedFilterStringInAdvancedFilter *AdvancedFilter_StringInAdvancedFilte
 	return nil
 }
 
-type AdvancedFilter_StringNotInAdvancedFilter struct {
+type AdvancedFilter_StringNotIn struct {
 	//Key: The field/property in the event based on which you want to filter.
 	Key *string `json:"key,omitempty"`
 
 	// +kubebuilder:validation:Required
-	OperatorType AdvancedFilterStringNotInAdvancedFilterOperatorType `json:"operatorType"`
+	OperatorType AdvancedFilterStringNotInOperatorType `json:"operatorType"`
 
 	//Values: The set of filter values.
 	Values []string `json:"values,omitempty"`
 }
 
-var _ genruntime.ARMTransformer = &AdvancedFilter_StringNotInAdvancedFilter{}
+var _ genruntime.ARMTransformer = &AdvancedFilter_StringNotIn{}
 
 // ConvertToARM converts from a Kubernetes CRD object to an ARM object
-func (advancedFilterStringNotInAdvancedFilter *AdvancedFilter_StringNotInAdvancedFilter) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
-	if advancedFilterStringNotInAdvancedFilter == nil {
+func (advancedFilterStringNotIn *AdvancedFilter_StringNotIn) ConvertToARM(resolved genruntime.ConvertToARMResolvedDetails) (interface{}, error) {
+	if advancedFilterStringNotIn == nil {
 		return nil, nil
 	}
-	var result AdvancedFilter_StringNotInAdvancedFilterARM
+	var result AdvancedFilter_StringNotInARM
 
 	// Set property ‘Key’:
-	if advancedFilterStringNotInAdvancedFilter.Key != nil {
-		key := *advancedFilterStringNotInAdvancedFilter.Key
+	if advancedFilterStringNotIn.Key != nil {
+		key := *advancedFilterStringNotIn.Key
 		result.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	result.OperatorType = advancedFilterStringNotInAdvancedFilter.OperatorType
+	result.OperatorType = advancedFilterStringNotIn.OperatorType
 
 	// Set property ‘Values’:
-	for _, item := range advancedFilterStringNotInAdvancedFilter.Values {
+	for _, item := range advancedFilterStringNotIn.Values {
 		result.Values = append(result.Values, item)
 	}
 	return result, nil
 }
 
 // CreateEmptyARMValue returns an empty ARM value suitable for deserializing into
-func (advancedFilterStringNotInAdvancedFilter *AdvancedFilter_StringNotInAdvancedFilter) CreateEmptyARMValue() genruntime.ARMResourceStatus {
-	return &AdvancedFilter_StringNotInAdvancedFilterARM{}
+func (advancedFilterStringNotIn *AdvancedFilter_StringNotIn) CreateEmptyARMValue() genruntime.ARMResourceStatus {
+	return &AdvancedFilter_StringNotInARM{}
 }
 
 // PopulateFromARM populates a Kubernetes CRD object from an Azure ARM object
-func (advancedFilterStringNotInAdvancedFilter *AdvancedFilter_StringNotInAdvancedFilter) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
-	typedInput, ok := armInput.(AdvancedFilter_StringNotInAdvancedFilterARM)
+func (advancedFilterStringNotIn *AdvancedFilter_StringNotIn) PopulateFromARM(owner genruntime.ArbitraryOwnerReference, armInput interface{}) error {
+	typedInput, ok := armInput.(AdvancedFilter_StringNotInARM)
 	if !ok {
-		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_StringNotInAdvancedFilterARM, got %T", armInput)
+		return fmt.Errorf("unexpected type supplied for PopulateFromARM() function. Expected AdvancedFilter_StringNotInARM, got %T", armInput)
 	}
 
 	// Set property ‘Key’:
 	if typedInput.Key != nil {
 		key := *typedInput.Key
-		advancedFilterStringNotInAdvancedFilter.Key = &key
+		advancedFilterStringNotIn.Key = &key
 	}
 
 	// Set property ‘OperatorType’:
-	advancedFilterStringNotInAdvancedFilter.OperatorType = typedInput.OperatorType
+	advancedFilterStringNotIn.OperatorType = typedInput.OperatorType
 
 	// Set property ‘Values’:
 	for _, item := range typedInput.Values {
-		advancedFilterStringNotInAdvancedFilter.Values = append(advancedFilterStringNotInAdvancedFilter.Values, item)
+		advancedFilterStringNotIn.Values = append(advancedFilterStringNotIn.Values, item)
 	}
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesFromAdvancedFilterStringNotInAdvancedFilter populates our AdvancedFilter_StringNotInAdvancedFilter from the provided source AdvancedFilter_StringNotInAdvancedFilter
-func (advancedFilterStringNotInAdvancedFilter *AdvancedFilter_StringNotInAdvancedFilter) AssignPropertiesFromAdvancedFilterStringNotInAdvancedFilter(source *v1alpha1api20200601storage.AdvancedFilter_StringNotInAdvancedFilter) error {
+// AssignPropertiesFromAdvancedFilterStringNotIn populates our AdvancedFilter_StringNotIn from the provided source AdvancedFilter_StringNotIn
+func (advancedFilterStringNotIn *AdvancedFilter_StringNotIn) AssignPropertiesFromAdvancedFilterStringNotIn(source *v1alpha1api20200601storage.AdvancedFilter_StringNotIn) error {
 
 	// Key
-	advancedFilterStringNotInAdvancedFilter.Key = genruntime.ClonePointerToString(source.Key)
+	advancedFilterStringNotIn.Key = genruntime.ClonePointerToString(source.Key)
 
 	// OperatorType
 	if source.OperatorType != nil {
-		advancedFilterStringNotInAdvancedFilter.OperatorType = AdvancedFilterStringNotInAdvancedFilterOperatorType(*source.OperatorType)
+		advancedFilterStringNotIn.OperatorType = AdvancedFilterStringNotInOperatorType(*source.OperatorType)
 	} else {
-		advancedFilterStringNotInAdvancedFilter.OperatorType = ""
+		advancedFilterStringNotIn.OperatorType = ""
 	}
 
 	// Values
-	advancedFilterStringNotInAdvancedFilter.Values = genruntime.CloneSliceOfString(source.Values)
+	advancedFilterStringNotIn.Values = genruntime.CloneSliceOfString(source.Values)
 
 	// No error
 	return nil
 }
 
-// AssignPropertiesToAdvancedFilterStringNotInAdvancedFilter populates the provided destination AdvancedFilter_StringNotInAdvancedFilter from our AdvancedFilter_StringNotInAdvancedFilter
-func (advancedFilterStringNotInAdvancedFilter *AdvancedFilter_StringNotInAdvancedFilter) AssignPropertiesToAdvancedFilterStringNotInAdvancedFilter(destination *v1alpha1api20200601storage.AdvancedFilter_StringNotInAdvancedFilter) error {
+// AssignPropertiesToAdvancedFilterStringNotIn populates the provided destination AdvancedFilter_StringNotIn from our AdvancedFilter_StringNotIn
+func (advancedFilterStringNotIn *AdvancedFilter_StringNotIn) AssignPropertiesToAdvancedFilterStringNotIn(destination *v1alpha1api20200601storage.AdvancedFilter_StringNotIn) error {
 	// Create a new property bag
 	propertyBag := genruntime.NewPropertyBag()
 
 	// Key
-	destination.Key = genruntime.ClonePointerToString(advancedFilterStringNotInAdvancedFilter.Key)
+	destination.Key = genruntime.ClonePointerToString(advancedFilterStringNotIn.Key)
 
 	// OperatorType
-	operatorType := string(advancedFilterStringNotInAdvancedFilter.OperatorType)
+	operatorType := string(advancedFilterStringNotIn.OperatorType)
 	destination.OperatorType = &operatorType
 
 	// Values
-	destination.Values = genruntime.CloneSliceOfString(advancedFilterStringNotInAdvancedFilter.Values)
+	destination.Values = genruntime.CloneSliceOfString(advancedFilterStringNotIn.Values)
 
 	// Update the property bag
 	if len(propertyBag) > 0 {
@@ -6353,64 +6345,64 @@ func (webHookEventSubscriptionDestinationProperties *WebHookEventSubscriptionDes
 }
 
 // +kubebuilder:validation:Enum={"BoolEquals"}
-type AdvancedFilterBoolEqualsAdvancedFilterOperatorType string
+type AdvancedFilterBoolEqualsOperatorType string
 
-const AdvancedFilterBoolEqualsAdvancedFilterOperatorTypeBoolEquals = AdvancedFilterBoolEqualsAdvancedFilterOperatorType("BoolEquals")
+const AdvancedFilterBoolEqualsOperatorTypeBoolEquals = AdvancedFilterBoolEqualsOperatorType("BoolEquals")
 
 // +kubebuilder:validation:Enum={"NumberGreaterThan"}
-type AdvancedFilterNumberGreaterThanAdvancedFilterOperatorType string
+type AdvancedFilterNumberGreaterThanOperatorType string
 
-const AdvancedFilterNumberGreaterThanAdvancedFilterOperatorTypeNumberGreaterThan = AdvancedFilterNumberGreaterThanAdvancedFilterOperatorType("NumberGreaterThan")
+const AdvancedFilterNumberGreaterThanOperatorTypeNumberGreaterThan = AdvancedFilterNumberGreaterThanOperatorType("NumberGreaterThan")
 
 // +kubebuilder:validation:Enum={"NumberGreaterThanOrEquals"}
-type AdvancedFilterNumberGreaterThanOrEqualsAdvancedFilterOperatorType string
+type AdvancedFilterNumberGreaterThanOrEqualsOperatorType string
 
-const AdvancedFilterNumberGreaterThanOrEqualsAdvancedFilterOperatorTypeNumberGreaterThanOrEquals = AdvancedFilterNumberGreaterThanOrEqualsAdvancedFilterOperatorType("NumberGreaterThanOrEquals")
+const AdvancedFilterNumberGreaterThanOrEqualsOperatorTypeNumberGreaterThanOrEquals = AdvancedFilterNumberGreaterThanOrEqualsOperatorType("NumberGreaterThanOrEquals")
 
 // +kubebuilder:validation:Enum={"NumberIn"}
-type AdvancedFilterNumberInAdvancedFilterOperatorType string
+type AdvancedFilterNumberInOperatorType string
 
-const AdvancedFilterNumberInAdvancedFilterOperatorTypeNumberIn = AdvancedFilterNumberInAdvancedFilterOperatorType("NumberIn")
+const AdvancedFilterNumberInOperatorTypeNumberIn = AdvancedFilterNumberInOperatorType("NumberIn")
 
 // +kubebuilder:validation:Enum={"NumberLessThan"}
-type AdvancedFilterNumberLessThanAdvancedFilterOperatorType string
+type AdvancedFilterNumberLessThanOperatorType string
 
-const AdvancedFilterNumberLessThanAdvancedFilterOperatorTypeNumberLessThan = AdvancedFilterNumberLessThanAdvancedFilterOperatorType("NumberLessThan")
+const AdvancedFilterNumberLessThanOperatorTypeNumberLessThan = AdvancedFilterNumberLessThanOperatorType("NumberLessThan")
 
 // +kubebuilder:validation:Enum={"NumberLessThanOrEquals"}
-type AdvancedFilterNumberLessThanOrEqualsAdvancedFilterOperatorType string
+type AdvancedFilterNumberLessThanOrEqualsOperatorType string
 
-const AdvancedFilterNumberLessThanOrEqualsAdvancedFilterOperatorTypeNumberLessThanOrEquals = AdvancedFilterNumberLessThanOrEqualsAdvancedFilterOperatorType("NumberLessThanOrEquals")
+const AdvancedFilterNumberLessThanOrEqualsOperatorTypeNumberLessThanOrEquals = AdvancedFilterNumberLessThanOrEqualsOperatorType("NumberLessThanOrEquals")
 
 // +kubebuilder:validation:Enum={"NumberNotIn"}
-type AdvancedFilterNumberNotInAdvancedFilterOperatorType string
+type AdvancedFilterNumberNotInOperatorType string
 
-const AdvancedFilterNumberNotInAdvancedFilterOperatorTypeNumberNotIn = AdvancedFilterNumberNotInAdvancedFilterOperatorType("NumberNotIn")
+const AdvancedFilterNumberNotInOperatorTypeNumberNotIn = AdvancedFilterNumberNotInOperatorType("NumberNotIn")
 
 // +kubebuilder:validation:Enum={"StringBeginsWith"}
-type AdvancedFilterStringBeginsWithAdvancedFilterOperatorType string
+type AdvancedFilterStringBeginsWithOperatorType string
 
-const AdvancedFilterStringBeginsWithAdvancedFilterOperatorTypeStringBeginsWith = AdvancedFilterStringBeginsWithAdvancedFilterOperatorType("StringBeginsWith")
+const AdvancedFilterStringBeginsWithOperatorTypeStringBeginsWith = AdvancedFilterStringBeginsWithOperatorType("StringBeginsWith")
 
 // +kubebuilder:validation:Enum={"StringContains"}
-type AdvancedFilterStringContainsAdvancedFilterOperatorType string
+type AdvancedFilterStringContainsOperatorType string
 
-const AdvancedFilterStringContainsAdvancedFilterOperatorTypeStringContains = AdvancedFilterStringContainsAdvancedFilterOperatorType("StringContains")
+const AdvancedFilterStringContainsOperatorTypeStringContains = AdvancedFilterStringContainsOperatorType("StringContains")
 
 // +kubebuilder:validation:Enum={"StringEndsWith"}
-type AdvancedFilterStringEndsWithAdvancedFilterOperatorType string
+type AdvancedFilterStringEndsWithOperatorType string
 
-const AdvancedFilterStringEndsWithAdvancedFilterOperatorTypeStringEndsWith = AdvancedFilterStringEndsWithAdvancedFilterOperatorType("StringEndsWith")
+const AdvancedFilterStringEndsWithOperatorTypeStringEndsWith = AdvancedFilterStringEndsWithOperatorType("StringEndsWith")
 
 // +kubebuilder:validation:Enum={"StringIn"}
-type AdvancedFilterStringInAdvancedFilterOperatorType string
+type AdvancedFilterStringInOperatorType string
 
-const AdvancedFilterStringInAdvancedFilterOperatorTypeStringIn = AdvancedFilterStringInAdvancedFilterOperatorType("StringIn")
+const AdvancedFilterStringInOperatorTypeStringIn = AdvancedFilterStringInOperatorType("StringIn")
 
 // +kubebuilder:validation:Enum={"StringNotIn"}
-type AdvancedFilterStringNotInAdvancedFilterOperatorType string
+type AdvancedFilterStringNotInOperatorType string
 
-const AdvancedFilterStringNotInAdvancedFilterOperatorTypeStringNotIn = AdvancedFilterStringNotInAdvancedFilterOperatorType("StringNotIn")
+const AdvancedFilterStringNotInOperatorTypeStringNotIn = AdvancedFilterStringNotInOperatorType("StringNotIn")
 
 func init() {
 	SchemeBuilder.Register(&EventSubscription{}, &EventSubscriptionList{})
